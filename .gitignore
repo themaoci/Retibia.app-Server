@@ -179,3 +179,10 @@ config.lua
 libmysql.dll
 lua51.dll
 theforgottenserver-AVX2.exe
+*.dll
+*.vsidx
+*.lock
+*.db-shm
+*.db-wal
+
+.vs/
