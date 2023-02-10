@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Strong Teleskor" nameDescription="Teleskor" race="undead" experience="500" speed="100" manacost="0">
+	<health now="650" max="650" />
+	<look type="298" corpse="5972" />
+	<targetchange interval="4000" chance="5" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-150" />
+		<attack name="physical" interval="1000" chance="10" range="7" min="-25" max="-75">
+			<attribute key="shootEffect" value="throwingknife" />
+		</attack>
+	</attacks>
+	<defenses armor="16" defense="18" />
+	<elements>
+		<element holyPercent="-15" />
+	</elements>
+	<voices interval="2000" chance="7">
+		<voice sentence="Who disturbs my slumber?" />
+		<voice sentence="Mourn the dead, do not hunt them!" />
+	</voices>
+	<loot>
+		<item id="12437" chance="100000" />	<!-- pelvis bone -->
+		<item name="platinum coin" countmax="8" chance="81300" /> 
+		<item name="daramian mace" chance="72000" />
+		<item name="steel helmet" chance="72000" />
+		<item name="steel shield" chance="45000" />
+		<item id="2050" chance="36000" />				<!-- torch -->
+		<item name="broadsword" chance="15000" />
+	</loot>
+</monster>

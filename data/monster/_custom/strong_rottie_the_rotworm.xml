@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Strong Rottie the Rotworm" nameDescription="Rottie the Rotworm" race="blood" experience="400" speed="180">
+	<health now="650" max="650" />
+	<look type="26" head="20" body="30" legs="40" feet="50" corpse="5967" />
+	<targetchange interval="2000" chance="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-120" />
+		<attack name="earth" interval="2000" chance="50" range="3" min="-30" max="-80">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="12" defense="16" />
+	<loot>
+		<item name="platinum coin" countmax="5" chance="75000" />
+		<item name="spear" countmax="10" chance="6000" />
+		<item name="katana" chance="2500" />
+		<item name="soldier helmet" chance="1250" />
+		<item name="meat" countmax="10" chance="3200" />
+		<item name="ham" countmax="10" chance="3200" />
+		<item name="worm" countmax="5" chance="32000" />
+	</loot>
+</monster>

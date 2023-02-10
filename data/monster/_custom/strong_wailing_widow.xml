@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Strong Wailing Widow" nameDescription="a wailing widow" race="venom" experience="2700" speed="200">
+	<health now="3000" max="3000" />
+	<look type="347" corpse="11310" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+		<flag canwalkonenergy="0" />
+		<flag canwalkonfire="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-450" poison="160" />
+		<attack name="drunk" interval="2000" chance="25" range="7" radius="4" target="0" duration="4000">
+			<attribute key="areaEffect" value="rednote" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="20" radius="3" target="0" min="-70" max="-140">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="earth" interval="2000" chance="35" range="5" min="-90" max="-200">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="20" defense="20">
+		<defense name="healing" interval="2000" chance="5" min="120" max="180">
+			<attribute key="areaEffect" value="whitenote" />
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="800" duration="5000">
+			<attribute key="areaEffect" value="yellownote" />
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="15" />
+		<element holyPercent="15" />
+		<element icePercent="-15" />
+		<element energyPercent="15" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+		<immunity death="1" />
+		<immunity earth="1" />
+		<immunity lifedrain="1" />
+		<immunity drunk="1" />
+	</immunities>
+  	<summons maxSummons="2">
+		<summon name="Giant Spider" interval="5000" chance="15" max="2" />
+		<summon name="Poison Spider" interval="4000" chance="25" max="4" />
+	</summons>
+	<loot>
+		<item name="platinum coin" countmax="25" chance="75000" />
+		<item id="2168" countmax="5" chance="20000" /><!-- life ring -->
+		<item id="2169" countmax="5" chance="20000" /><!-- time ring -->
+		<item name="green mushroom" countmax="35" chance="15000" />
+		<item name="strong mana potion" countmax="25" chance="9000" />
+		<item name="strong health potion" countmax="25" chance="9000" />
+		<item name="Zaoan halberd" chance="2500" />
+		<item name="Zaoan armor" chance="2500" />
+		<item name="Zaoan robe" chance="2500" />
+		<item name="Zaoan helmet" chance="2500" />
+		<item name="Zaoan shoes" chance="2500" />
+		<item name="Zaoan legs" chance="2500" />
+		<item name="widow's mandibles" chance="2000" />
+		<item name="wailing widow's necklace" chance="1000" />
+	</loot>
+</monster>

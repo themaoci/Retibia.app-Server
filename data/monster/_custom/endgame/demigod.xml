@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Demigod Mahael" nameDescription="Demigod Mahael" race="undead" experience="100000" speed="1500">
+	<health now="50000" max="1000000" />
+	<look type="430" head="0" body="0" legs="0" feet="0" corpse="23494" />
+	<targetchange interval="10000" chance="20" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag staticattack="75" />
+		<flag targetdistance="1" />
+		<flag runonhealth="0" />
+		<flag isboss="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="8000" min="0" max="-1500" />
+		<attack name="ice" interval="15000" chance="35" range="7" radius="7" target="1" min="-1000" max="-2000">
+				<attribute key="shootEffect" value="ice" />
+				<attribute key="areaEffect" value="icearea" />
+		</attack>
+	</attacks>
+	<defenses armor="120" defense="120">
+		<defense name="healing" interval="10000" chance="35" min="500" max="1500">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="15000" chance="80" speedchange="500" duration="6000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="25" />
+		<element earthPercent="90" />
+		<element energyPercent="60" />
+		<element deathPercent="90" />
+		<element physicalPercent="90" />
+		<element holyPercent="90" />
+		<element icePercent="99" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="5000" chance="30">
+		<voice sentence="D̴i̴e̴ ̴y̴o̶u̸ ̶p̴e̸s̴t̴s̷" yell="1" />
+	</voices>
+	<loot>
+		<item name="crystal coin" countmax="15" chance="10000" />
+	</loot>
+</monster>

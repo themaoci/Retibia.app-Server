@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Elder Dragon" nameDescription="an elder dragon" race="blood" experience="5000" speed="400">
+	<health now="5000" max="5000" />
+	<look type="204" corpse="5984" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="80" />
+		<flag runonhealth="1000" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-100" max="-450" />
+		<attack name="fire" interval="2000" chance="40" range="6" radius="6" target="1" min="-200" max="-400">
+			<attribute key="shootEffect" value="fire" />
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="firefield" interval="2000" chance="25" range="7" radius="4" target="1">
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="fire" interval="2000" chance="20" length="8" spread="3" min="-300" max="-300">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="35">
+		<defense name="healing" interval="2000" chance="15" min="140" max="290">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="40" />
+		<element icePercent="-15" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+		<immunity fire="1" />
+		<immunity earth="1" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Cough Cough BURN!!!" yell="1" />
+		<voice sentence="LET THE FIRE CONSUME YOU!" yell="1" />
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="245" chance="95000" />
+		<item name="dragon ham" countmax="5" chance="80000" />
+		<item name="green mushroom" chance="12000" />
+		<item name="royal spear" countmax="3" chance="9000" />
+		<item id="1976" chance="9000" /><!-- book (gemmed) -->
+		<item id="2547" countmax="7" chance="6700" />
+		<item name="energy ring" chance="5250" />
+		<item name="small sapphire" chance="5300" />
+		<item name="golden mug" chance="3190" />
+		<item name="red dragon scale" chance="2320" />
+		<item name="red dragon leather" chance="1540" />
+		<item name="strong health potion" chance="970" />
+		<item name="life crystal" chance="680" />
+		<item name="strange helmet" chance="360" />
+		<item name="fire sword" chance="290" />
+		<item name="tower shield" chance="250" />
+		<item name="royal helmet" chance="280" />
+		<item name="dragon scale mail" chance="170" />
+		<item name="dragon slayer" chance="110" />
+		<item id="1895" chance="90" />
+		<item id="7399" chance="90" />
+	</loot>
+</monster>

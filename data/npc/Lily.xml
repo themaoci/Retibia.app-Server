@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Lily" script="default/Lily.lua" walkinterval="30000" floorchange="0">
+	<health now="100" max="100" />
+	<look type="138" head="78" body="101" legs="86" feet="115" addons="0" />
+	<parameters>
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_buyable" value="
+      health potion,7618,44;
+      mana potion,7620,49;
+      wand of vortex,2190,490;
+      snakebite rod,2182,490;
+      blank rune,2260,9;
+      light magic missile rune,2287,4;
+      heavy magic missile rune,2311,12;
+      stalagmite rune,2292,12;
+      destroy field rune,2261,14;
+      spellbook,2175,140;" />
+		<parameter key="shop_sellable" value="
+      cookie,8111,1;
+      empty potion flask,7634,6;
+      empty potion flask,7635,6;
+      empty potion flask,7636,6;
+      spellwand,7735,310;
+      vial,2006,6;" />
+	</parameters>
+</npc>

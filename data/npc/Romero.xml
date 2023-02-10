@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Romero" script="Romero_DesignSeller.lua" walkinterval="30000" floorchange="0">
+	<health now="100" max="100" />
+	<look type="472" head="79" body="94" legs="85" feet="97" addons="0" />
+	<parameters>
+		<parameter key="module_shop" value="0" />
+		<parameter key="shop_sellable" value="" />
+		<parameter key="shop_buyable" value="" />
+	</parameters>
+</npc>

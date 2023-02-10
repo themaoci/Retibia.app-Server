@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <monster name="Weard Dragon Statue" nameDescription="a Weard Dragon Statue" race="blood" experience="0" speed="0" manacost="0">
+    <health now="100000" max="100000"/>
+    <look type="596" head="57" body="57" legs="57" feet="57" corpse="2255"/>
+    <targetchange interval="1000" chance="0"/>
+    <strategy attack="100" defense="0"/>
+    <flags>
+      <flag summonable="0"/>
+      <flag attackable="1"/>
+      <flag hostile="1"/>
+      <flag illusionable="0"/>
+      <flag convinceable="0"/>
+      <flag pushable="0"/>
+      <flag canpushitems="1"/>
+      <flag staticattack="50"/>
+      <flag lightlevel="0"/>
+      <flag lightcolor="0"/>
+      <flag targetdistance="1"/>
+      <flag runonhealth="0"/>
+    </flags>
+    <attacks>
+      <attack name="fire" interval="1000" chance="100" length="10" spread="1" min="-50" max="-50">
+        <attribute key="areaEffect" value="firearea" />
+      </attack>
+    </attacks>
+    <defenses armor="0" defense="0">
+      <defense name="healing" interval="10000" chance="100" min="100000" max="100000"/>
+    </defenses>
+    <immunities>
+      <immunity invisible="1"/>
+    </immunities>
+  </monster>
+
