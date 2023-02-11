@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Strong Teleskor" nameDescription="Teleskor" race="undead" experience="500" speed="100" manacost="0">
+<monster name="Strong Teleskor" nameDescription="Teleskor that has been touched by corruption that make him stronger" race="undead" experience="500" speed="100" manacost="0">
 	<health now="650" max="650" />
 	<look type="298" corpse="5972" />
 	<targetchange interval="4000" chance="5" />
