@@ -762,7 +762,7 @@ void Player::resetTrackedQuests(std::vector<uint16_t>& quests)
 }
 #endif
 
-bool Player::canSee(const Position& pos) const
+bool Player::canSee(const Position& pos, bool visCheck) const
 {
 	if (!client) {
 		return false;
