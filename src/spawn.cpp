@@ -69,7 +69,7 @@ bool Spawns::loadFromXml(const std::string& filename)
 		}
 
 		if (!spawnNode.first_child()) {
-			std::cout << "[Warning - Spawns::loadFromXml] Empty spawn at position: " << centerPos << " with radius: " << radius << '.' << std::endl;
+			std::cout << "[Warning - Spawns::loadFromXml] (Empty spawn)\n<spawn centerx=\"" << (int)centerPos.x << "\" centery=\"" << (int)centerPos.y << "\" centerz=\"" << (int)centerPos.z << "\" radius=\"" << (int)radius << "\" />" << std::endl;
 			continue;
 		}
 
