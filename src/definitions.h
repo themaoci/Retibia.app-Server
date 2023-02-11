@@ -21,20 +21,28 @@
 #ifndef FS_DEFINITIONS_H_877452FEC245450C9F96B8FD268D8963
 #define FS_DEFINITIONS_H_877452FEC245450C9F96B8FD268D8963
 
-static constexpr auto STATUS_SERVER_NAME = "The Forgotten Server";
-static constexpr auto STATUS_SERVER_VERSION = "1.0.0 Immortal Phoenix";
-static constexpr auto STATUS_SERVER_DEVELOPERS = "Mark Samman and Saiyans King";
+static constexpr auto STATUS_SERVER_NAME = "TFS";
+static constexpr auto STATUS_SERVER_VERSION = "1.0.0 RT";
+static constexpr auto STATUS_SERVER_DEVELOPERS = "TheMaoci (Mark Samman and Saiyans King)";
 
 static constexpr auto AUTHENTICATOR_DIGITS = 6U;
 static constexpr auto AUTHENTICATOR_PERIOD = 30U;
 
+#define I_DONT_GIVE_A_DAMN_ABOUT_QUERY_SIZE 1
+#define USE_MULTI_FLOOR_SEND_PACKET 0
+
+#define HIDE_USELESS_LOGS 1
+
 //1121 version is actually 1120 qt client
-#define CLIENT_VERSION 1231
+#define CLIENT_VERSION 1098
 #define CLIENT_VERSION_UPPER (CLIENT_VERSION / 100)
 #define CLIENT_VERSION_LOWER (CLIENT_VERSION % 100)
 
-#define CLIENT_MAP_WIDTH 18
-#define CLIENT_MAP_HEIGHT 14
+#define REAL_WIDTH 16
+#define REAL_HEIGHT 12
+
+#define CLIENT_MAP_WIDTH ((REAL_WIDTH + 1) * 2)
+#define CLIENT_MAP_HEIGHT ((REAL_HEIGHT + 1) * 2)
 #define CLIENT_MAP_WIDTH_OFFSET (CLIENT_MAP_WIDTH / 2)
 #define CLIENT_MAP_HEIGHT_OFFFSET (CLIENT_MAP_HEIGHT / 2)
 
