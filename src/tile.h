@@ -92,8 +92,8 @@ class SpectatorVector
 		inline size_t capacity() const noexcept { return specs.capacity(); }
 		inline void clear() noexcept { specs.clear(); }
 		inline void reserve(size_t count) { specs.reserve(count); }
-		inline void push_back(CreatureVector::value_type element) { return specs.push_back(element); }
-		inline void emplace_back(CreatureVector::value_type element) { return specs.emplace_back(element); }
+		inline void push_back(CreatureVector::value_type element) { specs.push_back(element); }
+		inline void emplace_back(CreatureVector::value_type element) { specs.emplace_back(element); }
 		inline CreatureVector::reference operator[](size_t index) { return specs.operator[](index); }
 		inline CreatureVector::const_reference operator[](size_t index) const { return specs.operator[](index); }
 
@@ -155,8 +155,8 @@ class TileItemVector
 		inline ItemVector::const_reverse_iterator rend() const noexcept { return vec.rend(); }
 		inline size_t size() const noexcept { return vec.size(); }
 		inline void clear() noexcept { vec.clear(); }
-		inline void push_back(ItemVector::value_type element) { return vec.push_back(element); }
-		inline void emplace_back(ItemVector::value_type element) { return vec.emplace_back(element); }
+		inline void push_back(ItemVector::value_type element) { vec.push_back(element); }
+		inline void emplace_back(ItemVector::value_type element) { vec.emplace_back(element); }
 		inline ItemVector::iterator erase(ItemVector::const_iterator it) { return vec.erase(it); }
 		inline ItemVector::iterator erase(ItemVector::const_iterator first, ItemVector::const_iterator last) { return vec.erase(first, last); }
 		inline ItemVector::reference operator[](size_t index) { return vec.operator[](index); }
