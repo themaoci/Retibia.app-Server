@@ -19,6 +19,7 @@
  */
 
 #include "otpch.h"
+#include <boost/algorithm/string/replace.hpp>
 
 #include "monsters.h"
 #include "monster.h"
@@ -88,8 +89,13 @@ bool Monsters::loadFromXml(bool reloading /*= false*/)
 	loaded = true;
 
 	for (auto monsterNode : doc.child("monsters").children()) {
-		std::string name = asLowerCaseString(monsterNode.attribute("name").as_string());
-		std::string file = "data/monster/" + std::string(monsterNode.attribute("file").as_string());
+		std::string name = boost::replace_all_copy(asLowerCaseString(monsterNode.attribute("name").as_string()), "_", " "); //asLowerCaseString(monsterNode.attribute("name").as_string());
+		std::string nodeName = std::string(monsterNode.attribute("node").as_string());
+
+    ////unloadedMonsters.emplace(name, 
+		////	"data/monster/" + nodeName + "/" + boost::replace_all_copy(name, " ", "_") + ".xml");
+    //std::string file = "data/monster/" + std::string(monsterNode.attribute("file").as_string());
+    std::string file = "data/monster/" + nodeName + "/" + boost::replace_all_copy(name, " ", "_") + ".xml";
 		loadMonster(file, name, reloading);
 
 		pugi::xml_attribute attrRaceId = monsterNode.attribute("raceid");
