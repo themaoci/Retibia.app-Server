@@ -1,3 +1,647 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <weapons>
+	<!-- Rods -->
+  <!-- The Chiller -->
+	<wand id="23721" level="1" mana="1" min="3" max="7" type="ice" /> 
+  <!-- Snakebit Rod -->
+	<wand id="2182" level="7" mana="2" min="8" max="18" type="earth" /> 
+  <!-- Moonlight Rod -->
+	<wand id="2186" level="13" mana="3" min="13" max="25" type="ice" /> 
+  <!-- Necrotic Rod -->
+	<wand id="2185" level="19" mana="5" min="27" max="33" type="death" /> 
+  <!-- Northwind Rod -->
+	<wand id="8911" level="22" mana="5" min="27" max="33" type="ice" /> 
+  <!-- Terra Rod -->
+	<wand id="2181" level="26" mana="8" min="42" max="48" type="earth" /> 
+  <!-- Hailstorm Rod -->
+	<wand id="2183" level="33" mana="13" min="55" max="75" type="ice" /> 
+  <!-- Springsprout Rod -->
+	<wand id="8912" level="37" mana="13" min="55" max="75" type="earth" /> 
+  <!-- Ogre Scepta -->
+	<wand id="24839" level="37" mana="13" min="56" max="74" type="earth" /> 
+  <!-- Underworld Rod -->
+	<wand id="8910" level="42" mana="13" min="55" max="75" type="death" /> 
+  <!-- Shimmer Rod -->
+	<wand id="13872" level="40" mana="13" min="55" max="75" type="ice" /> 
+  <!-- Muck Rod -->
+	<wand id="18411" level="65" mana="17" min="70" max="100" type="earth" /> 
+  <!-- Glacial Rod -->
+	<wand id="18412" level="65" mana="17" min="70" max="100" type="ice" /> 
+
+	<!-- Wands -->
+  <!-- The Scorcher -->
+	<wand id="23719" level="1" mana="1" min="3" max="7" type="fire" /> 
+  <!-- Wand of Vortex -->
+	<wand id="2190" level="7" mana="2" min="8" max="18" type="energy" /> 
+  <!-- Wand of Dragonbreath -->
+	<wand id="2191" level="13" mana="3" min="13" max="25" type="fire" /> 
+  <!-- Wand of Decay -->
+	<wand id="2188" level="19" mana="5" min="27" max="33" type="death" /> 
+  <!-- Wand of Draconia -->
+	<wand id="8921" level="22" mana="5" min="27" max="33" type="fire" /> 
+  <!-- Wand of Cosmic Energy -->
+	<wand id="2189" level="26" mana="8" min="42" max="48" type="energy" /> 
+  <!-- Wand of Inferno -->
+	<wand id="2187" level="33" mana="13" min="55" max="75" type="fire" /> 
+  <!-- Wand of Starmstorm -->
+	<wand id="8920" level="37" mana="13" min="55" max="75" type="energy" /> 
+  <!-- Wand of Voodoo -->
+	<wand id="8922" level="42" mana="13" min="55" max="75" type="death" /> 
+  <!-- Wand of Dimensions -->
+	<wand id="13760" level="37" mana="13" min="55" max="75" type="death" /> 
+  <!-- Shimmer Wand -->
+	<wand id="13880" level="40" mana="13" min="55" max="75" type="energy" /> 
+  <!-- Wand of Defiance -->
+	<wand id="18390" level="65" mana="17" min="70" max="100" type="energy" /> 
+  <!-- Wand of Everblazing -->
+	<wand id="18409" level="65" mana="17" min="70" max="100" type="fire" /> 
+  <!-- Sorc and Druid Staff -->
+	<wand id="19391" level="1" mana="2" min="8" max="18" type="energy" /> 
+  <!-- Ferumbras' Staff (Failed) -->
+	<wand id="25421" level="65" mana="17" min="65" max="95" type="energy" /> 
+  <!-- Ferumbras' Staff (Enchanted) -->
+	<wand id="25422" level="100" mana="19" min="80" max="110" type="energy" /> 
+
+	<!-- Swords -->
+  <!-- ice rapier -->
+	<melee id="2396" action="removecharge" /> 
+  <!-- broadsword -->
+	<melee id="2413" unproperly="1" />
+  <!-- ratana -->
+	<melee id="20092" level="15" unproperly="1" />
+  <!-- crimson sword -->
+	<melee id="7385" level="20" unproperly="1" />
+  <!-- two handed sword -->
+	<melee id="2377" level="20" unproperly="1" />
+  <!-- wyvern fang -->
+	<melee id="7408" level="25" unproperly="1" />
+  <!-- crystal sword -->
+	<melee id="7449" level="25" unproperly="1" />
+  <!-- fire sword -->
+	<melee id="2392" level="30" unproperly="1" />
+  <!-- bright sword -->
+	<melee id="2407" level="30" unproperly="1" />
+  <!-- epee -->
+	<melee id="2438" level="30" unproperly="1" />
+  <!-- haunted blade -->
+	<melee id="7407" level="30" unproperly="1" />
+  <!-- lunar staff -->
+	<melee id="7424" level="30" unproperly="1" />
+  <!-- blacksteel sword -->
+	<melee id="7406" level="35" unproperly="1" />
+  <!-- djinn blade -->
+	<melee id="2451" level="35" unproperly="1" />
+  <!-- assassin dagger -->
+	<melee id="7404" level="40" unproperly="1" />
+  <!-- mercenary sword -->
+	<melee id="7386" level="40" unproperly="1" />
+  <!-- shimmer sword -->
+	<melee id="13871" level="40" unproperly="1" />
+  <!-- pharaoh sword -->
+	<melee id="2446" level="45" unproperly="1" />
+  <!-- dragon slayer -->
+	<melee id="7402" level="45" unproperly="1" />
+  <!-- relic sword -->
+	<melee id="7383" level="50" unproperly="1" />
+  <!-- thaian sword -->
+	<melee id="7391" level="50" unproperly="1" />
+  <!-- sai -->
+	<melee id="11306" level="50" unproperly="1" />
+  <!-- bloody edge -->
+	<melee id="7416" level="55" unproperly="1" />
+  <!-- giant sword -->
+	<melee id="2393" level="55" unproperly="1" />
+  <!-- Zaoan sword -->
+	<melee id="11307" level="55" unproperly="1" />
+  <!-- twiceslicer -->
+	<melee id="12613" level="58" unproperly="1" />
+  <!-- mystic blade -->
+	<melee id="7384" level="60" unproperly="1" />
+  <!-- demonrage sword -->
+	<melee id="7382" level="60" unproperly="1" />
+  <!-- crystalline sword -->
+	<melee id="18450" level="62" unproperly="1" />
+  <!-- runed sword -->
+	<melee id="7417" level="65" unproperly="1" />
+  <!-- berserker -->
+	<melee id="7403" level="65" unproperly="1" />
+  <!-- nightmare blade -->
+	<melee id="7418" level="70" unproperly="1" />
+  <!-- havoc blade -->
+	<melee id="7405" level="70" unproperly="1" />
+  <!-- the justice seeker -->
+	<melee id="7390" level="75" unproperly="1" />
+  <!-- the avenger -->
+	<melee id="6528" level="75" unproperly="1" />
+  <!-- crude umbral blade -->
+	<melee id="22398" level="75" unproperly="1" />
+  <!-- crude umbral slayer -->
+	<melee id="22401" level="75" unproperly="1" />
+  <!-- magic sword -->
+	<melee id="2400" level="80" unproperly="1" />
+  <!-- blade of corruption -->
+	<melee id="12649" level="82" unproperly="1" />
+  <!-- emerald sword -->
+	<melee id="8930" level="100" unproperly="1" />
+  <!-- the calamity -->
+	<melee id="8932" level="100" unproperly="1" />
+  <!-- the epiphany -->
+	<melee id="8931" level="120" unproperly="1" />
+  <!-- warlord sword -->
+	<melee id="2408" level="120" unproperly="1" />
+  <!-- umbral blade -->
+	<melee id="22399" level="120" unproperly="1" />
+  <!-- umbral slayer -->
+	<melee id="22402" level="120" unproperly="1" />
+  <!-- magic longsword -->
+	<melee id="2390" level="140" unproperly="1" />
+	<!-- <melee id="25416" level="150" unproperly="1" /> -->
+  <!-- umbral masterblade -->
+	<melee id="22400" level="250" unproperly="1" />
+  <!-- umbral master slayer -->
+	<melee id="22403" level="250" unproperly="1" />
+
+	<!-- Fire -->
+  <!-- fiery spike sword -->
+	<melee id="7744" action="removecharge" />
+  <!-- fiery relic sword -->
+	<melee id="7745" level="50" action="removecharge" unproperly="1" />
+  <!-- fiery mystic blade -->
+	<melee id="7746" level="60" action="removecharge" unproperly="1" />
+  <!-- fiery blacksteel sword -->
+	<melee id="7747" level="35" action="removecharge" unproperly="1" />
+  <!-- fiery dragon slayer -->
+	<melee id="7748" level="45" action="removecharge" unproperly="1" />
+
+	<!-- Ice -->
+  <!-- icy spike sword -->
+	<melee id="7763" action="removecharge" />
+  <!-- icy relic sword -->
+	<melee id="7764" level="50" action="removecharge" unproperly="1" />
+  <!-- icy mystic blade -->
+	<melee id="7765" level="60" action="removecharge" unproperly="1" />
+  <!-- icy blacksteel sword -->
+	<melee id="7766" level="35" action="removecharge" unproperly="1" />
+  <!-- icy dragon slayer -->
+	<melee id="7767" level="45" action="removecharge" unproperly="1" />
+
+	<!-- Earth -->
+  <!-- earth spike sword -->
+	<melee id="7854" action="removecharge" />
+  <!-- earth relic sword -->
+	<melee id="7855" level="50" action="removecharge" unproperly="1" />
+  <!-- earth mystic blade -->
+	<melee id="7856" level="60" action="removecharge" unproperly="1" />
+  <!-- earth blacksteel sword -->
+	<melee id="7857" level="35" action="removecharge" unproperly="1" />
+  <!-- earth dragon slayer -->
+	<melee id="7858" level="45" action="removecharge" unproperly="1" />
+
+	<!-- Energy -->
+  <!-- energy spike sword -->
+	<melee id="7869" action="removecharge" />
+  <!-- energy relic sword -->
+	<melee id="7870" level="50" action="removecharge" unproperly="1" />
+  <!-- energy mystic blade -->
+	<melee id="7871" level="60" action="removecharge" unproperly="1" />
+  <!-- energy blacksteel sword -->
+	<melee id="7872" level="35" action="removecharge" unproperly="1" />
+  <!-- energy dragon slayer -->
+	<melee id="7873" level="45" action="removecharge" unproperly="1" />
+
+	<!-- Axes -->
+  <!-- battle axe -->
+	<melee id="2378" unproperly="1" />
+  <!-- barbarian axe -->
+	<melee id="2429" level="20" unproperly="1" />
+  <!-- dwarven axe -->
+	<melee id="2435" level="20" unproperly="1" />
+  <!-- obsidian lance -->
+	<melee id="2425" level="20" unproperly="1" />
+  <!-- twin hooks -->
+	<melee id="11309" level="20" unproperly="1" />
+  <!-- Zaoan halberd -->
+	<melee id="11323" level="25" unproperly="1" />
+  <!-- knight axe -->
+	<melee id="2430" level="25" unproperly="1" />
+  <!-- double axe -->
+	<melee id="2387" level="25" unproperly="1" />
+  <!-- halberd -->
+	<melee id="2381" level="25" unproperly="1" />
+  <!-- daramian waraxe -->
+	<melee id="2440" level="25" unproperly="1" />
+  <!-- naginata -->
+	<melee id="2426" level="25" unproperly="1" />
+  <!-- heavy trident -->
+	<melee id="13838" level="25" unproperly="1" />
+	<!-- <melee id="24828" level="25" unproperly="1" /> -->
+  <!-- beastslayer axe -->
+	<melee id="3962" level="30" unproperly="1" />
+  <!-- glorious axe -->
+	<melee id="7454" level="30" unproperly="1" />
+  <!-- fire axe -->
+	<melee id="2432" level="35" unproperly="1" />
+  <!-- headchopper -->
+	<melee id="7380" level="35" unproperly="1" />
+  <!-- noble axe -->
+	<melee id="7456" level="35" unproperly="1" />
+  <!-- dreaded cleaver -->
+	<melee id="7419" level="40" unproperly="1" />
+  <!-- titan axe -->
+	<melee id="7413" level="40" unproperly="1" />
+  <!-- warrior's axe -->
+	<melee id="15451" level="40" unproperly="1" />
+  <!-- butcher's axe -->
+	<melee id="7412" level="45" unproperly="1" />
+  <!-- angelic axe -->
+	<melee id="7436" level="45" unproperly="1" />
+  <!-- ornamented axe -->
+	<melee id="7411" level="50" unproperly="1" />
+  <!-- twin axe -->
+	<melee id="2447" level="50" unproperly="1" />
+  <!-- guardian axe -->
+	<melee id="15454" level="50" unproperly="1" />
+  <!-- vile axe -->
+	<melee id="7388" level="55" unproperly="1" />
+  <!-- guardian halberd -->
+	<melee id="2427" level="55" unproperly="1" />
+  <!-- heroic axe -->
+	<melee id="7389" level="60" unproperly="1" />
+  <!-- dragon lance -->
+	<melee id="2414" level="60" unproperly="1" />
+  <!-- drakinata -->
+	<melee id="11305" level="60" unproperly="1" />
+  <!-- war axe -->
+	<melee id="2454" level="65" unproperly="1" />
+  <!-- ravenwing -->
+	<melee id="7433" level="65" unproperly="1" />
+  <!-- ravager's axe -->
+	<melee id="2443" level="70" unproperly="1" />
+  <!-- reaper's axe -->
+	<melee id="7420" level="70" unproperly="1" />
+  <!-- hive scythe -->
+	<melee id="15492" level="70" unproperly="1" />
+	<!-- <melee id="25383" level="70" unproperly="1" /> -->
+  <!-- royal axe -->
+	<melee id="7434" level="75" unproperly="1" />
+  <!-- ruthless axe -->
+	<melee id="6553" level="75" unproperly="1" />
+  <!-- crude umbral axe -->
+	<melee id="22404" level="75" unproperly="1" />
+  <!-- crude umbral chopper -->
+	<melee id="22407" level="75" unproperly="1" />
+  <!-- deepling axe -->
+	<melee id="15404" level="80" unproperly="1" />
+  <!-- executioner -->
+	<melee id="7453" level="85" unproperly="1" />
+  <!-- impaler -->
+	<melee id="7435" level="85" unproperly="1" />
+  <!-- stonecutter axe -->
+	<melee id="2431" level="90" unproperly="1" />
+  <!-- great axe -->
+	<melee id="2415" level="95" unproperly="1" />
+  <!-- hellforged axe -->
+	<melee id="8924" level="110" unproperly="1" />
+  <!-- demonwing axe -->
+	<melee id="8926" level="120" unproperly="1" />
+  <!-- umbral axe -->
+	<melee id="22405" level="120" unproperly="1" />
+  <!-- umbral chopper -->
+	<melee id="22408" level="120" unproperly="1" />
+  <!-- solar axe -->
+	<melee id="8925" level="130" unproperly="1" />
+	<!-- <melee id="25415" level="150" unproperly="1" /> -->
+  <!-- umbral master axe -->
+	<melee id="22406" level="250" unproperly="1" />
+  <!-- umbral master chopper -->
+	<melee id="22409" level="250" unproperly="1" />
+
+	<!-- Fire -->
+  <!-- fiery barbarian axe -->
+	<melee id="7749" level="20" action="removecharge" unproperly="1" />
+  <!-- fiery knight axe -->
+	<melee id="7750" level="25" action="removecharge" unproperly="1" />
+  <!-- fiery heroic axe -->
+	<melee id="7751" level="60" action="removecharge" unproperly="1" />
+  <!-- fiery headchopper -->
+	<melee id="7752" level="35" action="removecharge" unproperly="1" />
+  <!-- fiery war axe -->
+	<melee id="7753" level="65" action="removecharge" unproperly="1" />
+
+	<!-- Ice -->
+  <!-- icy barbarian axe -->
+	<melee id="7768" level="20" action="removecharge" unproperly="1" />
+  <!-- icy knight axe -->
+	<melee id="7769" level="25" action="removecharge" unproperly="1" />
+  <!-- icy heroic axe -->
+	<melee id="7770" level="60" action="removecharge" unproperly="1" />
+  <!-- icy headchopper -->
+	<melee id="7771" level="35" action="removecharge" unproperly="1" />
+  <!-- icy war axe -->
+	<melee id="7772" level="65" action="removecharge" unproperly="1" />
+
+	<!-- Earth -->
+  <!-- earth barbarian axe -->
+	<melee id="7859" level="20" action="removecharge" unproperly="1" />
+  <!-- earth knight axe -->
+	<melee id="7860" level="25" action="removecharge" unproperly="1" />
+  <!-- earth heroic axe -->
+	<melee id="7861" level="60" action="removecharge" unproperly="1" />
+  <!-- earth headchopper -->
+	<melee id="7862" level="35" action="removecharge" unproperly="1" />
+  <!-- earth war axe -->
+	<melee id="7863" level="65" action="removecharge" unproperly="1" />
+
+	<!-- Energy -->
+  <!-- energy barbarian axe -->
+	<melee id="7874" level="20" action="removecharge" />
+  <!-- energy knight axe -->
+	<melee id="7875" level="25" action="removecharge" unproperly="1" />
+  <!-- energy heroic axe -->
+	<melee id="7876" level="60" action="removecharge" unproperly="1" />
+  <!-- energy headchopper -->
+	<melee id="7877" level="35" action="removecharge" unproperly="1" />
+  <!-- energy war axe -->
+	<melee id="7878" level="65" action="removecharge" unproperly="1" />
+
+	<!--Clubs -->
+  <!-- life preserver -->
+	<melee id="20093" level="15" unproperly="1" />
+  <!-- spiky club -->
+	<melee id="20139" level="20" unproperly="1" />
+  <!-- clerical mace -->
+	<melee id="2423" level="20" unproperly="1" />
+  <!-- mammoth whopper -->
+	<melee id="7381" level="20" unproperly="1" />
+  <!-- taurus mace -->
+	<melee id="7425" level="20" unproperly="1" />
+  <!-- furry club -->
+	<melee id="7432" level="20" unproperly="1" />
+  <!-- dragon hammer -->
+	<melee id="2434" level="25" unproperly="1" />
+  <!-- diamond sceptre -->
+	<melee id="7387" level="25" unproperly="1" />
+  <!-- brutetamer's staff -->
+	<melee id="7379" level="25" unproperly="1" />
+  <!-- dragonbone staff -->
+	<melee id="7430" level="30" unproperly="1" />
+  <!-- skull staff -->
+	<melee id="2436" level="30" unproperly="1" />
+  <!-- sapphire hammer -->
+	<melee id="7437" level="30" unproperly="1" />
+  <!-- spiked squelcher -->
+	<melee id="7452" level="30" unproperly="1" />
+  <!-- crystal mace -->
+	<melee id="2445" level="35" unproperly="1" />
+  <!-- shadow sceptre -->
+	<melee id="7451" level="35" unproperly="1" />
+  <!-- orcish maul -->
+	<melee id="7392" level="35" unproperly="1" />
+  <!-- deepling staff -->
+	<melee id="15400" level="38" unproperly="1" />
+  <!-- amber staff -->
+	<melee id="7426" level="40" unproperly="1" />
+  <!-- lich staff -->
+	<melee id="3961" level="40" unproperly="1" />
+  <!-- chaos mace -->
+	<melee id="7427" level="45" unproperly="1" />
+  <!-- silver mace -->
+	<melee id="2424" level="45" unproperly="1" />
+  <!-- deepling squelcher -->
+	<melee id="15647" level="48" unproperly="1" />
+  <!-- war hammer -->
+	<melee id="2391" level="50" unproperly="1" />
+  <!-- northern star -->
+	<melee id="7409" level="50" unproperly="1" />
+  <!-- pair of iron fists -->
+	<melee id="20108" level="50" unproperly="1" />
+	<!-- <melee id="24827" level="50" unproperly="1" /> -->
+  <!-- queen's sceptre -->
+	<melee id="7410" level="55" unproperly="1" />
+  <!-- bonebreaker -->
+	<melee id="7428" level="55" unproperly="1" />
+  <!-- drachaku -->
+	<melee id="11308" level="55" unproperly="1" />
+  <!-- cranial basher -->
+	<melee id="7415" level="60" unproperly="1" />
+  <!-- abyss hammer -->
+	<melee id="7414" level="60" unproperly="1" />
+  <!-- hammer of wrath -->
+	<melee id="2444" level="65" unproperly="1" />
+  <!-- onyx flail -->
+	<melee id="7421" level="65" unproperly="1" />
+  <!-- heavy mace -->
+	<melee id="2452" level="70" unproperly="1" />
+  <!-- jade hammer -->
+	<melee id="7422" level="75" unproperly="1" />
+  <!-- blessed sceptre -->
+	<melee id="7429" level="75" unproperly="1" />
+  <!-- arcane staff -->
+	<melee id="2453" level="75" unproperly="1" />
+  <!-- crude umbral hammer -->
+	<melee id="22413" level="75" unproperly="1" />
+  <!-- crude umbral mace -->
+	<melee id="22410" level="75" unproperly="1" />
+  <!-- demonbone -->
+	<melee id="7431" level="80" unproperly="1" />
+  <!-- mythril axe -->
+	<melee id="7455" level="80" unproperly="1" />
+  <!-- snake god's sceptre -->
+	<melee id="12648" level="82" unproperly="1" />
+  <!-- skullcrusher -->
+	<melee id="7423" level="85" unproperly="1" />
+  <!-- thunder hammer -->
+	<melee id="2421" level="85" unproperly="1" />
+  <!-- ornate mace -->
+	<melee id="15414" level="90" unproperly="1" />
+  <!-- obsidian truncheon -->
+	<melee id="8928" level="100" unproperly="1" />
+  <!-- the stomper -->
+	<melee id="8929" level="100" unproperly="1" />
+  <!-- dark trinity mace -->
+	<melee id="8927" level="120" unproperly="1" />
+	<!-- <melee id="25420" level="100" unproperly="1" /> -->
+  <!-- umbral mace -->
+	<melee id="22411" level="120" unproperly="1" />
+  <!-- hammer of prophecy -->
+	<melee id="7450" level="120" unproperly="1" />
+  <!-- umbral hammer -->
+	<melee id="22414" level="120" unproperly="1" />
+	<!-- <melee id="25418" level="150" unproperly="1" /> -->
+  <!-- umbral master mace -->
+	<melee id="22412" level="250" unproperly="1" />
+  <!-- umbral master hammer -->
+	<melee id="22415" level="250" unproperly="1" />
+
+	<!-- Fire -->
+  <!-- fiery clerical mace -->
+	<melee id="7754" level="20" action="removecharge" unproperly="1" />
+  <!-- fiery crystal mace -->
+	<melee id="7755" level="35" action="removecharge" unproperly="1" />
+  <!-- fiery cranial basher -->
+	<melee id="7756" level="60" action="removecharge" unproperly="1" />
+  <!-- iery orcish maul -->
+	<melee id="7757" level="35" action="removecharge" unproperly="1" />
+  <!-- fiery war hammer -->
+	<melee id="7758" level="50" action="removecharge" unproperly="1" />
+
+	<!-- Ice -->
+  <!-- icy clerical mace -->
+	<melee id="7773" level="20" action="removecharge" unproperly="1" />
+  <!-- icy crystal mace -->
+	<melee id="7774" level="35" action="removecharge" unproperly="1" />
+  <!-- icy cranial basher -->
+	<melee id="7775" level="60" action="removecharge" unproperly="1" />
+  <!-- icy orcish maul -->
+	<melee id="7776" level="35" action="removecharge" unproperly="1" />
+  <!-- icy war hammer -->
+	<melee id="7777" level="50" action="removecharge" unproperly="1" />
+
+	<!-- Earth -->
+  <!-- earth clerical mace -->
+	<melee id="7864" level="20" action="removecharge" unproperly="1" />
+  <!-- earth crystal mace -->
+	<melee id="7865" level="35" action="removecharge" unproperly="1" />
+  <!-- earth cranial basher -->
+	<melee id="7866" level="60" action="removecharge" unproperly="1" />
+  <!-- earth orcish maul -->
+	<melee id="7867" level="35" action="removecharge" unproperly="1" />
+  <!-- earth war hammer -->
+	<melee id="7868" level="50" action="removecharge" unproperly="1" />
+
+	<!-- Energy -->
+  <!-- energy clerical mace -->
+	<melee id="7879" level="20" action="removecharge" unproperly="1" />
+  <!-- energy crystal mace -->
+	<melee id="7880" level="35" action="removecharge" unproperly="1" />
+  <!-- energy cranial basher -->
+	<melee id="7881" level="60" action="removecharge" unproperly="1" />
+  <!-- energy orcish maul -->
+	<melee id="7882" level="35" action="removecharge" unproperly="1" />
+  <!-- energy war hammer -->
+	<melee id="7883" level="50" action="removecharge" unproperly="1" />
+
+	<!-- Bows and Crossbows -->
+  <!-- Arbalest -->
+	<distance id="5803" level="75" unproperly="1"/> 
+  <!-- Modified Crossbow -->
+	<distance id="8849" level="45" unproperly="1"/> 
+  <!-- Chain Bolter -->
+	<distance id="8850" level="60" unproperly="1"/> 
+  <!-- Ironworker -->
+	<distance id="8853" level="80" unproperly="1"/> 
+  <!-- Devileye -->
+	<distance id="8852" level="100" unproperly="1"/> 
+  <!-- Royal Crossbow -->
+	<distance id="8851" level="130" unproperly="1"/> 
+  <!-- Silkweaver Bow -->
+	<distance id="8857" level="40" unproperly="1"/> 
+  <!-- Composite Hornbow -->
+	<distance id="8855" level="50" unproperly="1"/> 
+  <!-- Yol's Bow -->
+	<distance id="8856" level="60" unproperly="1"/> 
+  <!-- Elethriel's Elemental Bow -->
+	<distance id="8858" level="70" unproperly="1"/> 
+  <!-- Warsinger Bow -->
+	<distance id="8854" level="80" unproperly="1"/> 
+  <!-- Shimmer Bow -->
+	<distance id="13873" level="40" unproperly="1"/> 
+  <!-- Hive Bow -->
+	<distance id="15643" level="85" unproperly="1"/> 
+  <!-- Ornate Crossbow -->
+	<distance id="15644" level="50" unproperly="1"/> 
+  <!-- Thorn Spitter -->
+	<distance id="16111" level="150" unproperly="1"/> 
+  <!-- Crystal Crossbow -->
+	<distance id="18453" level="90" unproperly="1"/> 
+  <!-- Mycological Bow -->
+	<distance id="18454" level="105" unproperly="1"/> 
+  <!-- Triple Bolt Crossbow -->
+	<distance id="21690" level="70" unproperly="1"/> 
+  <!-- Icicle Bow -->
+	<distance id="21696" unproperly="1" /> 
+  <!-- Crude Umbral Bow -->
+	<distance id="22416" level="75" unproperly="1"/> 
+  <!-- Umbral Bow -->
+	<distance id="22417" level="150" unproperly="1"/> 
+  <!-- Umbral Master Bow -->
+	<distance id="22418" level="250" unproperly="1"/> 
+  <!-- Crude Umbral Crossbow -->
+	<distance id="22419" level="75" unproperly="1"/> 
+  <!-- Umbral Crossbow -->
+	<distance id="22420" level="150" unproperly="1"/> 
+  <!-- Umbral Master Crossbow -->
+	<distance id="22421" level="250" unproperly="1"/> 
+  <!-- Rift Bow -->
+	<distance id="25522" level="120" unproperly="1"/> 
+  <!-- Rift Crossbow -->
+	<distance id="25523" level="120" unproperly="1"/> 
+
+	<!-- Ammunition -->
+  <!-- small stone -->
+	<distance id="1294" breakchance="3" /> 
+  <!-- snowball -->
+	<distance id="2111" action="removecount" /> 
+  <!-- spear -->
+	<distance id="2389" breakchance="3" /> 
+  <!-- throwing star -->
+	<distance id="2399" breakchance="10" /> 
+  <!-- throwing knife -->
+	<distance id="2410" breakchance="7" /> 
+  <!-- bolt -->
+	<distance id="2543" action="removecount" /> 
+  <!-- arrow -->
+	<distance id="2544" action="removecount" /> 
+  <!-- poison arrow -->
+	<distance id="2545" action="removecount" />
+  <!-- burst arrow -->
+	<distance id="2546" action="removecount" />
+  <!-- Power Bolt -->
+	<distance id="2547" action="removecount" unproperly="1" level="55" /> 
+  <!-- Hunting Spear -->
+	<distance id="3965" breakchance="6" unproperly="1" level="20" /> 
+  <!-- Infernal Bolt -->
+	<distance id="6529" action="removecount" unproperly="1" level="110" /> 
+  <!-- Piercing Bolt -->
+	<distance id="7363" action="removecount" unproperly="1" level="30" /> 
+  <!-- Sniper Arrow -->
+	<distance id="7364" action="removecount" unproperly="1" level="20" /> 
+  <!-- Onyx Arrow -->
+	<distance id="7365" action="removecount" unproperly="1" level="40" /> 
+  <!-- viper star -->
+	<distance id="7366" breakchance="9" />
+  <!-- Enchanted Spear -->
+	<distance id="7367" breakchance="1" unproperly="1" level="42" /> 
+  <!-- Assassin Star -->
+	<distance id="7368" breakchance="33" unproperly="1" level="80" /> 
+  <!-- Royal Spear -->
+	<distance id="7378" breakchance="3" unproperly="1" level="25" /> 
+  <!-- Flash Arrow -->
+	<distance id="7838" action="removecount" unproperly="1" level="20" /> 
+  <!-- Shiver Arrow -->
+	<distance id="7839" action="removecount" unproperly="1" level="20" /> 
+  <!-- Flaming Arrow -->
+	<distance id="7840" action="removecount" unproperly="1" level="20" /> 
+  <!-- Earth Arrow -->
+	<distance id="7850" action="removecount" unproperly="1" level="20" /> 
+  <!-- Tarsal Arrow -->
+	<distance id="15648" action="removecount" unproperly="1" level="30" /> 
+  <!-- Vortex Bolt -->
+	<distance id="15649" action="removecount" unproperly="1" level="40" /> 
+  <!-- crystal bolt -->
+	<distance id="18303" action="removecount" /> 
+  <!-- Crystalline Arrow -->
+	<distance id="18304" action="removecount" unproperly="1" level="90" /> 
+  <!-- Prismatic Bolt -->
+	<distance id="18435" action="removecount" unproperly="1" level="90" /> 
+  <!-- Drill Bolt -->
+	<distance id="18436" action="removecount" unproperly="1" level="70" /> 
+  <!-- Envenomed Arrow -->
+	<distance id="18437" action="removecount" unproperly="1" level="70" /> 
+  <!-- Glooth Spear -->
+	<distance id="23529" breakchance="31" unproperly="1" level="60" /> 
+  <!-- Simple Arrow -->
+	<distance id="23839" action="removecount" unproperly="0" level="1" /> 
+  <!-- throwing star of Sula -->
+	<distance id="25526" breakchance="10" /> 
 </weapons>

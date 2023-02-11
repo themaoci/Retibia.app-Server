@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <raids>
-	<!--
-		<raid name="Testraid" file="testraid.xml" interval2="30" margin="0" />
-		executed on average once every 30 minutes
-	-->
+<!-- Raids Rookgaard -->
+<!-- Rats plague - not starts in first hour then once in hour 5% chance -->
+	<raid name="Rats" file="rookgaard/rats.xml" 
+        interval2="90" margin="60" chance="5" />
+<!-- Munster Appearance - not starts in first hour then once in two hours 20% chance -->
+	<raid name="Munster" file="rookgaard/munster.xml" 
+        interval2="180" margin="60" chance="20" />
+<!-- Rottie showed up in the east - not starts in first hour then once in two hours 15% chance -->
+	<raid name="Rottie The Rotworm of the east" file="rookgaard/rottie_east.xml" 
+        interval2="120" margin="60" chance="25" />
+<!-- Rottie showed up in the north - not starts in first hour then once in two hours 15% chance -->
+	<raid name="Rottie The Rotworm of the north" file="rookgaard/rottie_north.xml" 
+        interval2="120" margin="60" chance="25" />
+<!-- Sheng showed up - not starts in first hour then once in 5 hours 15% chance -->
+	<raid name="Apprentice Sheng" file="rookgaard/sheng.xml" 
+        interval2="350" margin="60" chance="25" />
+<!-- Tarantula crawled up - not starts in first hour then once in 1.5 hour 5% chance -->
+	<raid name="Tarantula" file="rookgaard/tarantula.xml" 
+        interval2="90" margin="60" chance="5" />
+<!-- Teleskor showed up - not starts in first hour then once in 5 hours 25% chance -->
+	<raid name="Teleskor" file="rookgaard/teleskor.xml" 
+        interval2="350" margin="60" chance="25" />
+<!-- Strong Teleskor showed up - not starts in first hour then once in 5 hours 25% chance -->
+	<raid name="Corrupted Teleskor" file="rookgaard/strong_teleskor.xml" 
+        interval2="350" margin="60" chance="5" />
+<!-- Orc raid - not starts in first hour then once in 3 hour 5% chance -->
+	<raid name="Orcs" file="rookgaard/orc.xml" 
+        interval2="180" margin="60" chance="10" />
 </raids>

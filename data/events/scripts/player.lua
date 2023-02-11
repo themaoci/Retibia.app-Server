@@ -78,7 +78,12 @@ function Player:onLookInBattleList(creature, distance)
 end
 
 function Player:onLookInTrade(partner, item, distance)
-	self:sendTextMessage(MESSAGE_INFO_DESCR, "You see " .. item:getDescription(distance))
+
+    local description = "You see " .. item:getDescription(distance)
+	if self:getGroup():getAccess() then
+        description = string.format("%s\nItem ID: %d", description, item:getId())
+    end
+	self:sendTextMessage(MESSAGE_INFO_DESCR, description)
 end
 
 function Player:onLookInShop(itemType, count)
@@ -86,6 +91,17 @@ function Player:onLookInShop(itemType, count)
 end
 
 function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, toCylinder)
+	-- custom added wrap shit...
+	if item:getAttribute("wrapid") ~= 0 then
+		local tile = Tile(toPosition)
+		if (fromPosition.x ~= CONTAINER_POSITION and toPosition.x ~= CONTAINER_POSITION) or tile and not tile:getHouse() then
+			if tile and not tile:getHouse() then
+				self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+				return false
+			end
+		end
+	end
+
 	if toPosition.x ~= CONTAINER_POSITION then
 		return true
 	end

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<raid>
+  <areaspawn delay="10000" fromx="384" fromy="391" fromz="9" tox="386" toy="393" toz="9">
+    <monster name="Munster" amount="1" />
+    <monster name="Cave Rat" amount="3" />
+  </areaspawn>
+</raid>

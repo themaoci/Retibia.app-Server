@@ -1,3 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <movements>
+	<movevent event="StepIn" actionid="50241" script="rookgaard/premium_bridge.lua"/>
+	<movevent event="StepIn" actionid="50998" script="rookgaard/level_bridge_2.lua"/>
+	<!-- Rookgaard -->
+	<movevent event="StepIn" actionid="7037" script="rookgaard/SpikeSword_LastDoor.lua"/> <!-- Rook Spikesword storage for web -->
+	<movevent event="StepIn" actionid="7000" script="rookgaard/SwordOfFury.lua"/>
 </movements>

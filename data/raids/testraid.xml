@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml version="1.0" encoding="UTF-8"?>
 <raid>
 	<!-- Message broadcast -->
 	<!-- Broadcast types: warning, event, default, description, smallstatus, blueconsole, redconsole -->
@@ -18,4 +18,4 @@
 	<singlespawn delay="15000" name="Cave Rat" x="93" y="123" z="7" />
 	<singlespawn delay="30000" name="Cave Rat" x="98" y="125" z="7" />
 	<singlespawn delay="30000" name="Cave Rat" x="94" y="128" z="7" />
-</raid>
+</raid> -->

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<raid>
+  <areaspawn delay="120000" fromx="410" fromy="233" fromz="12" tox="417" toy="239" toz="12">
+    <monster name="Apprentice Sheng" amount="1" />
+  </areaspawn>
+</raid>

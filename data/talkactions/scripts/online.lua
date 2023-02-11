@@ -1,7 +1,7 @@
 local maxPlayersPerMessage = 10
 
 function onSay(player, words, param)
-	local hasAccess = player:getGroup():getAccess()
+	local hasAccess = checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER)
 	local players = Game.getPlayers()
 	local onlineList = {}
 
@@ -12,7 +12,7 @@ function onSay(player, words, param)
 	end
 
 	local playersOnline = #onlineList
-	player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, ("%d players online."):format(playersOnline))
+	player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, ("%d players online."):format(#players))
 
 	for i = 1, playersOnline, maxPlayersPerMessage do
 		local j = math.min(i + maxPlayersPerMessage - 1, playersOnline)

@@ -41,4 +41,9 @@ function onStartup()
 		local position = town:getTemplePosition()
 		db.query("INSERT INTO `towns` (`id`, `name`, `posx`, `posy`, `posz`) VALUES (" .. town:getId() .. ", " .. db.escapeString(town:getName()) .. ", " .. position.x .. ", " .. position.y .. ", " .. position.z .. ")")
 	end
+
+	GameConfig.Spells.Instant = Game.getAllInstants()
+	GameConfig.Spells.Rune = Game.getAllRunes()
+	GameConfig.Outfits = Game.getAllOutfits()
+	GameConfig.Mounts = Game.getAllMounts()
 end
