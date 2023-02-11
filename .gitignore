@@ -186,3 +186,4 @@ theforgottenserver-AVX2.exe
 *.db-wal
 
 .vs/
+*.exe
