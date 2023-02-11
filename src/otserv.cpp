@@ -129,42 +129,6 @@ void mainLoader(int, char*[], ServiceManager* services)
 	std::cout << "A server developed by " << STATUS_SERVER_DEVELOPERS << std::endl;
 	std::cout << "Server protocol: " << CLIENT_VERSION_UPPER << "." << CLIENT_VERSION_LOWER << std::endl;
 
-	std::cout << std::endl;
-	std::cout << "                    .*#%%/                            (&&#*.                    " << std::endl;
-	std::cout << "               *(%%&%/.                                  ,(&&&%(*               " << std::endl;
-	std::cout << "           .%%&&&&%,                                        *&&&&&&%.           " << std::endl;
-	std::cout << "          ,&&&&&&#                                            %&&&&&&.          " << std::endl;
-	std::cout << "     ,&/  (&&&&&&                                             .&&&&&&/  (&.     " << std::endl;
-	std::cout << "   .%&&#  %&&&%%/                                              %%%&&&(  %&&%    " << std::endl;
-	std::cout << "  /&&&&&/ (%%%%%(                                              %%%&%%* #&&&&&*  " << std::endl;
-	std::cout << " .&&&&&&&( %%%%%%.                                            ,%%%%%% #&&&&&&&  " << std::endl;
-	std::cout << " *&&&&&&%%%*%%%%%#                                            %%%%%#(%%%&&&&&&. " << std::endl;
-	std::cout << "  ,&&&%%%%%%%%####,                                          *##%#%%%%%%%%%&&.  " << std::endl;
-	std::cout << "%,  (&%%%%%#%%###.                                            .#####%%%%%%%/  *(" << std::endl;
-	std::cout << "(&&(. *%%%%%####* /.                                        ., /####%%%%#* .(%&/" << std::endl;
-	std::cout << ".&&%&%#. /###%##, *#,                                      *#, *#####%* ,#%%%%%." << std::endl;
-	std::cout << " #%%%%%%%%#/####(  (((,           .,*,*//**,..           *((/ .#####/#%#%%%%%%/ " << std::endl;
-	std::cout << "  /%%%%%%%######((. *(((/.         .*/*/*/****        ,((((, *((######%#%%%%%,  " << std::endl;
-	std::cout << "    *#%%%#######(#((* ,((///*,       */*****..    ,/(((((, *((#(#######%#%#,    " << std::endl;
-	std::cout << "          ./((##(((((((/ ,//////.    *******,   //(((/. /((((((##((/*.          " << std::endl;
-	std::cout << "      ,####((////*/(((((///*/////*/*,*********///////((((((((/////(((####.      " << std::endl;
-	std::cout << "        .#######((((((((//////////***/*****//////(/((/((((((((((#(#####         " << std::endl;
-	std::cout << "           *(###(((((, .,*//////////*****//////////(//,,. ,((((((##(,           " << std::endl;
-	std::cout << "               *((((((((.     *///*/***///////(//*     *((((((((*               " << std::endl;
-	std::cout << "                    .,,**//*.    .,////.*////,     ,*/**,,,.                    " << std::endl;
-	std::cout << "                                  *(/,    //(/                                  " << std::endl;
-	std::cout << "                                ./((((((((((((/.                                " << std::endl;
-	std::cout << "                               ((((* ,(.*(. /((((.                              " << std::endl;
-	std::cout << "                            *(((((./*,(.*( (*.(((((/.                           " << std::endl;
-	std::cout << "                         ,##((#(./((*,(.*(.(((*.(((((#*                         " << std::endl;
-	std::cout << "                       *#####(,*####*,(./(.(####*,(####(                        " << std::endl;
-	std::cout << "                          (# (###### (#./#,*######( (/                          " << std::endl;
-	std::cout << "                            ,(#####,(##./##**#####*.                            " << std::endl;
-	std::cout << "                                #(.####./#### #/                                " << std::endl;
-	std::cout << "                                  ./%%%./%%#*                                   " << std::endl;
-	std::cout << std::endl;
-	std::this_thread::sleep_for(std::chrono::seconds(5));
-
 	// check if config.lua or config.lua.dist exist
 	std::ifstream c_test("./config.lua");
 	if (!c_test.is_open()) {
@@ -216,7 +180,7 @@ void mainLoader(int, char*[], ServiceManager* services)
 	}
 
 	std::cout << " MySQL " << Database::getClientVersion() << std::endl;
-	if (g_database.getMaxPacketSize() < 104857600) {
+	if (I_DONT_GIVE_A_DAMN_ABOUT_QUERY_SIZE != 1 && g_database.getMaxPacketSize() < 104857600) {
 		std::cout << "> Max MYSQL Query size below 100MB might generate undefined behaviour." << std::endl;
 		std::cout << "> Do you want to continue? Press enter to continue." << std::endl;
 		getchar();
