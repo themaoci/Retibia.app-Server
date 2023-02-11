@@ -136,7 +136,7 @@ enum PlayerAsyncOngoingTaskFlags : uint64_t {
 
 using MuteCountMap = std::map<uint32_t, uint32_t>;
 
-static constexpr int32_t PLAYER_MAX_SPEED = 1500;
+static constexpr int32_t PLAYER_MAX_SPEED = 3000;
 static constexpr int32_t PLAYER_MIN_SPEED = 10;
 
 #if GAME_FEATURE_QUEST_TRACKER > 0
@@ -590,7 +590,7 @@ class Player final : public Creature, public Cylinder
 		void onReceiveMail() const;
 		bool isNearDepotBox() const;
 
-		bool canSee(const Position& pos) const override;
+		bool canSee(const Position& pos, bool visCheck = false) const override;
 		bool canSeeCreature(const Creature* creature) const override;
 
 		bool canWalkthrough(const Creature* creature) const;

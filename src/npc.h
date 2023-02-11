@@ -133,7 +133,7 @@ class Npc final : public Creature
 
 		static Npc* createNpc(const std::string& name);
 
-		bool canSee(const Position& pos) const override;
+		bool canSee(const Position& pos, bool visCheck = false) const override;
 
 		bool load();
 		void reload();

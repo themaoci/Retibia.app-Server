@@ -231,7 +231,7 @@ bool Npc::loadFromXml()
 	return true;
 }
 
-bool Npc::canSee(const Position& pos) const
+bool Npc::canSee(const Position& pos, bool visCheck) const
 {
 	if (pos.z != getPosition().z) {
 		return false;
