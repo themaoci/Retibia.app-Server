@@ -81,9 +81,9 @@ void Monster::removeList()
 	g_game.removeMonster(this);
 }
 
-bool Monster::canSee(const Position& pos) const
+bool Monster::canSee(const Position& pos, bool visCheck) const
 {
-	return Creature::canSee(getPosition(), pos, CLIENT_MAP_WIDTH_OFFSET, CLIENT_MAP_HEIGHT_OFFFSET);
+	return Creature::canSee(getPosition(), pos, CLIENT_MAP_WIDTH_OFFSET, CLIENT_MAP_HEIGHT_OFFFSET, visCheck);
 }
 
 std::string Monster::getDescription(int32_t) const
@@ -230,13 +230,18 @@ void Monster::onCreatureMove(Creature* creature, const Tile* newTile, const Posi
 		updateTargetList();
 		updateIdleStatus();
 	} else {
+		bool canSeeNewPosVisCheck = canSee(newPos, true);
+		bool canSeeOldPosVisCheck = canSee(oldPos, true);
 		bool canSeeNewPos = canSee(newPos);
-		bool canSeeOldPos = canSee(oldPos);
 
-		if (canSeeNewPos && !canSeeOldPos) {
+		if (canSeeNewPosVisCheck && !canSeeOldPosVisCheck) {
 			onCreatureEnter(creature);
-		} else if (!canSeeNewPos && canSeeOldPos) {
-			onCreatureLeave(creature);
+		} else {
+			bool canSeeOldPos = canSee(oldPos);
+
+			if (!canSeeNewPos && canSeeOldPos) {
+				onCreatureLeave(creature);
+			}
 		}
 
 		if (canSeeNewPos && isSummon() && getMaster() == creature) {

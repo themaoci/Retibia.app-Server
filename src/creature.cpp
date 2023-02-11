@@ -53,7 +53,7 @@ Creature::~Creature()
 	}
 }
 
-bool Creature::canSee(const Position& myPos, const Position& pos, int32_t viewRangeX, int32_t viewRangeY)
+bool Creature::canSee(const Position& myPos, const Position& pos, int32_t viewRangeX, int32_t viewRangeY, bool visCheck)
 {
 	if (myPos.z <= 7) {
 		//we are on ground level or above (7 -> 0)
@@ -70,13 +70,18 @@ bool Creature::canSee(const Position& myPos, const Position& pos, int32_t viewRa
 	}
 
 	const int_fast32_t offsetz = myPos.getZ() - pos.getZ();
-	return (pos.getX() >= myPos.getX() - viewRangeX + offsetz) && (pos.getX() <= myPos.getX() + viewRangeX + offsetz)
-		&& (pos.getY() >= myPos.getY() - viewRangeY + offsetz) && (pos.getY() <= myPos.getY() + viewRangeY + offsetz);
+	const bool visibleOverXAxis = (pos.getX() >= myPos.getX() - Map::maxViewportX + offsetz) && (pos.getX() <= myPos.getX() + Map::maxViewportX + offsetz);
+	const bool visibleOverYAxis = (pos.getY() >= myPos.getY() - Map::maxViewportY + offsetz) && (pos.getY() <= myPos.getY() + Map::maxViewportY + offsetz);
+
+	if (visCheck) {
+		return g_game.isSightClear(myPos, pos, true) && visibleOverXAxis && visibleOverYAxis;
+	}
+	return visibleOverXAxis && visibleOverYAxis;
 }
 
-bool Creature::canSee(const Position& pos) const
+bool Creature::canSee(const Position& pos, bool visCheck) const
 {
-	return canSee(getPosition(), pos, Map::maxViewportX, Map::maxViewportY);
+	return canSee(getPosition(), pos, Map::maxViewportX, Map::maxViewportY, visCheck);
 }
 
 bool Creature::canSeeCreature(const Creature* creature) const
