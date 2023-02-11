@@ -22,6 +22,7 @@
 
 #include "script.h"
 #include "configmanager.h"
+#include "definitions.h"
 
 #ifdef __cpp_lib_filesystem
 #include <filesystem>
@@ -94,7 +95,8 @@ bool Scripts::loadScripts(std::string folderName, bool isLib, bool reload)
 
 		if (g_config.getBoolean(ConfigManager::SCRIPTS_CONSOLE_LOGS)) {
 			if (!reload) {
-				std::cout << "> " << it->filename().string() << " [loaded]" << std::endl;
+				if(HIDE_USELESS_LOGS == 0)
+					std::cout << "> " << it->filename().string() << " [loaded]" << std::endl;
 			} else {
 				std::cout << "> " << it->filename().string() << " [reloaded]" << std::endl;
 			}
