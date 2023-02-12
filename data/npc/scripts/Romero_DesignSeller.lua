@@ -19,43 +19,9 @@ function creatureSayCallback(cid, type, msg)
     if(not npcHandler:isFocused(cid)) then
         return false
     end
-    -- OUTFIT MAP GENERATOR
-    if #Romero_outfits == 0 or Romero_outfits == nil then
-        Romero_outfits = {}
-        for i, outfit in pairs(GameConfig.Outfits) do
-            if outfit.sex == 0 then
-                Romero_outfits[#Romero_outfits + 1] = {
-                    showedAsItem = 2595,
-                    name = outfit.name,
-                    looktype = { outfit.id, GameConfig.Outfits[i + 55].id },
-                    maxAddon = 3,
-                    isPremium = outfit.premium,
-                    requirements = {
-                        {2160, 10} -- crystal coin x10
-                    }    
-                }    
-            end
-        end
-    end
 
-    -- MOUNT MAP GENERATOR
-    if #Romero_mounts == 0 or Romero_mounts == nil then
-        Romero_mounts = {}
-        for i, mount in pairs(GameConfig.Mounts) do
-            if not mount.premium then
-                Romero_mounts[#Romero_mounts + 1] = {
-                    showedAsItem = 2595,
-                    name = mount.name,
-                    mountId = mount.id,
-                    isPremium = mount.premium,
-                    speedBonus = mount.speed,
-                    requirements = {
-                        {2160, 10} -- crystal coin x10
-                    }
-                }
-            end
-        end
-    end
+
+
     
     local player = Player(cid)
     local isPlayerPremium = isPremium(cid)
@@ -63,17 +29,37 @@ function creatureSayCallback(cid, type, msg)
     -- [ OUTFITS ] 
     if msgcontains(msg, 'outfits') or msgcontains(msg, 'outfit') then
         shopItems = {}
+        -- OUTFIT MAP GENERATOR
+        if #Romero_outfits == 0 or Romero_outfits == nil then
+            Romero_outfits = {}
+            for i, outfit in pairs(GameConfig.Outfits) do
+                if outfit.sex == 0 then
+                    Romero_outfits[#Romero_outfits + 1] = {
+                        showedAsItem = 2595,
+                        name = outfit.name,
+                        looktype = { outfit.id, GameConfig.Outfits[i + 55].id },
+                        maxAddon = 3,
+                        isPremium = outfit.premium,
+                        requirements = {
+                            {2160, 10} -- crystal coin x10
+                        }    
+                    }    
+                end
+            end
+        end
         for i, outfit in pairs(Romero_outfits) do
             if outfit.isPremium == 1 and isPlayerPremium or outfit.isPremium == 0 then
-                shopItems[#shopItems + 1] = {
-                    id = outfit.showedAsItem, 
-                    buy = 10000 * outfit.requirements[1][2], 
-                    sell = 0, 
-                    subType = 0, 
-                    specialId = #shopItems + 1,
-                    name = outfit.name,
-                    funcShop = 1
-                }
+                if canPlayerWearOutfit(cid, outfitId, 3) then
+                    shopItems[#shopItems + 1] = {
+                        id = outfit.showedAsItem, 
+                        buy = 10000 * outfit.requirements[1][2], 
+                        sell = 0, 
+                        subType = 0, 
+                        specialId = #shopItems + 1,
+                        name = outfit.name,
+                        funcShop = 1
+                    }
+                end
             end
         end
         local onBuy = function(cid, item, subType, amount, ignoreCap, inBackpacks, specialId)
@@ -99,6 +85,24 @@ function creatureSayCallback(cid, type, msg)
     end
     -- [ MOUNTS ] 
     if msgcontains(msg, 'mounts') or msgcontains(msg, 'mount') then
+        -- MOUNT MAP GENERATOR
+        if #Romero_mounts == 0 or Romero_mounts == nil then
+            Romero_mounts = {}
+            for i, mount in pairs(GameConfig.Mounts) do
+                if not mount.premium then
+                    Romero_mounts[#Romero_mounts + 1] = {
+                        showedAsItem = 2595,
+                        name = mount.name,
+                        mountId = mount.id,
+                        isPremium = mount.premium,
+                        speedBonus = mount.speed,
+                        requirements = {
+                            {2160, 10} -- crystal coin x10
+                        }
+                    }
+                end
+            end
+        end
         shopItems = {}
         for i, mount in pairs(Romero_mounts) do
             if mount.isPremium == 1 and isPlayerPremium or mount.isPremium == 0 then
