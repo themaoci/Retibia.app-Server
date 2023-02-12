@@ -1,9 +1,10 @@
 local OPCODE_LANGUAGE = 1
 
 function onExtendedOpcode(player, opcode, buffer)
-  print("Called:" .. tostring(opcode))
 	if opcode == OPCODE_LANGUAGE then
 		-- otclient language
+		print("opcode: " .. tostring(opcode))
+		print("buffer: " .. tostring(buffer))
 		if buffer == 'en' or buffer == 'pt' then
 			-- example, setting player language, because otclient is multi-language...
 			-- player:setStorageValue(SOME_STORAGE_ID, SOME_VALUE)
