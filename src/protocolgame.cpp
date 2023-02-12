@@ -4957,10 +4957,8 @@ void ProtocolGame::sendOutfitWindow()
 
 	Outfit_t currentOutfit = player->getDefaultOutfit();
 	#if GAME_FEATURE_MOUNTS > 0
-	bool mounted = false;
 	Mount* currentMount = g_game.mounts.getMountByID(player->getCurrentMount());
 	if (currentMount) {
-		mounted = (currentOutfit.lookMount == currentMount->clientId);
 		currentOutfit.lookMount = currentMount->clientId;
 	}
 	#endif
@@ -5103,7 +5101,11 @@ void ProtocolGame::sendOutfitWindow()
 	
 	#if GAME_FEATURE_OUTFITS_TYPE > 0
 	playermsg.addByte(0x00);//Try outfit
-	playermsg.addByte(mounted ? 0x01 : 0x00);
+	#if GAME_FEATURE_MOUNTS > 0
+		playermsg.addByte((currentOutfit.lookMount == currentMount->clientId) ? 0x01 : 0x00);
+	#else
+		playermsg.addByte(0x00);
+	#endif
 	#endif
 	#else
 	#if GAME_FEATURE_LOOKTYPE_U16 > 0
