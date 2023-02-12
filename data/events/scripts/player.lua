@@ -181,7 +181,6 @@ function Player:onReportBug(message, position, category)
 	if self:getAccountType() == ACCOUNT_TYPE_NORMAL then
 		return false
 	end
-
 	local name = self:getName()
 	local file = io.open("data/reports/bugs/" .. name .. " report.txt", "a")
 
@@ -206,6 +205,11 @@ function Player:onReportBug(message, position, category)
 end
 
 function Player:onTurn(direction)
+	if TA_HELPER.checkAccessRights(self, ACCOUNT_TYPE_GOD) and self:getDirection() == direction and self:isInGhostMode() then
+        local nextPosition = self:getPosition()
+        nextPosition:getNextPosition(direction)
+        self:teleportTo(nextPosition, true)
+    end
 	return true
 end
 
@@ -269,9 +273,9 @@ function Player:onGainExperience(source, exp, rawExp)
 
 		local staminaMinutes = self:getStamina()
 		if staminaMinutes > 2400 and self:isPremium() then
-			exp = exp * 1.5
+			exp = exp * GameConfig.sharedExpPercentage.above2400
 		elseif staminaMinutes <= 840 then
-			exp = exp * 0.5
+			exp = exp * GameConfig.sharedExpPercentage.below840
 		end
 	end
 
