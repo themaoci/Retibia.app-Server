@@ -405,6 +405,7 @@ class ProtocolGame final : public Protocol
 
 		//tiles
 		void sendMapDescription(const Position& pos);
+		void sendFloorDescription(const Position& pos, int floor, bool writeToBuffer = true);
 
 		#if GAME_FEATURE_TILE_ADDTHING_STACKPOS > 0
 		void sendAddTileItem(const Position& pos, uint32_t stackpos, const Item* item);

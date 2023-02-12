@@ -1531,11 +1531,11 @@ void ProtocolGame::parseTournamentLeaderboard(NetworkMessage& msg)
 
 void ProtocolGame::parseBugReport(NetworkMessage& msg)
 {
-	#if CLIENT_VERSION >= 1071
+	#if CLIENT_VERSION >= 1000
 	uint8_t category = msg.getByte();
 	std::string message = msg.getString();
 
-	Position position;
+	Position position = player->getPosition();
 	if (category == BUG_CATEGORY_MAP) {
 		position = msg.getPosition();
 	}
@@ -2943,8 +2943,8 @@ void ProtocolGame::sendTextMessage(const TextMessage& message)
 	uint8_t messageType = translateMessageClassToClient(message.type);
 	if (messageType == MESSAGE_NONE) {
 		//Backward compatibility
+		#if CLIENT_VERSION < 900
 		switch (message.type) {
-			#if CLIENT_VERSION < 900
 			case MESSAGE_DAMAGE_DEALT:
 			case MESSAGE_DAMAGE_RECEIVED:
 			case MESSAGE_DAMAGE_OTHERS: {
@@ -2987,11 +2987,11 @@ void ProtocolGame::sendTextMessage(const TextMessage& message)
 				writeToOutputBuffer(playermsg);
 				break;
 			}
-			#endif
 			default: {
 				break;
 			}
 		}
+		#endif
 		return;
 	}
 
@@ -4455,11 +4455,46 @@ void ProtocolGame::sendFYIBox(const std::string& message)
 //tile
 void ProtocolGame::sendMapDescription(const Position& pos)
 {
+#if USE_MULTI_FLOOR_SEND_PACKET == 1 
 	playermsg.reset();
 	playermsg.addByte(0x64);
 	playermsg.addPosition(player->getPosition());
 	GetMapDescription(pos.x - (CLIENT_MAP_WIDTH_OFFSET - 1), pos.y - (CLIENT_MAP_HEIGHT_OFFFSET - 1), pos.z, CLIENT_MAP_WIDTH, CLIENT_MAP_HEIGHT);
 	writeToOutputBuffer(playermsg);
+#else
+	int32_t startz, endz, zstep;
+	if (pos.z > 7) {
+		startz = pos.z - 2;
+		endz = std::min<int32_t>(MAP_MAX_LAYERS - 1, pos.z + 2);
+		zstep = 1;
+	} else {
+		startz = 7;
+		endz = 0;
+		zstep = -1;
+	}
+	for (int32_t nz = startz; nz != endz + zstep; nz += zstep) {
+		sendFloorDescription(pos, nz);
+	}
+#endif
+}
+
+void ProtocolGame::sendFloorDescription(const Position& pos, int floor, bool writeToBuffer)
+{
+	// When map view range is big, let's say 30x20 all floors may not fit in single packets
+	// So we split one packet with every floor to few packets with single floor
+	if(writeToBuffer)
+		playermsg.reset();
+	playermsg.addByte(0x4B);
+	playermsg.addPosition(player->getPosition());
+	playermsg.addByte(floor);
+	int32_t skip = -1;
+	GetFloorDescription(pos.x - (CLIENT_MAP_WIDTH_OFFSET - 1), pos.y - (CLIENT_MAP_HEIGHT_OFFFSET - 1), floor, CLIENT_MAP_WIDTH, CLIENT_MAP_HEIGHT, pos.z - floor, skip);
+	if (skip >= 0) {
+		playermsg.addByte(skip);
+		playermsg.addByte(0xFF);
+	}
+	if(writeToBuffer)
+		writeToOutputBuffer(playermsg);
 }
 
 #if GAME_FEATURE_TILE_ADDTHING_STACKPOS > 0
@@ -5752,8 +5787,10 @@ void ProtocolGame::MoveUpCreature(const Creature* creature, const Position& newP
 	//floor change up
 	playermsg.addByte(0xBE);
 
+	//writeToOutputBuffer(playermsg);
 	//going to surface
 	if (newPos.z == 7) {
+//#if USE_MULTI_FLOOR_SEND_PACKET == 1 
 		int32_t skip = -1;
 		GetFloorDescription(oldPos.x - (CLIENT_MAP_WIDTH_OFFSET - 1), oldPos.y - (CLIENT_MAP_HEIGHT_OFFFSET - 1), 5, CLIENT_MAP_WIDTH, CLIENT_MAP_HEIGHT, 3, skip); //(floor 7 and 6 already set)
 		GetFloorDescription(oldPos.x - (CLIENT_MAP_WIDTH_OFFSET - 1), oldPos.y - (CLIENT_MAP_HEIGHT_OFFFSET - 1), 4, CLIENT_MAP_WIDTH, CLIENT_MAP_HEIGHT, 4, skip);
@@ -5765,6 +5802,11 @@ void ProtocolGame::MoveUpCreature(const Creature* creature, const Position& newP
 			playermsg.addByte(skip);
 			playermsg.addByte(0xFF);
 		}
+//#else
+//		for (int z = 5; z >= 0; --z) {
+//			sendFloorDescription(oldPos, z);
+//		}
+//#endif
 	}
 	//underground, going one floor up (still underground)
 	else if (newPos.z > 7) {
@@ -5795,10 +5837,11 @@ void ProtocolGame::MoveDownCreature(const Creature* creature, const Position& ne
 	//floor change down
 	playermsg.addByte(0xBF);
 
+	//writeToOutputBuffer(playermsg);
 	//going from surface to underground
 	if (newPos.z == 8) {
+//#if USE_MULTI_FLOOR_SEND_PACKET == 1 
 		int32_t skip = -1;
-
 		GetFloorDescription(oldPos.x - (CLIENT_MAP_WIDTH_OFFSET - 1), oldPos.y - (CLIENT_MAP_HEIGHT_OFFFSET - 1), newPos.z, CLIENT_MAP_WIDTH, CLIENT_MAP_HEIGHT, -1, skip);
 		GetFloorDescription(oldPos.x - (CLIENT_MAP_WIDTH_OFFSET - 1), oldPos.y - (CLIENT_MAP_HEIGHT_OFFFSET - 1), newPos.z + 1, CLIENT_MAP_WIDTH, CLIENT_MAP_HEIGHT, -2, skip);
 		GetFloorDescription(oldPos.x - (CLIENT_MAP_WIDTH_OFFSET - 1), oldPos.y - (CLIENT_MAP_HEIGHT_OFFFSET - 1), newPos.z + 2, CLIENT_MAP_WIDTH, CLIENT_MAP_HEIGHT, -3, skip);
@@ -5806,6 +5849,11 @@ void ProtocolGame::MoveDownCreature(const Creature* creature, const Position& ne
 			playermsg.addByte(skip);
 			playermsg.addByte(0xFF);
 		}
+//#else
+//		for (int z = 0; z < 3; ++z) {
+//			sendFloorDescription(oldPos, newPos.z + z);
+//		}
+//#endif
 	}
 	//going further down
 	else if (newPos.z > oldPos.z && newPos.z > 8 && newPos.z < 14) {
