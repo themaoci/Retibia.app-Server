@@ -1,16 +1,16 @@
 local god_outfit = TalkAction("/outfit")
 
-Helpers.registeredTalkActions["Add Outfit"] = {
+TA_HELPER.registeredTalkActions["Add Outfit"] = {
 	commandExamples = {"/outfir typeId"},
 	otherInfo = "Adds an outfit to your player character",
 	limitation = "God and above"
 }
 
 function god_outfit.onSay(player, words, param)
-	if not Helpers.checkAccessRights(player, ACCOUNT_TYPE_GOD) then
+	if not TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GOD) then
 		return true
 	end
-  	Helpers.logCommand(player, words, param)
+  	TA_HELPER.logCommand(player, words, param)
 
 	local params = param.split(param, ",")
 	local playerSex = player:getSex()

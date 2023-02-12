@@ -1,16 +1,16 @@
 local god_mccheck = TalkAction("/mc", "/mccheck")
 
-Helpers.registeredTalkActions["Multi Account Check"] = {
+TA_HELPER.registeredTalkActions["Multi Account Check"] = {
 	commandExamples = {"/mc", "/mccheck"},
 	otherInfo = "Shows every multi account player in server that is online",
 	limitation = "Game Master and above"
 }
 
 function god_mccheck.onSay(player, words, param)
-	if not Helpers.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
+	if not TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
 		return true
 	end
-  	Helpers.logCommand(player, words, param)
+  	TA_HELPER.logCommand(player, words, param)
 	player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "Multiclient Check List:")
 
 	local ipList = {}

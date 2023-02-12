@@ -1,15 +1,15 @@
 local god_info = TalkAction("/check")
 
-Helpers.registeredTalkActions["Player Information Check"] = {
+TA_HELPER.registeredTalkActions["Player Information Check"] = {
 	commandExamples = {"/check nickname"},
 	otherInfo = "Allows to check player information also if he's using multiaccounts",
 	limitation = "Game Master and above"
 }
 function god_info.onSay(player, words, param)
-	if not Helpers.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
+	if not TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
 		return true
 	end
-  	Helpers.logCommand(player, words, param)
+  	TA_HELPER.logCommand(player, words, param)
 
 	local target = Player(param)
 	if not target then

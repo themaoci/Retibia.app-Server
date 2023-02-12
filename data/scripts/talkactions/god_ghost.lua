@@ -1,16 +1,16 @@
 local god_ghost = TalkAction("/ghost")
 
-Helpers.registeredTalkActions["Ghost"] = {
+TA_HELPER.registeredTalkActions["Ghost"] = {
 	commandExamples = {"/ghost"},
 	otherInfo = "Makes you completly invisible to anything also allows to move through colliders when hold CTRL (change direction)\nIt's a switch command next usage will make you visible.",
 	limitation = "God and above"}
 
 function god_ghost.onSay(player, words, param)
-	if not Helpers.checkAccessRights(player, ACCOUNT_TYPE_GOD) then
+	if not TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GOD) then
 		return true
 	end
 
-  	Helpers.logCommand(player, words, param)
+  	TA_HELPER.logCommand(player, words, param)
 
 	local position = player:getPosition()
 	local isGhost = not player:isInGhostMode()

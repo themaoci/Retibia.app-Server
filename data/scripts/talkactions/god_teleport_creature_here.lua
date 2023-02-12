@@ -1,16 +1,16 @@
 local god_teleport_creature_here = TalkAction("/c")
 
-Helpers.registeredTalkActions["Teleport To Closest Creature"] = {
+TA_HELPER.registeredTalkActions["Teleport To Closest Creature"] = {
 	commandExamples = {"/c name"},
 	otherInfo = "Teleport to closest Creature by its name | player's, monster's, npc's included",
 	limitation = "God and above"
 }
 
 function god_teleport_creature_here.onSay(player, words, param)
-	if not Helpers.checkAccessRights(player, ACCOUNT_TYPE_GOD) then
+	if not TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GOD) then
 		return true
 	end
-  	Helpers.logCommand(player, words, param)
+  	TA_HELPER.logCommand(player, words, param)
 
 	local creature = Creature(param)
 	if not creature then

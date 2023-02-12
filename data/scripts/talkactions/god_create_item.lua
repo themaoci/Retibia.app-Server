@@ -1,7 +1,7 @@
 local god_create_item = TalkAction("/i", "/additem", "/addItem", "/itemAdd", "/itemadd", "/item+")
 
 
-Helpers.registeredTalkActions["Add Item"] = {
+TA_HELPER.registeredTalkActions["Add Item"] = {
 	commandExamples = {
 		"/i itemId,amount"
 	},
@@ -10,7 +10,7 @@ Helpers.registeredTalkActions["Add Item"] = {
 }
 function god_create_item.onSay(player, words, param)
 
-	if not Helpers.checkAccessRights(player, ACCOUNT_TYPE_GOD) then
+	if not TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GOD) then
 		return true
 	end
 
@@ -64,7 +64,7 @@ function god_create_item.onSay(player, words, param)
 	end
 	local itemName = itemType:getName() or "undefined"
 	local playerName = player:getName() or "undefined"
-	Helpers.logCommand(player, words, param)
+	TA_HELPER.logCommand(player, words, param)
 	DiscordHelper.sendMessage("Item " .. itemName .. " [" .. itemName .. "] x" .. count .. " by '" .. playerName .. "'", DiscordHelper.channelTypes.ADM_INFO)
 	return false
 end

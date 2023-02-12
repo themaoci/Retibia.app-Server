@@ -1,16 +1,16 @@
 local god_teleport_ntiles = TalkAction("/a")
 
-Helpers.registeredTalkActions["Teleport Infront"] = {
+TA_HELPER.registeredTalkActions["Teleport Infront"] = {
 	commandExamples = {"/a tile_number"},
 	otherInfo = "Teleport infront by tile number specified",
 	limitation = "Game Master and above"
 }
 
 function god_teleport_ntiles.onSay(player, words, param)
-	if not Helpers.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
+	if not TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
 		return true
 	end
-  	Helpers.logCommand(player, words, param)
+  	TA_HELPER.logCommand(player, words, param)
 
 	local steps = tonumber(param)
 	if not steps then

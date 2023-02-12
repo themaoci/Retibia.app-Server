@@ -1,16 +1,16 @@
 local god_ban = TalkAction("/ban")
 
-Helpers.registeredTalkActions["Player Ban"] = {
+TA_HELPER.registeredTalkActions["Player Ban"] = {
 	commandExamples = {"/ban name days reason", "/ban name days reason"},
 	otherInfo = "999 days = 15 years ban",
 	limitation = "Game Master and above"
 }
 
 function god_ban.onSay(player, words, param)
-	if not Helpers.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
+	if not TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
 		return true
 	end  
-  	Helpers.logCommand(player, words, param)
+  	TA_HELPER.logCommand(player, words, param)
   
 	local name = param
 	local reason = ''

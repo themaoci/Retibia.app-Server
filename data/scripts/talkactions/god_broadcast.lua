@@ -1,20 +1,20 @@
 local god_broadcast = TalkAction("/B", "/broadcast")
 
-Helpers.registeredTalkActions["Broadcast Message"] = {
+TA_HELPER.registeredTalkActions["Broadcast Message"] = {
 	commandExamples = {"/B message", "/broadcast message"},
 	otherInfo = "No restriction on characters in message.",
 	limitation = "Gamemaster and above + Can Broadcast flag"
 }
 
 function god_broadcast.onSay(player, words, param)
-	if Helpers.checkIfFlagNotFound(player, PlayerFlag_CanBroadcast) then
+	if TA_HELPER.checkIfFlagNotFound(player, PlayerFlag_CanBroadcast) then
 		return true
 	end	
-	if not Helpers.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
+	if not TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
 		return true
 	end
 
-  	Helpers.logCommand(player, words, param)
+  	TA_HELPER.logCommand(player, words, param)
 	print("> " .. player:getName() .. " broadcasted: \"" .. param .. "\".")
 	DiscordHelper.sendMessage("**" .. param .. "**", Discord.channelTypes.BROADCAST)
 	Game.broadcastMessage(param, TALKTYPE_BROADCAST)

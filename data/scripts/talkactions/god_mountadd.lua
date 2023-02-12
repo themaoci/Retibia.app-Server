@@ -1,16 +1,16 @@
 local god_mount = TalkAction("/addmount")
 
-Helpers.registeredTalkActions["Add Mount"] = {
+TA_HELPER.registeredTalkActions["Add Mount"] = {
 	commandExamples = {"/addmount typeId"},
 	otherInfo = "Adds a mount to your player character",
 	limitation = "God and above"
 }
 
 function god_mount.onSay(player, words, param)
-	if not Helpers.checkAccessRights(player, ACCOUNT_TYPE_GOD) then
+	if not TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GOD) then
 		return true
 	end
-  	Helpers.logCommand(player, words, param)
+  	TA_HELPER.logCommand(player, words, param)
 	local params = param.split(param, ",")
 	if params[1] == "add" then
 		local outfitName = params[3]

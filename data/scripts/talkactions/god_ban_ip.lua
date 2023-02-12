@@ -1,15 +1,15 @@
 local god_ban_ip = TalkAction("/banip", "/banIp")
 
-Helpers.registeredTalkActions["Player Ban IP"] = {
+TA_HELPER.registeredTalkActions["Player Ban IP"] = {
 	commandExamples = {"/banip name days", "/banIp name days"},
 	otherInfo = "999 days = 15 years ban",
 	limitation = "Game Master and above"
 }
 function god_ban_ip.onSay(player, words, param)
-	if not Helpers.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
+	if not TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
 		return true
 	end
-    Helpers.logCommand(player, words, param)
+    TA_HELPER.logCommand(player, words, param)
 
 	local name = param
 	local days = 60

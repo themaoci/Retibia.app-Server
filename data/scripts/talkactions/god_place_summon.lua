@@ -1,16 +1,16 @@
 local god_place_summon = TalkAction("/ps", "/summon")
 
-Helpers.registeredTalkActions["Spawn Summon"] = {
+TA_HELPER.registeredTalkActions["Spawn Summon"] = {
 	commandExamples = {"/ps monster_name", "/summon monster_name"},
 	otherInfo = "Spawn a Summoned monster in front of you and make you its master",
 	limitation = "God and above"
 }
 
 function god_place_summon.onSay(player, words, param)
-	if not Helpers.checkAccessRights(player, ACCOUNT_TYPE_GOD) then
+	if not TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GOD) then
 		return true
 	end
-  	Helpers.logCommand(player, words, param)
+  	TA_HELPER.logCommand(player, words, param)
 
 	local position = player:getPosition()
 	local monster = Game.createMonster(param, position)

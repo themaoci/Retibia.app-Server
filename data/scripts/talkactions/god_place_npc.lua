@@ -1,16 +1,16 @@
 local god_place_npc = TalkAction("/pn", "/s")
 
-Helpers.registeredTalkActions["Spawn NPC"] = {
+TA_HELPER.registeredTalkActions["Spawn NPC"] = {
 	commandExamples = {"/pn npc_name", "/s npc_name"},
 	otherInfo = "Spawn an NPC by its name in front of you",
 	limitation = "God and above"
 }
 
 function god_place_npc.onSay(player, words, param)
-	if not Helpers.checkAccessRights(player, ACCOUNT_TYPE_GOD) then
+	if not TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GOD) then
 		return true
 	end
-  	Helpers.logCommand(player, words, param)
+  	TA_HELPER.logCommand(player, words, param)
 
 	local position = player:getPosition()
 	local npc = Game.createNpc(param, position)

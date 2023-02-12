@@ -1,15 +1,15 @@
 local god_down = TalkAction("/down")
 
-Helpers.registeredTalkActions["Teleport Floor Down"] = {
+TA_HELPER.registeredTalkActions["Teleport Floor Down"] = {
 	commandExamples = {"/down"},
 	otherInfo = "",
 	limitation = "GameMaster and above"
 }
 function god_down.onSay(player, words, param)
-	if not Helpers.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
+	if not TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
 		return true
 	end
-  	Helpers.logCommand(player, words, param)
+  	TA_HELPER.logCommand(player, words, param)
 
 	local position = player:getPosition()
 	position.z = position.z + 1

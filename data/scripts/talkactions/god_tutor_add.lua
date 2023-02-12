@@ -1,16 +1,16 @@
 local god_tutor_add = TalkAction("/tutor+", "/tutoradd")
 
-Helpers.registeredTalkActions["Add Tutor Group To Player"] = {
+TA_HELPER.registeredTalkActions["Add Tutor Group To Player"] = {
 	commandExamples = {"/tutor+ name", "/tutoradd name"},
 	otherInfo = "Adds a Player a group of a Tutor",
 	limitation = "Game Master and above"
 }
 
 function god_tutor_add.onSay(player, words, param)
-	if not Helpers.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
+	if not TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
 		return true
 	end
-  	Helpers.logCommand(player, words, param)
+  	TA_HELPER.logCommand(player, words, param)
 
 	local target = Player(param)
 	if target == nil then

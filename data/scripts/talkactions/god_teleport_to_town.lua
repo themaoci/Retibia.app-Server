@@ -1,16 +1,24 @@
 local god_teleport_to_town = TalkAction("/town")
 
-Helpers.registeredTalkActions["Teleport To Town"] = {
+TA_HELPER.registeredTalkActions["Teleport To Town"] = {
 	commandExamples = {"/town name", "/town id"},
 	otherInfo = "Teleport to town specified can be name or id",
 	limitation = "Game Master and above"
 }
 
 function god_teleport_to_town.onSay(player, words, param)
-	if not Helpers.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
+	if not TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
 		return true
 	end
-  	Helpers.logCommand(player, words, param)
+
+	if param == "help" then
+		for i, town in ipairs(Game.getTowns()) do
+			local position = town:getTemplePosition()
+			player:sendTextMessage(MESSAGE_INFO_DESCR, town:getId() .. " -> " .. db.escapeString(town:getName()) .. " || Where you will be teleported to: X:" .. position.x .. ", Y:" .. position.y .. ", Z:" .. position.z)
+		end
+	end
+
+  	TA_HELPER.logCommand(player, words, param)
 
 	local town = Town(param)
 	if town == nil then

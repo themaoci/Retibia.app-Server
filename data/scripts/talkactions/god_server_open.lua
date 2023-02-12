@@ -1,16 +1,16 @@
 local god_server_open = TalkAction("/serveropen", "/server+")
 
-Helpers.registeredTalkActions["Open Server"] = {
+TA_HELPER.registeredTalkActions["Open Server"] = {
 	commandExamples = {"/serveropen", "/server+"},
 	otherInfo = "Open server for everyone",
 	limitation = "God and above"
 }
 
 function god_server_open.onSay(player, words, param)
-	if not Helpers.checkAccessRights(player, ACCOUNT_TYPE_GOD) then
+	if not TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GOD) then
 		return true
 	end
-  	Helpers.logCommand(player, words, param)
+  	TA_HELPER.logCommand(player, words, param)
 
 	Game.setGameState(GAME_STATE_NORMAL)
 	DiscordHelper.sendMessage(

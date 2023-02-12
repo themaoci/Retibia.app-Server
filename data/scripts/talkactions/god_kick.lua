@@ -1,16 +1,16 @@
 local god_kick = TalkAction("/kick")
 
-Helpers.registeredTalkActions["Player Kick"] = {
+TA_HELPER.registeredTalkActions["Player Kick"] = {
 	commandExamples = {"/kick nickname"},
 	otherInfo = "Kicks player out of the server",
 	limitation = "Game Master and above"
 }
 
 function god_kick.onSay(player, words, param)
-	if not Helpers.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
+	if not TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER) then
 		return true
 	end
-  	Helpers.logCommand(player, words, param)
+  	TA_HELPER.logCommand(player, words, param)
 
 	local target = Player(param)
 	if target == nil then

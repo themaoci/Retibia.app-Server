@@ -1,16 +1,16 @@
 local god_place_monster = TalkAction("/pm", "/m")
 
-Helpers.registeredTalkActions["Spawn Monster"] = {
+TA_HELPER.registeredTalkActions["Spawn Monster"] = {
 	commandExamples = {"/pm monster_name", "/m monster_name"},
 	otherInfo = "Spawns monster in front of you",
 	limitation = "God and above"
 }
 
 function god_place_monster.onSay(player, words, param)
-	if not Helpers.checkAccessRights(player, ACCOUNT_TYPE_GOD) then
+	if not TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GOD) then
 		return true
 	end
-  	Helpers.logCommand(player, words, param)
+  	TA_HELPER.logCommand(player, words, param)
 	local position = player:getPosition()
 	local monster = Game.createMonster(param, position)
 	if monster ~= nil then
