@@ -76,12 +76,12 @@ class Spells final : public BaseEvents
 		bool registerInstantLuaEvent(InstantSpell* event);
 		bool registerRuneLuaEvent(RuneSpell* event);
 
+		std::map<uint16_t, RuneSpell> runes;
 	private:
 		LuaScriptInterface& getScriptInterface() override;
 		Event_ptr getEvent(const std::string& nodeName) override;
 		bool registerEvent(Event_ptr event, const pugi::xml_node& node) override;
 
-		std::map<uint16_t, RuneSpell> runes;
 		#if GAME_FEATURE_ROBINHOOD_HASH_MAP > 0
 		robin_hood::unordered_map<std::string, InstantSpell_ptr> instants;
 		#else

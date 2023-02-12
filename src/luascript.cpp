@@ -1427,6 +1427,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(ACCOUNT_TYPE_TUTOR)
 	registerEnum(ACCOUNT_TYPE_SENIORTUTOR)
 	registerEnum(ACCOUNT_TYPE_GAMEMASTER)
+	registerEnum(ACCOUNT_TYPE_COMMUNITYMANAGER)
 	registerEnum(ACCOUNT_TYPE_GOD)
 
 	registerEnum(BUG_CATEGORY_MAP)
@@ -2385,6 +2386,12 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Game", "getClientVersion", LuaScriptInterface::luaGameGetClientVersion);
 
 	registerMethod("Game", "reload", LuaScriptInterface::luaGameReload);
+
+	//New Game functions (mostly helpers)
+	registerMethod("Game", "getAllInstants", LuaScriptInterface::luaGameGetAllSpells);
+	registerMethod("Game", "getAllRunes", LuaScriptInterface::luaGameGetAllRunes);
+	registerMethod("Game", "getAllOutfits", LuaScriptInterface::luaGameGetAllOutfits);
+	registerMethod("Game", "getAllMounts", LuaScriptInterface::luaGameGetAllMounts);
 
 	// Variant
 	registerClass("Variant", "", LuaScriptInterface::luaVariantCreate);
@@ -5027,6 +5034,100 @@ int LuaScriptInterface::luaGameReload(lua_State* L)
 		pushBoolean(L, g_game.reload(reloadType));
 	}
 	lua_gc(g_luaEnvironment.getLuaState(), LUA_GCCOLLECT, 0);
+	return 1;
+}
+
+// New Game functions (mostly helpers)
+int LuaScriptInterface::luaGameGetAllSpells(lua_State* L)
+{
+	int index = 0;
+	std::vector<const InstantSpell*> spells;
+	for (auto& spell : g_spells->getInstantSpells()) {
+		spells.push_back(spell.second.get());
+	}
+	lua_createtable(L, spells.size(), 0);
+	for (auto& spell : spells) {
+		lua_createtable(L, 0, 5);
+		const auto data = spell;
+		setField(L, "id", data->getId());
+		setField(L, "name", data->getName());
+		setField(L, "words", data->getWords());
+		setField(L, "isLearnable", data->isLearnable());
+		setField(L, "isPremium", data->isPremium());
+
+		lua_rawseti(L, -2, ++index);
+	}
+	return 1;
+}
+int LuaScriptInterface::luaGameGetAllRunes(lua_State* L)
+{
+	const auto spells = g_spells->runes;
+	lua_createtable(L, spells.size(), 0);
+	int index = 0;
+	for (auto const& [key, val] : spells)
+	{
+		lua_createtable(L, 0, 5);
+
+		setField(L, "id", (int)key);
+		setField(L, "name", val.getName());
+		setField(L, "words", "");
+		setField(L, "isLearnable", val.isLearnable());
+		setField(L, "isPremium", val.isPremium());
+
+		lua_rawseti(L, -2, ++index);
+	}
+	return 1;
+}
+int LuaScriptInterface::luaGameGetAllOutfits(lua_State* L)
+{
+	const auto outfitsFema = Outfits::getInstance().getOutfits(static_cast<PlayerSex_t>(0));
+	const auto outfitsMale = Outfits::getInstance().getOutfits(static_cast<PlayerSex_t>(1));
+
+	lua_createtable(L, outfitsFema.size() + outfitsMale.size(), 0);
+
+	int index = 0;
+	for (const auto& lootBlock : outfitsFema) {
+		lua_createtable(L, 0, 5);
+
+		setField(L, "id", lootBlock.lookType);
+		setField(L, "name", lootBlock.name);
+		setField(L, "sex", 0);
+		setField(L, "defaultUnlocked", lootBlock.unlocked);
+		setField(L, "premium", (lootBlock.premium) ? 1 : 0);
+
+		lua_rawseti(L, -2, ++index);
+	}
+	for (const auto& lootBlock : outfitsMale) {
+		lua_createtable(L, 0, 5);
+
+		setField(L, "id", lootBlock.lookType);
+		setField(L, "name", lootBlock.name);
+		setField(L, "sex", 1);
+		setField(L, "defaultUnlocked", (lootBlock.unlocked) ? 1 : 0);
+		setField(L, "premium", (lootBlock.premium) ? 1 : 0);
+
+		lua_rawseti(L, -2, ++index);
+	}
+	return 1;
+}
+int LuaScriptInterface::luaGameGetAllMounts(lua_State* L)
+{
+	const auto mounts = g_game.mounts.getMounts();
+	lua_createtable(L, mounts.size(), 0);
+
+	int index = 0;
+	for (const auto& mount : mounts) {
+		lua_createtable(L, 0, 5);
+
+		setField(L, "clientId", mount.clientId);
+		setField(L, "id", mount.id);
+		setField(L, "name", mount.name);
+		setField(L, "premium", (mount.premium) ? 1 : 0);
+		setField(L, "speed", mount.speed);
+
+		lua_rawseti(L, -2, ++index);
+	}
+
 	return 1;
 }
 

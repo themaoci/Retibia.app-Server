@@ -576,6 +576,12 @@ class LuaScriptInterface
 
 		static int luaGameReload(lua_State* L);
 
+		// New Game functions (mostly helpers)
+		static int luaGameGetAllSpells(lua_State* L);
+		static int luaGameGetAllRunes(lua_State* L);
+		static int luaGameGetAllOutfits(lua_State* L);
+		static int luaGameGetAllMounts(lua_State* L);
+
 		// Variant
 		static int luaVariantCreate(lua_State* L);
 
