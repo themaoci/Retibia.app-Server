@@ -5,7 +5,10 @@ GameConfig = {
     ['Instant'] = nil,
     ['Rune'] = nil
   },
-  ['sharedExpPercentage'] = 1.2,
+  ['sharedExpPercentage'] = { 
+    ['above2400'] = 1.5, 
+    ['below840'] = 0.5 
+  },
   ['autoGhostStaffMembers'] = true,
   ["God"] = {
     ['WelcomeMessageEnabled'] = false,
