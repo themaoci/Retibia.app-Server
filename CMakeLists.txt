@@ -8,8 +8,8 @@ project(tfs)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 include(cotire)
-
-add_compile_options(-Wall -Werror -pipe -march=native -fvisibility=hidden)
+#  -Werror // warnings treated as errors
+add_compile_options(-Wall -pipe -march=native -fvisibility=hidden)
 
 set(CMAKE_CXX_FLAGS_DEFAULT "-O2 -g")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
