@@ -110,7 +110,10 @@ function IRoom:destroy()
                     end
                   end
                 end
-                tile:remove()
+                for i, item in ipairs(tile:getItems()) do
+                    item:remove()
+                end
+                --tile:remove()
             end
             pos:sendMagicEffect(CONST_ME_POFF)
         end
