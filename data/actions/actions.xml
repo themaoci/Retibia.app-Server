@@ -5,4 +5,34 @@
 
 	<!-- Supply Stash -->
 	<action itemid="32450" function="stash" />
+  
+  <!-- New Quests -->
+  
+  <!-- Default New Anihilator -->
+	<action actionid="7600" script="quest/demonAnihilator.lua" />
+	<action actionid="7605" script="quest/demonAnihilatorChests.lua" />
+  <!-- Customizable Anihilator -->
+
+  <!-- Rookgaard -->
+	<action actionid="5640" script="quest/rookgaard/honeyflowerQuest.lua" />
+  
+  <!-- Rook Switches (3100) -->
+	<action actionid="3100" script="switch/rookgaard/rat bridge.lua"/>
+	<action actionid="3101" script="switch/rookgaard/academy switch.lua"/>
+	<action actionid="3106" script="switch/rookgaard/bear room stone.lua" />
+	<action actionid="3107" script="switch/rookgaard/katana door.lua" />
+	<action actionid="3109" script="switch/rookgaard/golden key.lua" />
+	<action actionid="3111" script="switch/rookgaard/minomage door.lua" />
+	<action actionid="3112" script="switch/rookgaard/spike sword door.lua" />
+	<action uniqueid="15068" script="switch/rookgaard/rook-stone-switch.lua" />
+	<action actionid="3200" script="hiddenWall/ghoul_wall_passing.lua" />
+  
+  <!-- Quest's auto item giver, 7000 -->
+	<action actionid="7000" script="quest/rookgaardQuestItems.lua" /> 
+	<action actionid="8000" script="quest/newQuestItems_1.lua" /> 
+  <!-- Action id of quests, id is Uid and start from 1001 -->
+  <!-- 7000 - 7999 Reserved for Quest storages in Rook (All new ids must be registered in the quest file!) -->
+
+	<action fromaid="10110" toaid="10111" script="teleport/flying_ship.lua" />
+  
 </actions>
