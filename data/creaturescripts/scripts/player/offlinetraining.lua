@@ -14,6 +14,7 @@ function onLogin(player)
 		return true
 	end
 
+  -- between 0 seconds and 12 hours 
 	local trainingTime = math.max(0, math.min(offlineTime, math.min(43200, player:getOfflineTrainingTime() / 1000)))
 	player:removeOfflineTrainingTime(trainingTime * 1000)
 
@@ -23,6 +24,7 @@ function onLogin(player)
 	end
 
 	if trainingTime < 60 then
+    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Training time is too short to see any benefits of it.")
 		return true
 	end
 
