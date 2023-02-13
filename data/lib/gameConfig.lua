@@ -1,4 +1,28 @@
 GameConfig = {
+  ['FlyingShip'] = {
+    ['rookgaard'] = Position(339, 390, 4),
+    ['cormaya'] = Position(749, 440, 5),
+  },
+  ['Waypoint'] = {
+    ['Config'] = {
+      ['ObjectActionId'] = 60800,
+      ['PlayerStorageValue'] = 120000,
+      ['TeleportEffectOut'] = CONST_ME_TELEPORT,
+      ['TeleportEffectIn'] = CONST_ME_TELEPORT,
+      ['EnableSavingWaypoints'] = false,
+    },
+    ['Locations'] = {
+      [1000] = { pos = Position(380, 358, 8),   Name = "1. Rookgaard Refugee Town" },
+      [1001] = { pos = Position(657, 240, 11),  Name = "2. Dragon Nest End" },
+      [1002] = { pos = Position(658, 103, 13),  Name = "3. Elder Dragon Hideout" },
+      [1003] = { pos = Position(235, 669, 8),   Name = "4. Mage Outpost" },
+      [1004] = { pos = Position(681, 285, 2),   Name = "5. Tower Outpost" }
+    }
+  },
+  ['StaminaRegen'] = { 
+    ['free'] = 180, 
+    ['premium'] = 600 
+  },
   ['Outfits'] = nil,
   ['Mounts'] = nil,
   ['Spells'] = {
