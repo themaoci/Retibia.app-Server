@@ -25,8 +25,13 @@
 	<action actionid="3111" script="switch/rookgaard/minomage door.lua" />
 	<action actionid="3112" script="switch/rookgaard/spike sword door.lua" />
 	<action uniqueid="15068" script="switch/rookgaard/rook-stone-switch.lua" />
+  <!-- Special wall entrance to ghoul area -->
 	<action actionid="3200" script="hiddenWall/ghoul_wall_passing.lua" />
-  
+
+  <!-- Maze of fury -->
+	<!-- magic wall -->
+	<action actionid="6501" script="hiddenWall/maze_magicWall.lua" />
+
   <!-- Quest's auto item giver, 7000 -->
 	<action actionid="7000" script="quest/rookgaardQuestItems.lua" /> 
 	<action actionid="8000" script="quest/newQuestItems_1.lua" /> 
