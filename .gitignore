@@ -4,3 +4,4 @@
 libs/
 .vs
 Release*/
+config.lua

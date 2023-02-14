@@ -99,7 +99,7 @@ function IRoom:destroy()
             if tile then
                 local thingCount = tile:getThingCount()
                 for index = thingCount, 0, -1 do
-                  if index ~= 1 then
+                  if index ~= 0 then
                     local thing = tile:getThing(index)
                     if thing then
                         if thing:isPlayer() then
@@ -110,10 +110,6 @@ function IRoom:destroy()
                     end
                   end
                 end
-                for i, item in ipairs(tile:getItems()) do
-                    item:remove()
-                end
-                --tile:remove()
             end
             pos:sendMagicEffect(CONST_ME_POFF)
         end
