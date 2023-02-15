@@ -92,7 +92,9 @@ end
 
 function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, toCylinder)
 	-- custom added wrap shit...
-	if item:getAttribute("wrapid") ~= 0 then
+	local warpId = item:getAttribute("wrapid")
+	if warpId ~= 0 and warpId ~= nil then
+		print(item:getAttribute("wrapid"))
 		local tile = Tile(toPosition)
 		if (fromPosition.x ~= CONTAINER_POSITION and toPosition.x ~= CONTAINER_POSITION) or tile and not tile:getHouse() then
 			if tile and not tile:getHouse() then
