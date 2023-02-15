@@ -39,6 +39,7 @@
 #include "globalevent.h"
 #include "script.h"
 #include "weapons.h"
+#include "discord.h"
 
 extern Chat* g_chat;
 extern Game g_game;
@@ -53,6 +54,7 @@ extern MoveEvents* g_moveEvents;
 extern GlobalEvents* g_globalEvents;
 extern Scripts* g_scripts;
 extern Weapons* g_weapons;
+extern Discord g_discord;
 
 ScriptEnvironment::DBResultMap ScriptEnvironment::tempResults;
 uint32_t ScriptEnvironment::lastResultId = 0;
@@ -2351,6 +2353,10 @@ void LuaScriptInterface::registerFunctions()
 	// table
 	registerMethod("table", "create", LuaScriptInterface::luaTableCreate);
 
+	// Discord
+	registerTable("Discord");
+	registerMethod("Discord", "webhook", LuaScriptInterface::luaDiscordWebhook);
+
 	// Game
 	registerTable("Game");
 
@@ -2415,6 +2421,8 @@ void LuaScriptInterface::registerFunctions()
 	// Tile
 	registerClass("Tile", "", LuaScriptInterface::luaTileCreate);
 	registerMetaMethod("Tile", "__eq", LuaScriptInterface::luaUserdataCompare);
+	
+	registerMethod("Tile", "remove", LuaScriptInterface::luaTileRemove);
 
 	registerMethod("Tile", "getPosition", LuaScriptInterface::luaTileGetPosition);
 	registerMethod("Tile", "getGround", LuaScriptInterface::luaTileGetGround);
@@ -4630,6 +4638,18 @@ int LuaScriptInterface::luaTableCreate(lua_State* L)
 	return 1;
 }
 
+//Discord
+
+int LuaScriptInterface::luaDiscordWebhook(lua_State* L)
+{
+	const std::string& webhookUrl = getString(L, 1);
+	const std::string& Text = getString(L, 2);
+
+	g_discord.webhook(webhookUrl, Text);
+
+	return 1;
+}
+
 // Game
 int LuaScriptInterface::luaGameGetSpectators(lua_State* L)
 {
@@ -5355,6 +5375,28 @@ int LuaScriptInterface::luaTileCreate(lua_State* L)
 	return 1;
 }
 
+int LuaScriptInterface::luaTileRemove(lua_State* L)
+{
+	// item:remove([count = -1])
+	//Tile* tile = getUserdata<Tile>(L, 1);
+	//int count = tile->getItemCount();
+	//tile->removeThing
+	//if (item) {
+		//int32_t count = getNumber<int32_t>(L, 2, -1);
+		//pushBoolean(L, g_game.internalremove(item, count) == RETURNVALUE_NOERROR);
+	//} else {
+	//	lua_pushnil(L);
+	//}
+	return 1;
+	// // tile:getPosition()
+	// Tile* tile = getUserdata<Tile>(L, 1);
+	// if (tile) {
+	// 	pushPosition(L, tile->getPosition());
+	// } else {
+	// 	lua_pushnil(L);
+	// }
+	//return 1;
+}
 int LuaScriptInterface::luaTileGetPosition(lua_State* L)
 {
 	// tile:getPosition()

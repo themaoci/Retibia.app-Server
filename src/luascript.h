@@ -542,6 +542,9 @@ class LuaScriptInterface
 		// table
 		static int luaTableCreate(lua_State* L);
 
+		// Discord
+		static int luaDiscordWebhook(lua_State* L);
+
 		// Game
 		static int luaGameGetSpectators(lua_State* L);
 		static int luaGameGetPlayers(lua_State* L);
@@ -604,6 +607,7 @@ class LuaScriptInterface
 		// Tile
 		static int luaTileCreate(lua_State* L);
 
+		static int luaTileRemove(lua_State* L);
 		static int luaTileGetPosition(lua_State* L);
 		static int luaTileGetGround(lua_State* L);
 		static int luaTileGetThing(lua_State* L);

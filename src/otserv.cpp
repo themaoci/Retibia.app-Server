@@ -37,12 +37,14 @@
 #include "databasetasks.h"
 #include "script.h"
 #include <fstream>
+#include "discord.h"
 
 Database g_database;
 DatabaseTasks g_databaseTasks;
 Dispatcher g_dispatcher;
 
 Game g_game;
+Discord g_discord;
 ConfigManager g_config;
 Monsters g_monsters;
 Vocations g_vocations;
