@@ -5501,7 +5501,7 @@ void ProtocolGame::AddCreature(const Creature* creature, bool known, uint32_t re
 	}
 
 	LightInfo lightInfo = creature->getCreatureLight();
-	playermsg.addByte(player->isAccessPlayer() ? 0xFF : lightInfo.level);
+	playermsg.addByte((player->isAccessPlayer() && creature->isInGhostMode()) ? 0xF0 : lightInfo.level);
 	playermsg.addByte(lightInfo.color);
 
 	#if GAME_FEATURE_NEWSPEED_LAW > 0
@@ -5754,7 +5754,7 @@ void ProtocolGame::AddOutfit(const Outfit_t& outfit)
 void ProtocolGame::AddWorldLight(LightInfo lightInfo)
 {
 	playermsg.addByte(0x82);
-	playermsg.addByte((player->isAccessPlayer() ? 0xFF : lightInfo.level));
+	playermsg.addByte((player->isAccessPlayer() && player->isInGhostMode()) ? 0xF0 : lightInfo.level);
 	playermsg.addByte(lightInfo.color);
 }
 
@@ -5764,7 +5764,7 @@ void ProtocolGame::AddCreatureLight(const Creature* creature)
 
 	playermsg.addByte(0x8D);
 	playermsg.add<uint32_t>(creature->getID());
-	playermsg.addByte((player->isAccessPlayer() ? 0xFF : lightInfo.level));
+	playermsg.addByte((player->isAccessPlayer() && creature->isInGhostMode()) ? 0xF0 : lightInfo.level);
 	playermsg.addByte(lightInfo.color);
 }
 
