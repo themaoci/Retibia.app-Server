@@ -11,7 +11,7 @@
 	<channel id="12" name="World Chat" public="1" script="worldchat.lua" />
 	<channel id="13" name="English Chat" public="1" script="englishchat.lua" />
 	<channel hid="advertising" name="Advertising" public="1" script="advertising.lua" />
-	<!-- <channel hid="advertising-rookgaard" name="Advertising-Rookgaard" public="1" script="advertising-rook.lua" /> -->
 	<channel hid="help" name="Help" public="1" script="help.lua" />
 	<channel id="14" name="Gamemaster" script="gamemaster.lua" />
+	<channel id="20" name="Graveyard" script="deathchannel.lua" />
 </channels>
