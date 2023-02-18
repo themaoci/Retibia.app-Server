@@ -17,7 +17,6 @@ DiscordHelper.admInfoChannel = "1022949135449608274/PzK5sXneCWIfjaDQd7-yusVdcD5w
 
 
 DiscordHelper.sendMessage = function(message, type)
-  return false
   -- need to add this to server first...
     if type == 0 then
 		Discord.webhook(
