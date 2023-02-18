@@ -5,3 +5,9 @@ libs/
 .vs
 Release*/
 config.lua
+build
+*.log
+*.sh
+*.service
+tfs
+old_logs
