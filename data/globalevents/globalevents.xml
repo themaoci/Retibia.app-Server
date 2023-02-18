@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <globalevents>
 	<globalevent type="startup" name="ServerStartup" script="startup.lua" />
+	<globalevent type="startup" name="ServerCleanup" script="startup_cleanup.lua" />
 	<globalevent type="record" name="PlayerRecord" script="record.lua" />
 	<globalevent name="Server Save Midnight" time="00:00:00" script="serversave.lua" />
 	<globalevent name="Server Save Afternoon" time="12:00:00" script="serversave.lua" />
