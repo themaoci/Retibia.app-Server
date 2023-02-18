@@ -467,6 +467,22 @@ class Player final : public Creature, public Cylinder
 		uint32_t getMagicLevel() const {
 			return std::max<int32_t>(0, magLevel + varStats[STAT_MAGICPOINTS]);
 		}
+		uint32_t getCqcLevel() const {
+			uint16_t skill_ret = 0; //sword
+			uint16_t skill_temp = getSkillLevel(1); //club
+			if(skill_temp > skill_ret) skill_ret = skill_temp;
+
+			skill_temp = getSkillLevel(2); // sword
+			if(skill_temp > skill_ret) skill_ret = skill_temp;
+
+			skill_temp = getSkillLevel(3); // axe
+			if(skill_temp > skill_ret) skill_ret = skill_temp;
+
+			return skill_ret;
+		}
+		uint32_t getDistanceLevel() const {
+			return getSkillLevel(4);
+		}
 		uint32_t getBaseMagicLevel() const {
 			return magLevel;
 		}

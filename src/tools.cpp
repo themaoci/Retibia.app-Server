@@ -1527,6 +1527,12 @@ const char* getReturnMessage(ReturnValue value)
 		case RETURNVALUE_NOTENOUGHMAGICLEVEL:
 			return "You do not have enough magic level.";
 
+		case RETURNVALUE_NOTENOUGHCQCLEVEL:
+			return "You do not have enough close combat level.";
+
+		case RETURNVALUE_NOTENOUGHDISTANCELEVEL:
+			return "You do not have enough distance combat level.";
+
 		case RETURNVALUE_NOTENOUGHMANA:
 			return "You do not have enough mana.";
 

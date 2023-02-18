@@ -482,8 +482,20 @@ bool Spell::configureSpell(const pugi::xml_node& node)
 		level = pugi::cast<uint32_t>(attr.value());
 	}
 
-	if ((attr = node.attribute("magiclevel")) || (attr = node.attribute("maglv"))) {
+	if ((attr = node.attribute("mlevel")) || (attr = node.attribute("magiclevel")) || (attr = node.attribute("maglv"))) {
 		magLevel = pugi::cast<uint32_t>(attr.value());
+	}
+	if ((attr = node.attribute("clevel")) || (attr = node.attribute("cqclevel"))) {
+		cqcLevel = pugi::cast<uint32_t>(attr.value());
+	}
+	if ((attr = node.attribute("dlevel")) || (attr = node.attribute("distlevel"))) {
+		distLevel = pugi::cast<uint32_t>(attr.value());
+	}
+	if ((attr = node.attribute("onlyOneRequired"))) {
+		onlyOneRequired = pugi::cast<bool>(attr.value());
+	}
+	if ((attr = node.attribute("noLevelCheck"))) {
+		dontCheckLevel = pugi::cast<bool>(attr.value());
 	}
 
 	if ((attr = node.attribute("mana"))) {
@@ -613,16 +625,49 @@ bool Spell::playerSpellCheck(Player* player) const
 		return false;
 	}
 
-	if (player->getLevel() < level) {
+	if (!dontCheckLevel && player->getLevel() < level) {
 		player->sendCancelMessage(RETURNVALUE_NOTENOUGHLEVEL);
 		g_game.addMagicEffect(player->getPosition(), CONST_ME_POFF);
 		return false;
 	}
-
+	uint8_t notFailed = 0;
 	if (player->getMagicLevel() < magLevel) {
 		player->sendCancelMessage(RETURNVALUE_NOTENOUGHMAGICLEVEL);
-		g_game.addMagicEffect(player->getPosition(), CONST_ME_POFF);
-		return false;
+		if(!onlyOneRequired){
+			g_game.addMagicEffect(player->getPosition(), CONST_ME_POFF);
+			return false;
+		}
+	} else if(magLevel > 0) {
+		notFailed++;
+	}
+
+	if (player->getCqcLevel() < cqcLevel) {
+		player->sendCancelMessage(RETURNVALUE_NOTENOUGHCQCLEVEL);
+		if(!onlyOneRequired){
+			g_game.addMagicEffect(player->getPosition(), CONST_ME_POFF);
+			return false;
+		}
+	} else if(cqcLevel > 0) {
+		notFailed++;
+	}
+
+	if (player->getDistanceLevel() < distLevel) {
+		player->sendCancelMessage(RETURNVALUE_NOTENOUGHDISTANCELEVEL);
+		if(!onlyOneRequired){
+			g_game.addMagicEffect(player->getPosition(), CONST_ME_POFF);
+			return false;
+		}
+	} else if(distLevel > 0) {
+		notFailed++;
+	}
+
+	if(onlyOneRequired)
+	{
+		if(notFailed == 0){
+			g_game.addMagicEffect(player->getPosition(), CONST_ME_POFF);
+			return false;
+		}
+				
 	}
 
 	if (player->getMana() < getManaCost(player) && !player->hasFlag(PlayerFlag_HasInfiniteMana)) {
