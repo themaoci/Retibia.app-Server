@@ -31,7 +31,7 @@ function onAdvance(player, skill, oldLevel, newLevel)
         doCreatureAddHealth(cid, getCreatureMaxHealth(cid) - getCreatureHealth(cid))
         doCreatureAddMana(cid, getCreatureMaxMana(cid) - getCreatureMana(cid))
     end
-    if skill == SKILL__MAGLEVEL and config.OnMagLevelPlayerSetManaFull) then
+    if skill == SKILL__MAGLEVEL and config.OnMagLevelPlayerSetManaFull then
         doCreatureAddMana(cid, getCreatureMaxMana(cid) - getCreatureMana(cid))
     end
     
