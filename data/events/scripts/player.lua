@@ -206,14 +206,73 @@ function Player:onReportBug(message, position, category)
 	return true
 end
 
-function Player:onTurn(direction)
-	if TA_HELPER.checkAccessRights(self, ACCOUNT_TYPE_GOD) and self:getDirection() == direction and self:isInGhostMode() then
-        local nextPosition = self:getPosition()
-        nextPosition:getNextPosition(direction)
-        self:teleportTo(nextPosition, true)
+
+-- Used in onTurn.
+local tempGhostPlayerEvents = tempGhostPlayerEvents or {}
+local function removeGhost(cid)
+    local player = Player(cid)
+    if tempGhostPlayerEvents[cid] then
+        if player then
+            local tile = Tile(player:getPosition())
+            if tile:hasFlag(TILESTATE_FLOORCHANGE) then
+                tempGhostPlayerEvents[cid] = addEvent(removeGhost, 350, cid)
+                return
+            end
+
+            local tileItems = tile:getItems() or {}
+            table.insert(tileItems, tile:getGround())
+         
+            for _, item in ipairs(tileItems) do
+                if item:hasProperty(CONST_PROP_BLOCKSOLID) then
+                    tempGhostPlayerEvents[cid] = addEvent(removeGhost, 350, cid)
+                    return
+                end
+            end
+            player:setGhostMode(false, false)
+        end
+
+        tempGhostPlayerEvents[cid] = nil
     end
-	return true
 end
+
+local playerLastTurn = playerLastTurn or {}
+function Player:onTurn(direction)
+    if TA_HELPER.checkAccessRights(self, ACCOUNT_TYPE_GOD) and not self:isInGhostMode() then
+        return true
+    end
+
+    local lastTurn = playerLastTurn[self:getId()]
+    if self:getDirection() ~= direction and (not lastTurn or os.mtime() - lastTurn > 200) then
+        return true
+    end
+
+    -- local cid = self:getId()
+    -- if not self:isInGhostMode() or tempGhostPlayerEvents[cid] then
+    --     self:setGhostMode(true, false)
+    --     stopEvent(tempGhostPlayerEvents[cid]) -- Stop previous event
+    --     tempGhostPlayerEvents[cid] = addEvent(removeGhost, 350, self:getId())
+    -- end
+
+    playerLastTurn[self:getId()] = os.mtime()
+
+    local pos = self:getPosition()
+    pos:getNextPosition(direction)
+    while not Tile(pos) and pos.z < 7 do
+        pos.z = pos.z + 1
+    end
+    self:teleportTo(pos, true)
+
+    return true
+end
+
+-- function Player:onTurn(direction)
+-- 	if TA_HELPER.checkAccessRights(self, ACCOUNT_TYPE_GOD) and self:getDirection() == direction and  then
+--         local nextPosition = self:getPosition()
+--         nextPosition:getNextPosition(direction)
+--         self:teleportTo(nextPosition, true)
+--     end
+-- 	return true
+-- end
 
 function Player:onTradeRequest(target, item)
 	return true
