@@ -1,6 +1,6 @@
 local waypoint_portal = Action()
 function waypoint_portal.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	print(GameConfig.Waypoint.Config.PlayerStorageValue + item:getUniqueId());
+	--print(GameConfig.Waypoint.Config.PlayerStorageValue + item:getUniqueId());
   local isDev = player:getAccountType() == ACCOUNT_TYPE_GOD
   -- add this waypoint to player saved waypoints 
   if GameConfig.Waypoint.Config.EnableSavingWaypoints then
@@ -17,9 +17,16 @@ function waypoint_portal.onUse(player, item, fromPosition, target, toPosition, i
   local window = ModalWindow(item.actionid, title, message)
   window:addButton(100, "Teleport")
   window:addButton(101, "Close")
-  
-  for id, data in pairs(GameConfig.Waypoint.Locations) do 
-    if item:getUniqueId() == id then
+
+  -- Create an array of keys sorted in ascending order
+  local keys = {}
+  for k in pairs(GameConfig.Waypoint.Locations) do
+    table.insert(keys, k)
+  end
+  table.sort(keys)
+  -- Iterate over the keys and access the corresponding data
+  for i, k in ipairs(keys) do 
+    if item:getUniqueId() == k + 1000 then
       goto continue
     end
     if isDev or player:getStorageValue(GameConfig.Waypoint.Config.PlayerStorageValue + item:getUniqueId()) == 1 then
@@ -27,7 +34,7 @@ function waypoint_portal.onUse(player, item, fromPosition, target, toPosition, i
       if isDev and player:getStorageValue(GameConfig.Waypoint.Config.PlayerStorageValue + item:getUniqueId()) == 1 then
         devText = " (Known)"
       end
-      window:addChoice(id - 1000, data.Name .. devText)
+      window:addChoice(k, GameConfig.Waypoint.Locations[k].Name .. devText)
     end
     ::continue::
   end
