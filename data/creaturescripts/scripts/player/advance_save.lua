@@ -3,8 +3,8 @@ local config = {
     OnLevelPlayerSetHpManaFull = false,
     OnMagLevelPlayerSetManaFull = false,
     skillsTable = {
-        [SKILL__LEVEL] = { enabled = true, text = "LEVEL UP", textColor = TEXTCOLOR_WHITE},
-        [SKILL__MAGLEVEL] = { enabled = true, text = "MAGIC UP", textColor = TEXTCOLOR_BLUE},
+        [SKILL_LEVEL] = { enabled = true, text = "LEVEL UP", textColor = TEXTCOLOR_WHITE},
+        [SKILL_MAGLEVEL] = { enabled = true, text = "MAGIC UP", textColor = TEXTCOLOR_BLUE},
         [SKILL_AXE] = { enabled = true, text = "AXE UP", textColor = TEXTCOLOR_ORANGE},
         [SKILL_CLUB] = { enabled = true, text = "CLUB UP", textColor = TEXTCOLOR_ORANGE},
         [SKILL_SWORD] = { enabled = true, text = "SWORD UP", textColor = TEXTCOLOR_ORANGE},
