@@ -224,7 +224,7 @@ function onUse(cid, item, frompos, item2, topos)
         -- check if item can be picked up
         if getPlayerFreeCap(cid) <= item.capReq * item.count then
           -- display information that it cannot pickup and you are missing cap
-          doPlayerSendTextMessage(cid,22,"You need " .. item.capReq * item.count .. " cap free or more to loot this!")
+          doPlayerSendTextMessage(cid,MESSAGE_LOOT,"You need " .. item.capReq * item.count .. " cap free or more to loot this!")
           return 1
         end
         local createdItem = nil
@@ -251,11 +251,11 @@ function onUse(cid, item, frompos, item2, topos)
         end
       end
       -- display information to the player
-      doPlayerSendTextMessage(cid,22,"You have found a " .. reward.name .. ".")
+      doPlayerSendTextMessage(cid,MESSAGE_LOOT,"You have found a " .. reward.name .. ".")
       -- lock second pickup now
 			setPlayerStorageValue(cid,item.uid,1)
 		else
-		  doPlayerSendTextMessage(cid,22,"It's empty.")
+		  doPlayerSendTextMessage(cid,MESSAGE_LOOT,"It's empty.")
 		end
     return 1
 	end
@@ -266,21 +266,21 @@ function onUse(cid, item, frompos, item2, topos)
 		if getPlayerStorageValue(cid,item.uid) <= 0 then
 			for _, requirement in pairs(rewardKey.requiredToMeet) do
 				if getPlayerStorageValue(cid,requirement.StorageId) ~= 1 then
-					doPlayerSendTextMessage(cid,22, requirement.wrongText)
+					doPlayerSendTextMessage(cid,MESSAGE_LOOT, requirement.wrongText)
 					return 1
 				end		
 			end
       if getPlayerFreeCap(cid) <= rewardKey.capReq then
-        doPlayerSendTextMessage(cid,22,"You need " .. rewardKey.capReq .. " cap or more to loot this!")
+        doPlayerSendTextMessage(cid,MESSAGE_LOOT,"You need " .. rewardKey.capReq .. " cap or more to loot this!")
         return 1
       end
-      doPlayerSendTextMessage(cid,22,"You have found a " .. rewardKey.name .. ".")
+      doPlayerSendTextMessage(cid,MESSAGE_LOOT,"You have found a " .. rewardKey.name .. ".")
       local keySpawned = doPlayerAddItem(cid, rewardKey.keyId, 1)
       doSetItemActionId(keySpawned, rewardKey.actionId)
       doSetItemSpecialDescription(keySpawned, rewardKey.description)	
       setPlayerStorageValue(cid, item.uid, 1)
 		else
-			doPlayerSendTextMessage(cid,22,"it's empty.")
+			doPlayerSendTextMessage(cid,MESSAGE_LOOT,"it's empty.")
 		end
     return 1
 	end
