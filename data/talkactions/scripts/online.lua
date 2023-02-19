@@ -4,6 +4,11 @@ function onSay(player, words, param)
 	local hasAccess = checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER)
 	local players = Game.getPlayers()
 	local onlineList = {}
+	local canUse = player:getLevel() >= 10 or hasAccess
+
+	if not canUse then
+		player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "Only players above level 10 can use this feature")
+	end
 
 	for _, targetPlayer in ipairs(players) do
 		if hasAccess or not targetPlayer:isInGhostMode() then
