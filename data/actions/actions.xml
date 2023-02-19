@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
+	<action actionid="999" script="no_move.lua" />
 	<!-- Market -->
 	<action itemid="14405" function="market" />
 
@@ -7,7 +8,7 @@
 	<action itemid="32450" function="stash" />
   
   <!-- New Quests -->
-  
+	<action actionid="12461" script="quest/hasFinishedPostman.lua" />
   <!-- Default New Anihilator -->
 	<action actionid="7600" script="quest/demonAnihilator.lua" />
 	<action actionid="7601" script="quest/demonAnihilatorChests.lua" />
