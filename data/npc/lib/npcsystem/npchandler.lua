@@ -57,6 +57,7 @@ if NpcHandler == nil then
 
 	-- Constant strings defining the keywords to replace in the default messages.
 	TAG_PLAYERNAME = "|PLAYERNAME|"
+	TAG_BLESSCOST = "|BLESSCOST|"
 	TAG_ITEMCOUNT = "|ITEMCOUNT|"
 	TAG_TOTALCOST = "|TOTALCOST|"
 	TAG_ITEMNAME = "|ITEMNAME|"

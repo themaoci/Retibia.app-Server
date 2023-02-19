@@ -154,6 +154,26 @@ function getMoneyWeight(money)
 	return (ItemType(ITEM_CRYSTAL_COIN):getWeight() * crystal) + (ItemType(ITEM_PLATINUM_COIN):getWeight() * platinum) + (ItemType(ITEM_GOLD_COIN):getWeight() * gold)
 end
 
+function getBlessingsCost(level)
+	if level <= 30 then
+		return 2000
+	elseif level >= 120 then
+		return 20000
+	else
+		return ((level - 20) * 200)
+	end
+end
+
+function getPvpBlessingCost(level)
+	if level <= 30 then
+		return 2000
+	elseif level >= 270 then
+		return 50000
+	else
+		return ((level - 20) * 200)
+	end
+end
+
 function Player.removeTotalMoney(self, amount)
 	local moneyCount = self:getMoney()
 	local bankCount = self:getBankBalance()

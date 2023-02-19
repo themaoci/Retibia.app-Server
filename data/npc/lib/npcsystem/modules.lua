@@ -48,7 +48,7 @@ if Modules == nil then
 			return false
 		end
 
-		local parseInfo = {[TAG_PLAYERNAME] = Player(cid):getName()}
+		local parseInfo = {[TAG_PLAYERNAME] = Player(cid):getName(), [TAG_BLESSCOST] = getBlessingsCost(Player(cid):getLevel())}
 		npcHandler:say(npcHandler:parseMessage(parameters.text or parameters.message, parseInfo), cid, parameters.publicize and true)
 		if parameters.reset then
 			npcHandler:resetNpc(cid)
@@ -511,7 +511,7 @@ if Modules == nil then
 			return false
 		end
 		local parentParameters = node:getParent():getParameters()
-		local parseInfo = { [TAG_PLAYERNAME] = Player(cid):getName() }
+		local parseInfo = { [TAG_PLAYERNAME] = Player(cid):getName(), [TAG_BLESSCOST] = getBlessingsCost(Player(cid):getLevel()) }
 		local msg = module.npcHandler:parseMessage(module.npcHandler:getMessage(MESSAGE_DECLINE), parseInfo)
 		module.npcHandler:say(msg, cid)
 		module.npcHandler:resetNpc(cid)
@@ -1010,6 +1010,7 @@ if Modules == nil then
 
 		local parseInfo = {
 			[TAG_PLAYERNAME] = getPlayerName(cid),
+			[TAG_BLESSCOST] = getBlessingsCost(Player(cid):getLevel()),
 			[TAG_ITEMCOUNT] = amount,
 			[TAG_TOTALCOST] = totalCost,
 			[TAG_ITEMNAME] = shopItem.name
@@ -1067,6 +1068,7 @@ if Modules == nil then
 
 		local parseInfo = {
 			[TAG_PLAYERNAME] = getPlayerName(cid),
+			[TAG_BLESSCOST] = getBlessingsCost(Player(cid):getLevel()),
 			[TAG_ITEMCOUNT] = amount,
 			[TAG_TOTALCOST] = amount * shopItem.sell,
 			[TAG_ITEMNAME] = shopItem.name
@@ -1135,6 +1137,7 @@ if Modules == nil then
 		local parentParameters = node:getParent():getParameters()
 		local parseInfo = {
 			[TAG_PLAYERNAME] = getPlayerName(cid),
+			[TAG_BLESSCOST] = getBlessingsCost(Player(cid):getLevel()),
 			[TAG_ITEMCOUNT] = shop_amount[cid],
 			[TAG_TOTALCOST] = shop_cost[cid] * shop_amount[cid],
 			[TAG_ITEMNAME] = shop_rlname[cid]
@@ -1216,6 +1219,7 @@ if Modules == nil then
 		local parentParameters = node:getParent():getParameters()
 		local parseInfo = {
 			[TAG_PLAYERNAME] = getPlayerName(cid),
+			[TAG_BLESSCOST] = getBlessingsCost(Player(cid):getLevel()),
 			[TAG_ITEMCOUNT] = shop_amount[cid],
 			[TAG_TOTALCOST] = shop_cost[cid] * shop_amount[cid],
 			[TAG_ITEMNAME] = shop_rlname[cid]
@@ -1252,6 +1256,7 @@ if Modules == nil then
 
 		local parseInfo = {
 			[TAG_PLAYERNAME] = getPlayerName(cid),
+			[TAG_BLESSCOST] = getBlessingsCost(Player(cid):getLevel()),
 			[TAG_ITEMCOUNT] = shop_amount[cid],
 			[TAG_TOTALCOST] = shop_cost[cid] * shop_amount[cid],
 			[TAG_ITEMNAME] = shop_rlname[cid]
