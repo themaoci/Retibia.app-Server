@@ -55,9 +55,9 @@ modalWaypointPortalObject:type("modalwindow")
 function modalWaypointPortalObject.onModalWindow(player, modalWindowId, buttonId, choiceId)
     player:unregisterEvent("WaypointPortal_Modal_Window")
       if buttonId == 100 then
-        if GameConfig.Waypoint.Locations[1000 + choiceId] ~= nil then
+        if GameConfig.Waypoint.Locations[choiceId] ~= nil then
           player:getPosition():sendMagicEffect(GameConfig.Waypoint.Config.TeleportEffectOut)
-          player:teleportTo(GameConfig.Waypoint.Locations[1000 + choiceId].pos)
+          player:teleportTo(GameConfig.Waypoint.Locations[choiceId].pos)
           player:getPosition():sendMagicEffect(GameConfig.Waypoint.Config.TeleportEffectIn)
         end
       end
