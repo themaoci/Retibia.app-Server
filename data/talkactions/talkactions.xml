@@ -2,6 +2,7 @@
 <talkactions>
 	<!-- commands for players only -->
 	<!-- commands for admins and mods are in scripts/talkactions -->
+	<talkaction words="!bless" script="bless.lua" />
 	<talkaction words="!buyhouse" script="buyhouse.lua" />
 	<talkaction words="!buypremium" script="buyprem.lua" />
 	<talkaction words="!leavehouse" script="leavehouse.lua" />
