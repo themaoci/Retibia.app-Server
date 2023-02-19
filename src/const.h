@@ -220,41 +220,41 @@ enum SpeakClasses : uint8_t {
 
 enum MessageClasses : uint8_t {
 	MESSAGE_NONE = 0,
-	MESSAGE_STATUS_CONSOLE_BLUE, //Blue message in the console
-	MESSAGE_STATUS_CONSOLE_RED, //Red message in the console
-	MESSAGE_STATUS_DEFAULT, //White message at the bottom of the game window and in the console
-	MESSAGE_STATUS_WARNING, //Red message in game window and in the console
-	MESSAGE_EVENT_ADVANCE, //White message in game window and in the console
-	MESSAGE_STATUS_SMALL, //White message at the bottom of the game window
-	MESSAGE_INFO_DESCR, //Green message in game window and in the console
-	MESSAGE_EVENT_DEFAULT, //White message at the bottom of the game window and in the console
-	MESSAGE_GUILD, //White message in channel (+ channelId)
-	MESSAGE_PARTY_MANAGEMENT, //White message in channel (+ channelId)
-	MESSAGE_PARTY, //White message in channel (+ channelId)
-	MESSAGE_EVENT_ORANGE, //Orange message in the console
-	MESSAGE_STATUS_CONSOLE_ORANGE, //Orange message in the console
-	MESSAGE_DAMAGE_DEALT,
-	MESSAGE_DAMAGE_RECEIVED,
-	MESSAGE_MANA,
-	MESSAGE_HEALED,
-	MESSAGE_EXPERIENCE,
-	MESSAGE_DAMAGE_OTHERS,
-	MESSAGE_HEALED_OTHERS,
-	MESSAGE_EXPERIENCE_OTHERS,
-	MESSAGE_LOOT,
-	MESSAGE_LOGIN,
-	MESSAGE_WARNING,
-	MESSAGE_GAME,
-	MESSAGE_GAME_HIGHLIGHT,
-	MESSAGE_FAILURE,
-	MESSAGE_LOOK,
-	MESSAGE_STATUS,
-	MESSAGE_TRADENPC,
-	MESSAGE_REPORT,
-	MESSAGE_HOTKEY,
-	MESSAGE_TUTORIAL,
-	MESSAGE_THANKYOU,
-	MESSAGE_MARKET,
+	MESSAGE_STATUS_CONSOLE_BLUE = 1, //Blue message in the console
+	MESSAGE_STATUS_CONSOLE_RED = 2, //Red message in the console
+	MESSAGE_STATUS_DEFAULT = 3, //White message at the bottom of the game window and in the console
+	MESSAGE_STATUS_WARNING = 4, //Red message in game window and in the console
+	MESSAGE_EVENT_ADVANCE = 5, //White message in game window and in the console
+	MESSAGE_STATUS_SMALL = 6, //White message at the bottom of the game window
+	MESSAGE_INFO_DESCR = 7, //Green message in game window and in the console
+	MESSAGE_EVENT_DEFAULT = 8, //White message at the bottom of the game window and in the console
+	MESSAGE_GUILD = 9, //White message in channel (+ channelId)
+	MESSAGE_PARTY_MANAGEMENT = 10, //White message in channel (+ channelId)
+	MESSAGE_PARTY = 11, //White message in channel (+ channelId)
+	MESSAGE_EVENT_ORANGE = 12, //Orange message in the console
+	MESSAGE_STATUS_CONSOLE_ORANGE = 13, //Orange message in the console
+	MESSAGE_DAMAGE_DEALT = 14,
+	MESSAGE_DAMAGE_RECEIVED = 15,
+	MESSAGE_MANA = 16,
+	MESSAGE_HEALED = 17,
+	MESSAGE_EXPERIENCE = 18,
+	MESSAGE_DAMAGE_OTHERS = 19,
+	MESSAGE_HEALED_OTHERS = 20,
+	MESSAGE_EXPERIENCE_OTHERS = 21,
+	MESSAGE_LOOT = 22,
+	MESSAGE_LOGIN = 23,
+	MESSAGE_WARNING = 24,
+	MESSAGE_GAME = 25,
+	MESSAGE_GAME_HIGHLIGHT = 26,
+	MESSAGE_FAILURE = 27,
+	MESSAGE_LOOK = 28,
+	MESSAGE_STATUS = 29,
+	MESSAGE_TRADENPC = 30,
+	MESSAGE_REPORT = 31,
+	MESSAGE_HOTKEY = 32,
+	MESSAGE_TUTORIAL = 33,
+	MESSAGE_THANKYOU = 34,
+	MESSAGE_MARKET = 35,
 };
 
 enum FluidColors_t : uint8_t {
