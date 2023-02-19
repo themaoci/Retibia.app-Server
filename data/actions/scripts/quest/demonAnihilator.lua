@@ -1,4 +1,5 @@
 DA_Config = {
+    allowDeveloper = true,
     entrancePositions = {
         Position(678, 294, 12),
         Position(679, 294, 12),
@@ -31,31 +32,37 @@ DA_Config = {
 
 function onUse(cid, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == DA_Config.LeverRight then
+        local player = Player(cid)
+        local isDev = DA_Config.allowDeveloper and TA_HELPER.checkAccessRights(player, ACCOUNT_TYPE_GAMEMASTER)
         local storePlayers, playerTile = {}
         local failed_to_enter = false
         local whoFinishedAlready = ""
         for i = 1, #DA_Config.entrancePositions do
             playerTile = Tile(DA_Config.entrancePositions[i]):getTopCreature()
-            if not playerTile or not playerTile:isPlayer() then
-                player:sendTextMessage(MESSAGE_STATUS_SMALL, "You need 4 players.")
-                return true
-            end
-
-            if playerTile:getLevel() < DA_Config.requiredLevel then
-                player:sendTextMessage(MESSAGE_STATUS_SMALL, "All the players need to be level ".. DA_Config.requiredLevel .." or higher.")
-                return true
-            end
-
-            if playerTile:getPlayerStorageValue(cid, DAC_Config.Storage.EnteredNumber) >= #DAC_Config.rewards then
-                failed_to_enter = true
-                if whoFinishedAlready ~= "" then
-                    
-                    whoFinishedAlready = whoFinishedAlready .. ", "
+            if not isDev then
+                if not playerTile or not playerTile:isPlayer() then
+                    player:sendTextMessage(MESSAGE_STATUS_SMALL, "You need 4 players.")
+                    return true
                 end
-                whoFinishedAlready = whoFinishedAlready .. playerTile:getName()
-            end
 
+                if playerTile:getLevel() < DA_Config.requiredLevel then
+                    player:sendTextMessage(MESSAGE_STATUS_SMALL, "All the players need to be level ".. DA_Config.requiredLevel .." or higher.")
+                    return true
+                end
+
+                if playerTile:getPlayerStorageValue(cid, DAC_Config.Storage.EnteredNumber) >= #DAC_Config.rewards then
+                    failed_to_enter = true
+                    if whoFinishedAlready ~= "" then
+                        
+                        whoFinishedAlready = whoFinishedAlready .. ", "
+                    end
+                    whoFinishedAlready = whoFinishedAlready .. playerTile:getName()
+                end
+            end
             storePlayers[#storePlayers + 1] = playerTile
+            if isDev then
+                break
+            end
         end
         local specs, spec = Game.getSpectators(DA_Config.exitPositions[1], false, false, 3, 3, 2, 2)
         for i = 1, #specs do
