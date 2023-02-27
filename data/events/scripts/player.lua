@@ -93,9 +93,9 @@ end
 function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, toCylinder)
 	-- custom added wrap shit...
 	local warpId = item:getAttribute("wrapid")
+	local tile = Tile(toPosition)
 	if warpId ~= 0 and warpId ~= nil then
-		print(item:getAttribute("wrapid"))
-		local tile = Tile(toPosition)
+		print("wrapid:" .. item:getAttribute("wrapid"))
 		if (fromPosition.x ~= CONTAINER_POSITION and toPosition.x ~= CONTAINER_POSITION) or tile and not tile:getHouse() then
 			if tile and not tile:getHouse() then
 				self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
@@ -104,9 +104,51 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		end
 	end
 
+	-- block users from stack pilling
+    if tile and tile:getItemCount() > 26 then
+        self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+        return false
+	end
+
+	-- block users from trashing teleports
+	if GameConfig.BlockTrashingTeleports then
+		if blockTeleportTrashing and toPosition.x ~= CONTAINER_POSITION then
+			local thing = tile:getItemByType(ITEM_TYPE_TELEPORT)
+			if thing then
+				self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+				return false
+			end
+		end
+	end
+
+	-- catch cheater red handed by attempting to move unmovable items
+	if item:getName() == "ramp" then
+		print(("Attempt of cheating by: %s (%s)").format(self:getName(), self:getId()))
+		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+		return false
+	end
+	
+	-- block users from moving parcels if weight is above 90000
+	if item:getWeight() > 90000 and item:getId() == 2595 then 
+		self:sendCancelMessage('This parcel is too heavy.')
+		return false 
+	end
+
+	if tile and tile:getItemById(21584) then
+		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+		return false
+	end
+
+	if item:getAttribute(ITEM_ATTRIBUTE_CORPSEOWNER) == 2147483647 then
+        self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+        return false
+    end
+
+	-- if not container skip rest of the code
 	if toPosition.x ~= CONTAINER_POSITION then
 		return true
 	end
+
 
 	if item:getTopParent() == self and bit.band(toPosition.y, 0x40) == 0 then
 		local itemType, moveItem = ItemType(item:getId())
@@ -206,35 +248,6 @@ function Player:onReportBug(message, position, category)
 	return true
 end
 
-
--- Used in onTurn.
-local tempGhostPlayerEvents = tempGhostPlayerEvents or {}
-local function removeGhost(cid)
-    local player = Player(cid)
-    if tempGhostPlayerEvents[cid] then
-        if player then
-            local tile = Tile(player:getPosition())
-            if tile:hasFlag(TILESTATE_FLOORCHANGE) then
-                tempGhostPlayerEvents[cid] = addEvent(removeGhost, 350, cid)
-                return
-            end
-
-            local tileItems = tile:getItems() or {}
-            table.insert(tileItems, tile:getGround())
-         
-            for _, item in ipairs(tileItems) do
-                if item:hasProperty(CONST_PROP_BLOCKSOLID) then
-                    tempGhostPlayerEvents[cid] = addEvent(removeGhost, 350, cid)
-                    return
-                end
-            end
-            player:setGhostMode(false, false)
-        end
-
-        tempGhostPlayerEvents[cid] = nil
-    end
-end
-
 local playerLastTurn = playerLastTurn or {}
 function Player:onTurn(direction)
     if TA_HELPER.checkAccessRights(self, ACCOUNT_TYPE_GOD) and not self:isInGhostMode() then
@@ -245,13 +258,6 @@ function Player:onTurn(direction)
     if self:getDirection() ~= direction and (not lastTurn or os.mtime() - lastTurn > 200) then
         return true
     end
-
-    -- local cid = self:getId()
-    -- if not self:isInGhostMode() or tempGhostPlayerEvents[cid] then
-    --     self:setGhostMode(true, false)
-    --     stopEvent(tempGhostPlayerEvents[cid]) -- Stop previous event
-    --     tempGhostPlayerEvents[cid] = addEvent(removeGhost, 350, self:getId())
-    -- end
 
     playerLastTurn[self:getId()] = os.mtime()
 
@@ -264,15 +270,6 @@ function Player:onTurn(direction)
 
     return true
 end
-
--- function Player:onTurn(direction)
--- 	if TA_HELPER.checkAccessRights(self, ACCOUNT_TYPE_GOD) and self:getDirection() == direction and  then
---         local nextPosition = self:getPosition()
---         nextPosition:getNextPosition(direction)
---         self:teleportTo(nextPosition, true)
---     end
--- 	return true
--- end
 
 function Player:onTradeRequest(target, item)
 	return true

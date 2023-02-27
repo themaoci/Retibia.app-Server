@@ -7,8 +7,9 @@
 	<talkaction words="!buypremium" script="buyprem.lua" />
 	<talkaction words="!leavehouse" script="leavehouse.lua" />
 	<talkaction words="!online;/online" script="online.lua" />
-	<talkaction words="!pos;!position;!p" script="position.lua" />
+	<talkaction words="!pos;!position" script="position.lua" />
 	<talkaction words="!sellhouse" separator=" " script="sellhouse.lua" />
 	<talkaction words="!serverinfo;!server" script="serverinfo.lua" />
 	<talkaction words="!uptime" script="uptime.lua" />
+	<talkaction words="!whatsthetime;!watch;!checktime;!checkwatch" script="time.lua" />
 </talkactions>

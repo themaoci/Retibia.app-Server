@@ -75,7 +75,7 @@ bool TalkActions::registerEvent(Event_ptr event, const pugi::xml_node&)
 		for (std::string& words : wordsMap) {
 			auto result = talkActions.emplace(words, talkAction);
 			if (!result.second) {
-				std::cout << "[Warning - Spells::registerEvent] Duplicate registered talkaction with words: " << words << std::endl;
+				std::cout << "[Warning - Spells::registerEvent] Duplicate registered talkaction(" << ((talkAction->scripted) ? "script" : "xml") << ") with words: '" << words << "' script: " << talkAction->GetScriptName() << " | Check if you dont have any ; at the end of word commands it will load command as empty" << std::endl;
 			}
 		}
 		wordsMap.clear();

@@ -44,6 +44,7 @@ end
 keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, text = 'What do you mean by that. I\'m not gonna kick you that would be rude.'})
 
 -- Basic
+keywordHandler:addKeyword({'travel'}, StdModule.say, {npcHandler = npcHandler, text = 'Some time ago i was able to travel to {edron} and {eremo} but now you can only use this orb on the ship.'})
 keywordHandler:addKeyword({'edron'}, StdModule.say, {npcHandler = npcHandler, text = 'Oh well... that will be hard to do... if even possible. everything is twisted now.'})
 keywordHandler:addKeyword({'eremo'}, StdModule.say, {npcHandler = npcHandler, text = 'Oh yes that small island i think you can got there by using a small boat underground.'})
 keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = 'I\'m a fisherman and I take along people to Edron. You can also buy some fresh fish.'})

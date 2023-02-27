@@ -57,7 +57,7 @@ class TalkAction : public Event
 		void setSeparator(char sep) {
 			separator = sep;
 		}
-
+		std::string GetScriptName() { return getScriptEventName(); }
 		//scripting
 		bool executeSay(Player* player, const std::string& word, const std::string& param, SpeakClasses type) const;
 		//

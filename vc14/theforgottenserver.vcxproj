@@ -161,7 +161,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <TargetName>$(ProjectName)-SSE2</TargetName>
-    <LibraryPath>R:\Tibia\#ReTibia Project\retibia server - optimised\libs\mysql-connector-c\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>R:\Tibia\#ReTibia Project\retibia server_new\libs\mysql-connector-c\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_AVX512|Win32'">
     <TargetName>$(ProjectName)-AVX512</TargetName>
@@ -175,7 +175,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <TargetName>$(ProjectName)-SSE2</TargetName>
     <IncludePath>$(WindowsSDK_IncludePath);$(VC_IncludePath);$(IncludePath)</IncludePath>
-    <LibraryPath>R:\Tibia\#ReTibia Project\retibia server - optimised\libs\zlib\lib64;R:\Tibia\#ReTibia Project\retibia server - optimised\libs\mysql-connector-c\lib64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>R:\Tibia\#ReTibia Project\retibia_server_new\libs\zlib\lib64;R:\Tibia\#ReTibia Project\retibia_server_new\libs\mysql-connector-c\lib64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_AVX512|x64'">
     <TargetName>$(ProjectName)-AVX512</TargetName>
@@ -231,6 +231,7 @@
       <AdditionalIncludeDirectories>$(TFS_INCLUDES);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <FloatingPointModel>Fast</FloatingPointModel>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>

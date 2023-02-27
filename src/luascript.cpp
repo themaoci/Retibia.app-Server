@@ -731,6 +731,7 @@ void LuaScriptInterface::setCreatureMetatable(lua_State* L, int32_t index, const
 }
 
 // Get
+#pragma region GET functions
 std::string LuaScriptInterface::getString(lua_State* L, int32_t arg)
 {
 	size_t len;
@@ -916,8 +917,9 @@ LuaDataType LuaScriptInterface::getUserdataType(lua_State* L, int32_t arg)
 
 	return type;
 }
-
+#pragma endregion
 // Push
+#pragma region Push functions
 void LuaScriptInterface::pushBoolean(lua_State* L, bool value)
 {
 	lua_pushboolean(L, value ? 1 : 0);
@@ -1010,7 +1012,9 @@ void LuaScriptInterface::pushLoot(lua_State* L, const std::vector<LootBlock>& lo
 		lua_rawseti(L, -2, ++index);
 	}
 }
+#pragma endregion
 
+#pragma region Register Functions
 #define registerEnum(value) { std::string enumName = #value; registerGlobalVariable(enumName.substr(enumName.find_last_of(':') + 1), value); }
 #define registerEnumIn(tableName, value) { std::string enumName = #value; registerVariable(tableName, enumName.substr(enumName.find_last_of(':') + 1), value); }
 
@@ -2380,6 +2384,11 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Game", "getReturnMessage", LuaScriptInterface::luaGameGetReturnMessage);
 
+	registerMethod("Game", "getCurrentTibianTime", LuaScriptInterface::luaGameGetCurrentTibianTime);
+	registerMethod("Game", "getSunsetTime", LuaScriptInterface::luaGameGetSunsetTime);
+	registerMethod("Game", "getSunriseTime", LuaScriptInterface::luaGameGetSunriseTime);
+
+
 	registerMethod("Game", "createItem", LuaScriptInterface::luaGameCreateItem);
 	registerMethod("Game", "createContainer", LuaScriptInterface::luaGameCreateContainer);
 	registerMethod("Game", "createMonster", LuaScriptInterface::luaGameCreateMonster);
@@ -3384,6 +3393,7 @@ void LuaScriptInterface::registerFunctions()
 
 #undef registerEnum
 #undef registerEnumIn
+#pragma endregion
 
 void LuaScriptInterface::registerClass(const std::string& className, const std::string& baseClass, lua_CFunction newFunction/* = nullptr*/)
 {
@@ -4802,6 +4812,24 @@ int LuaScriptInterface::luaGameGetReturnMessage(lua_State* L)
 	// Game.getReturnMessage(value)
 	ReturnValue value = getNumber<ReturnValue>(L, 1);
 	pushString(L, getReturnMessage(value));
+	return 1;
+}
+int LuaScriptInterface::luaGameGetCurrentTibianTime(lua_State* L)
+{
+	// Game.getCurrentTibianTime()
+	lua_pushnumber(L, g_game.getIngameCurrentTime());
+	return 1;
+}
+int LuaScriptInterface::luaGameGetSunsetTime(lua_State* L)
+{
+	// Game.getSunsetTime()
+	lua_pushnumber(L, g_game.getIngameSunsetTime());
+	return 1;
+}
+int LuaScriptInterface::luaGameGetSunriseTime(lua_State* L)
+{
+	// Game.getSunriseTime()
+	lua_pushnumber(L, g_game.getIngameSunriseTime());
 	return 1;
 }
 

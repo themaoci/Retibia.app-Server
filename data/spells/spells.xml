@@ -214,6 +214,10 @@
 	<instant name="House Guest List" words="aleta sio" aggressive="0" script="house/edit_guest_list.lua" />
 	<instant name="House Kick" words="alana sio" aggressive="0" playernameparam="1" params="1" script="house/kick.lua" />
 	<instant name="House Subowner List" words="aleta som" aggressive="0" script="house/edit_subowner_list.lua" />
+	<!-- Utility Spells - talk action mostly -->
+	<instant name="Check players online" words="ego vivos revelare" level="10" aggressive="0" cooldown="2000" script="utility/online.lua" />
+	<instant name="Check world alive time" words="mundus vivit" aggressive="0" cooldown="2000" script="utility/uptime.lua" />
+	<instant name="Get Position of yourself" words="me in mundo" aggressive="0" cooldown="2000" script="utility/position.lua" />
 
 	<!-- Monster Spells -->
 	<instant name="ghastly dragon curse" words="###1" aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/ghastly_dragon_curse.lua" />

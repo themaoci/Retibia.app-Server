@@ -520,6 +520,9 @@ class Game
 		void checkCreatureAttack(uint32_t creatureId);
 		void checkCreatures(size_t index);
 		void checkLight();
+		int32_t getIngameCurrentTime() { return lightHour; }
+		int32_t getIngameSunriseTime() { return SUNRISE; }
+		int32_t getIngameSunsetTime() { return SUNSET; }
 
 		bool combatBlockHit(CombatDamage& damage, Creature* attacker, Creature* target, bool checkDefense, bool checkArmor, bool field);
 

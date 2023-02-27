@@ -1,5 +1,6 @@
 GameConfig = {
   ['EnableDevTestingChest'] = true,
+  ['BlockTrashingTeleports'] = true,
   ['FlyingShip'] = {
     ['rookgaard'] = Position(339, 390, 4),
     ['cormaya'] = Position(749, 440, 5),
