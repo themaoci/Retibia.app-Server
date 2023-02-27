@@ -1,7 +1,6 @@
 .vscode
 *.dll
 *.exe
-libs/
 .vs
 Release*/
 config.lua
