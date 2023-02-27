@@ -1,13 +1,22 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.10)
 
 set(CMAKE_DISABLE_SOURCE_CHANGES ON)
 set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
 
-project(tfs)
+project(tfs CXX)
+
+add_subdirectory(src)
+#discord staff
+add_subdirectory(libs/DPP) 
+add_executable(tfs ${tfs_SRC})
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-include(cotire)
+set_target_properties(tfs PROPERTIES CXX_STANDARD 17)
+set_target_properties(tfs PROPERTIES CXX_STANDARD_REQUIRED ON)
+
+set(CMAKE_CXX_FLAGS_PERFORMANCE "${CMAKE_CXX_FLAGS_RELEASE} -march=native")
+
 #  -Werror // warnings treated as errors
 add_compile_options(-Wall -pipe -march=native -fvisibility=hidden)
 
@@ -46,16 +55,48 @@ else()
     find_package(Lua REQUIRED)
 endif()
 
-find_package(Boost 1.53.0 COMPONENTS system filesystem iostreams REQUIRED)
+find_package(Boost 1.66.0 REQUIRED date_time COMPONENTS system filesystem iostreams)
 
-add_subdirectory(src)
-#discord staff
-add_subdirectory(libs/DPP)
-add_executable(tfs ${tfs_SRC})
 
-include_directories(libs/DPP/include ${MYSQL_INCLUDE_DIR} ${LUA_INCLUDE_DIR} ${Boost_INCLUDE_DIRS} ${PUGIXML_INCLUDE_DIR} ${GMP_INCLUDE_DIR} ${ZLIB_INCLUDE_DIR})
-target_link_libraries(tfs ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES} ${Boost_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY} ${PUGIXML_LIBRARIES} ${GMP_LIBRARIES} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT} dpp)
 
+include_directories(
+    ${MYSQL_INCLUDE_DIR} 
+    ${LUA_INCLUDE_DIR} 
+    ${Boost_INCLUDE_DIRS} 
+    ${PUGIXML_INCLUDE_DIR} 
+    ${GMP_INCLUDE_DIR} 
+    ${ZLIB_INCLUDE_DIR}
+    libs/DPP/include
+    )
+
+target_link_libraries(tfs PRIVATE
+        ${MYSQL_CLIENT_LIBS} 
+        ${LUA_LIBRARIES} 
+        ${Boost_LIBRARIES} 
+        ${Boost_FILESYSTEM_LIBRARY} 
+        ${PUGIXML_LIBRARIES} 
+        ${GMP_LIBRARIES} 
+        ${ZLIB_LIBRARY} 
+        ${CMAKE_THREAD_LIBS_INIT} 
+        dpp
+        )
+
+
+
+### INTERPROCEDURAL_OPTIMIZATION ###
+cmake_policy(SET CMP0069 NEW)
+include(CheckIPOSupported)
+check_ipo_supported(RESULT result OUTPUT error)
+if (result)
+    message(STATUS "IPO / LTO enabled")
+    set_target_properties(tfs PROPERTIES INTERPROCEDURAL_OPTIMIZATION True)
+else ()
+    message(STATUS "IPO / LTO not supported: <${error}>")
+endif ()
+### END INTERPROCEDURAL_OPTIMIZATION ###
+
+
+include(cotire)
 set_target_properties(tfs PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT "src/otpch.h")
 set_target_properties(tfs PROPERTIES COTIRE_ADD_UNITY_BUILD FALSE)
 cotire(tfs)
