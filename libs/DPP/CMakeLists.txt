@@ -19,9 +19,9 @@
 cmake_minimum_required (VERSION 3.16)
 
 option(BUILD_SHARED_LIBS "Build shared libraries" ON)
-option(BUILD_VOICE_SUPPORT "Build voice support" ON)
+option(BUILD_VOICE_SUPPORT "Build voice support" OFF)
 option(RUN_LDCONFIG "Run ldconfig after installation" ON)
-option(DPP_BUILD_TEST "Build the test program" ON)
+option(DPP_BUILD_TEST "Build the test program" OFF)
 option(DPP_NO_VCPKG "No VCPKG" OFF)
 option(DPP_CORO "Experimental support for C++20 coroutines" OFF)
 
