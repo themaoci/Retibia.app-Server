@@ -25,6 +25,7 @@
 #include "configmanager.h"
 #include "game.h"
 
+#include <string>
 extern ConfigManager g_config;
 extern Game g_game;
 
@@ -315,6 +316,7 @@ bool IOLoginData::loadContainer(PropStream& propStream, Container* mainContainer
 			}
 
 			Item* item = Item::CreateItem(id);
+			//std::cout << " - " << item->getID() << std::endl;
 			if (item) {
 				if (item->unserializeAttr(propStream)) {
 					Container* c = item->getContainer();
@@ -350,6 +352,7 @@ void IOLoginData::loadItems(ItemBlockList& itemMap, DBResult_ptr result, PropStr
 	uint16_t id;
 	while (propStream.read<int32_t>(pid) && propStream.read<uint16_t>(id)) {
 		Item* item = Item::CreateItem(id);
+		//std::cout <<  "- " << id << std::endl;
 		if (item) {
 			if (item->unserializeAttr(propStream)) {
 				Container* container = item->getContainer();
@@ -455,6 +458,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 		uint32_t storage_key;
 		int32_t storage_value;
 		while (propStream.read<uint32_t>(storage_key) && propStream.read<int32_t>(storage_value)) {
+			//std::cout << storage_key << " - " << storage_value << std::endl;
 			player->addStorageValue(storage_key, storage_value, true);
 		}
 	}
@@ -735,12 +739,30 @@ void IOLoginData::saveItem(PropWriteStream& stream, const Item* item)
 
 bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList, std::stringExtended& query, PropWriteStream& propWriteStream, const std::string& table)
 {
+	std::ostringstream equiped;
 	for (const auto& it : itemList) {
 		int32_t pid = it.first;
 		Item* item = it.second;
 
+		if(table == "items")
+		{
+			if (pid > 0 && pid < 11)
+			{
+				equiped << pid << ":" << item->getID() << ";";
+			}
+		}
 		propWriteStream.write<int32_t>(pid);
 		saveItem(propWriteStream, item);
+	}
+	if(table == "items")
+	{
+		//std::cout << "UPDATE `players` SET `equiped` = \"" << equiped.str() << "\" WHERE `id` = " << player->getGUID();
+		query << "UPDATE `players` SET `equiped` = '" << equiped.str() << "' WHERE `id` = " << player->getGUID() << "";
+		std::cout << std::string(query) << std::endl;
+		if (!g_database.executeQuery(query)) {
+			return false;
+		}
+		query.clear();
 	}
 
 	size_t attributesSize;
