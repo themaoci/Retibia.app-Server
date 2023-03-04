@@ -4792,9 +4792,6 @@
 		<monster name="Rat" x="-2" y="2" z="8" spawntime="450" />
 		<monster name="Rat" x="-1" y="2" z="8" spawntime="450" />
 	</spawn>
-	<spawn centerx="616" centery="380" centerz="8" radius="1">
-		<monster name="Destroyer" x="0" y="0" z="8" spawntime="60" />
-	</spawn>
 	<spawn centerx="751" centery="380" centerz="8" radius="1">
 		<monster name="Rotworm Queen" x="0" y="0" z="8" spawntime="60" />
 	</spawn>
@@ -4811,6 +4808,9 @@
 		<monster name="Bear" x="-5" y="6" z="8" spawntime="450" />
 		<monster name="Bear" x="-5" y="11" z="8" spawntime="450" />
 		<monster name="Bear" x="4" y="12" z="8" spawntime="450" />
+	</spawn>
+	<spawn centerx="616" centery="381" centerz="8" radius="1">
+		<monster name="Destroyer" x="0" y="-1" z="8" spawntime="60" />
 	</spawn>
 	<spawn centerx="380" centery="382" centerz="8" radius="5">
 		<monster name="Rat" x="-4" y="-3" z="8" spawntime="450" />
@@ -4879,8 +4879,8 @@
 		<monster name="Crocodile" x="-1" y="-1" z="8" spawntime="60" />
 		<monster name="Crocodile" x="2" y="4" z="8" spawntime="60" />
 	</spawn>
-	<spawn centerx="651" centery="389" centerz="8" radius="1">
-		<monster name="Despair" x="0" y="0" z="8" spawntime="60" />
+	<spawn centerx="652" centery="389" centerz="8" radius="1">
+		<monster name="Despair" x="-1" y="0" z="8" spawntime="60" />
 	</spawn>
 	<spawn centerx="234" centery="390" centerz="8" radius="5">
 		<monster name="Troll" x="0" y="-1" z="8" spawntime="450" />
@@ -9956,8 +9956,8 @@
 	<spawn centerx="817" centery="532" centerz="11" radius="1">
 		<monster name="Dwarf Miner" x="0" y="0" z="11" spawntime="60" />
 	</spawn>
-	<spawn centerx="830" centery="534" centerz="11" radius="1">
-		<monster name="Dwarf" x="0" y="0" z="11" spawntime="60" />
+	<spawn centerx="831" centery="534" centerz="11" radius="1">
+		<monster name="Dwarf" x="-1" y="0" z="11" spawntime="60" />
 	</spawn>
 	<spawn centerx="846" centery="534" centerz="11" radius="1">
 		<monster name="Dwarf Miner" x="0" y="0" z="11" spawntime="60" />
