@@ -106,7 +106,7 @@ RookGaardQuestItems_Config = {
 				[1] = { id = 2395, count = 1, capReq = 40 }
 			}
 		},
-		[21] = {  -- carlin sword - fishing rod --
+		[21] = {  -- fishing rod --
 			name = "fishing rod", 
 			items = {
 				[1] = { id = 2580, count = 1, capReq = 9 }
