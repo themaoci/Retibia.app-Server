@@ -14,4 +14,5 @@
 	<module version="1080" byte="0xFD" script="store/store.lua"/>
 	<module version="1080" byte="0xFE" script="store/store.lua"/>
 
+	<module version="1080" byte="0x5A" script="self_report.lua"/>
 </modules>

@@ -9,7 +9,12 @@ local questLog = {
 
 local tutorialIds = {
 }
-
+local canPickupLater = {
+	[7104] = 86400, -- allowed for second pickup after 24h
+	[7101] = 86400, -- allowed for second pickup after 24h
+	[7102] = 86400, -- allowed for second pickup after 24h
+	[7103] = 86400, -- allowed for second pickup after 24h
+}
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local storage = specialQuests[item.actionid]
@@ -19,9 +24,12 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			return false
 		end
 	end
-
-	if player:getStorageValue(storage) > 0 then
+	local storageValue = player:getStorageValue(storage)
+	if storageValue == 1 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The ' .. ItemType(item.itemid):getName() .. ' is empty.')
+		return true
+	else if storageValue > 1 and storageValue > os.time() then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The ' .. ItemType(item.itemid):getName() .. ' is still empty.')
 		return true
 	end
 
@@ -89,8 +97,14 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if questLog[storage] then
 		player:setStorageValue(questLog[storage], 1)
 	end
-
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You have found ' .. result .. '.')
+	
+	if canPickupLater[storage] then
+		player:setStorageValue(storage, os.time() + canPickupLater[storage])
+		return true
+	end
+
 	player:setStorageValue(storage, 1)
 	return true
+end
 end
