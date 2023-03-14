@@ -57,4 +57,37 @@
 	<house name="Underground #9" houseid="67" entryx="207" entryy="639" entryz="6" rent="550" townid="3" size="18" />
 	<house name="Underground #10" houseid="68" entryx="208" entryy="639" entryz="6" rent="550" townid="3" size="18" />
 	<house name="Underground #11" houseid="69" entryx="207" entryy="645" entryz="6" rent="550" townid="3" size="18" />
+	<house name="Docks House #1" houseid="70" entryx="1057" entryy="482" entryz="6" rent="150" townid="6" size="14" />
+	<house name="Docks House #2" houseid="71" entryx="1060" entryy="478" entryz="6" rent="150" townid="6" size="7" />
+	<house name="Docks House #3" houseid="72" entryx="1075" entryy="454" entryz="6" rent="300" townid="6" size="32" />
+	<house name="House #1" houseid="73" entryx="1084" entryy="445" entryz="6" rent="250" townid="6" size="16" />
+	<house name="House #2" houseid="74" entryx="1093" entryy="452" entryz="6" rent="300" townid="6" size="32" />
+	<house name="House #3" houseid="75" entryx="1105" entryy="452" entryz="6" rent="300" townid="6" size="36" />
+	<house name="House #4" houseid="76" entryx="1125" entryy="452" entryz="6" rent="500" townid="6" size="66" />
+	<house name="House #5" houseid="77" entryx="1134" entryy="452" entryz="6" rent="300" townid="6" size="21" />
+	<house name="House #6" houseid="78" entryx="1141" entryy="452" entryz="6" rent="300" townid="6" size="24" />
+	<house name="House #7" houseid="79" entryx="1154" entryy="448" entryz="6" rent="500" townid="6" size="44" />
+	<house name="Guild House #1" houseid="80" entryx="1145" entryy="429" entryz="7" rent="800" guildhall="true" townid="6" size="112" />
+	<house name="Shop House #1" houseid="81" entryx="1137" entryy="436" entryz="7" rent="800" townid="6" size="23" />
+	<house name="Shop House #2" houseid="82" entryx="1123" entryy="437" entryz="7" rent="800" townid="6" size="23" />
+	<house name="Shop House #3" houseid="83" entryx="1123" entryy="431" entryz="7" rent="800" townid="6" size="29" />
+	<house name="House #8" houseid="84" entryx="1108" entryy="440" entryz="7" rent="300" townid="6" size="23" />
+	<house name="House #9" houseid="85" entryx="1100" entryy="438" entryz="7" rent="300" townid="6" size="21" />
+	<house name="Hotel 1" houseid="86" entryx="1060" entryy="445" entryz="6" rent="0" townid="6" size="4" />
+	<house name="Hotel 2" houseid="87" entryx="1056" entryy="445" entryz="6" rent="0" townid="6" size="4" />
+	<house name="Hotel 3" houseid="88" entryx="1053" entryy="445" entryz="6" rent="0" townid="6" size="4" />
+	<house name="Hotel 4" houseid="89" entryx="1059" entryy="446" entryz="6" rent="0" townid="6" size="9" />
+	<house name="Hotel 5" houseid="90" entryx="1053" entryy="446" entryz="6" rent="0" townid="6" size="9" />
+	<house name="Hotel 6" houseid="91" entryx="1056" entryy="445" entryz="5" rent="0" townid="6" size="12" />
+	<house name="Hotel Premium Deposit" houseid="92" entryx="1056" entryy="450" entryz="5" rent="500" townid="6" size="5" />
+	<house name="Unnamed House #93" houseid="93" entryx="1169" entryy="431" entryz="6" rent="0" townid="6" size="44" />
+	<house name="Unnamed House #94" houseid="94" entryx="1174" entryy="424" entryz="5" rent="0" townid="6" size="10" />
+	<house name="Unnamed House #95" houseid="95" entryx="1175" entryy="426" entryz="5" rent="0" townid="6" size="2" />
+	<house name="Unnamed House #96" houseid="96" entryx="1187" entryy="424" entryz="6" rent="0" townid="6" size="12" />
+	<house name="Unnamed House #97" houseid="97" entryx="1181" entryy="436" entryz="6" rent="0" townid="6" size="12" />
+	<house name="Unnamed House #98" houseid="98" entryx="1187" entryy="435" entryz="6" rent="0" townid="6" size="12" />
+	<house name="Unnamed House #99" houseid="99" entryx="1197" entryy="436" entryz="6" rent="0" townid="6" size="7" />
+	<house name="Unnamed House #100" houseid="100" entryx="1188" entryy="449" entryz="6" rent="0" townid="6" size="8" />
+	<house name="Unnamed House #101" houseid="101" entryx="1179" entryy="453" entryz="6" rent="0" townid="6" size="16" />
+	<house name="Unnamed House #102" houseid="102" entryx="1171" entryy="452" entryz="6" rent="0" townid="6" size="8" />
 </houses>

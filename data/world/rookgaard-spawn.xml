@@ -7564,6 +7564,10 @@
 	<spawn centerx="799" centery="558" centerz="9" radius="1">
 		<monster name="Dwarf Guard" x="0" y="0" z="9" spawntime="60" />
 	</spawn>
+	<spawn centerx="483" centery="96" centerz="10" radius="5">
+		<monster name="Skeleton" x="-4" y="-1" z="10" spawntime="60" />
+		<monster name="Skeleton" x="3" y="0" z="10" spawntime="60" />
+	</spawn>
 	<spawn centerx="653" centery="104" centerz="10" radius="1">
 		<monster name="Dragon" x="0" y="0" z="10" spawntime="60" />
 	</spawn>
@@ -9430,6 +9434,32 @@
 	<spawn centerx="852" centery="577" centerz="10" radius="1">
 		<monster name="Dwarf Geomancer" x="0" y="0" z="10" spawntime="60" />
 	</spawn>
+	<spawn centerx="483" centery="47" centerz="11" radius="7">
+		<monster name="Undead Dragon" x="4" y="-2" z="11" spawntime="60" />
+		<monster name="Undead Dragon" x="-2" y="1" z="11" spawntime="60" />
+		<monster name="Undead Dragon" x="3" y="7" z="11" spawntime="60" />
+	</spawn>
+	<spawn centerx="446" centery="59" centerz="11" radius="10" />
+	<spawn centerx="486" centery="64" centerz="11" radius="7">
+		<monster name="Undead Dragon" x="1" y="-4" z="11" spawntime="70" />
+		<monster name="Undead Dragon" x="5" y="4" z="11" spawntime="75" />
+	</spawn>
+	<spawn centerx="511" centery="70" centerz="11" radius="5">
+		<monster name="Undead Dragon" x="-3" y="1" z="11" spawntime="80" />
+		<monster name="Undead Dragon" x="4" y="1" z="11" spawntime="60" />
+	</spawn>
+	<spawn centerx="517" centery="84" centerz="11" radius="7">
+		<monster name="Undead Dragon" x="4" y="-7" z="11" spawntime="80" />
+		<monster name="Undead Dragon" x="4" y="0" z="11" spawntime="60" />
+		<monster name="Undead Dragon" x="-3" y="2" z="11" spawntime="80" />
+	</spawn>
+	<spawn centerx="492" centery="88" centerz="11" radius="13">
+		<monster name="Undead Dragon" x="6" y="-13" z="11" spawntime="60" />
+		<monster name="Undead Dragon" x="-8" y="-10" z="11" spawntime="60" />
+		<monster name="Undead Dragon" x="1" y="-5" z="11" spawntime="60" />
+		<monster name="Undead Dragon" x="-10" y="-4" z="11" spawntime="80" />
+		<monster name="Undead Dragon" x="6" y="2" z="11" spawntime="85" />
+	</spawn>
 	<spawn centerx="662" centery="134" centerz="11" radius="1">
 		<monster name="Dragon Lord" x="0" y="0" z="11" spawntime="60" />
 	</spawn>
@@ -9703,25 +9733,25 @@
 		<monster name="Serpent Spawn" x="6" y="3" z="11" spawntime="60" />
 		<monster name="Serpent Spawn" x="1" y="5" z="11" spawntime="60" />
 	</spawn>
-	<spawn centerx="359" centery="227" centerz="11" radius="1">
+	<spawn centerx="361" centery="226" centerz="11" radius="1">
 		<monster name="Skeleton" x="1" y="0" z="11" spawntime="450" />
 	</spawn>
 	<spawn centerx="1266" centery="228" centerz="11" radius="1">
 		<monster name="Medusa" x="0" y="0" z="11" spawntime="60" />
 	</spawn>
-	<spawn centerx="367" centery="229" centerz="11" radius="1">
-		<monster name="Skeleton" x="0" y="-1" z="11" spawntime="450" />
+	<spawn centerx="368" centery="229" centerz="11" radius="1">
+		<monster name="Skeleton" x="-1" y="0" z="11" spawntime="450" />
 	</spawn>
 	<spawn centerx="220" centery="230" centerz="11" radius="6">
 		<monster name="Giant Spider" x="4" y="6" z="11" spawntime="120" />
-	</spawn>
-	<spawn centerx="362" centery="230" centerz="11" radius="1">
-		<monster name="Skeleton" x="0" y="0" z="11" spawntime="450" />
 	</spawn>
 	<spawn centerx="269" centery="232" centerz="11" radius="6">
 		<monster name="Giant Spider" x="0" y="-2" z="11" spawntime="120" />
 		<monster name="Giant Spider" x="5" y="-1" z="11" spawntime="120" />
 		<monster name="Giant Spider" x="0" y="3" z="11" spawntime="120" />
+	</spawn>
+	<spawn centerx="362" centery="232" centerz="11" radius="1">
+		<monster name="Skeleton" x="0" y="-1" z="11" spawntime="450" />
 	</spawn>
 	<spawn centerx="408" centery="232" centerz="11" radius="14">
 		<monster name="Orc" x="0" y="-9" z="11" spawntime="450" />

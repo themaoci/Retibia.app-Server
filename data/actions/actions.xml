@@ -27,14 +27,18 @@
 	<action actionid="3112" script="switch/rookgaard/spike sword door.lua" />
 	<action uniqueid="15068" script="switch/rookgaard/rook-stone-switch.lua" />
   <!-- Special wall entrance to ghoul area -->
-	<action actionid="3200" script="hiddenWall/ghoul_wall_passing.lua" />
+  <!-- Pickup katana - 7019 // Pickup your corpse (near bears) 7039 -->
+	<action actionid="3200" script="hidden/ghoul_wall_passing.lua" />
 
   <!-- Maze of fury -->
 	<!-- magic wall -->
-	<action actionid="6501" script="hiddenWall/maze_magicWall.lua" />
-  <!-- Desert underground -->
+	<action actionid="6501" script="hidden/maze_magicWall.lua" />
+  <!-- Desert Island -->
 	<!-- Magic self regenerating code each server start -->
-	<action actionid="10201" script="hiddenWall/secretPassage.lua" />
+	<action actionid="10201" script="hidden/secretPassage.lua" />
+  <!-- Secret undead location only accessable by solving skeleton stones -->
+	<action actionid="9000" script="hidden/secretUndeadPlace.lua" />
+	<action actionid="9100" script="hidden/returnBackFromUndead.lua" />
 
   <!-- Quest's auto item giver, 7000 -->
 	<action actionid="7000" script="quest/rookgaardQuestItems.lua" /> 
@@ -42,6 +46,7 @@
 	<!-- <action actionid="8000" script="quest/desert_minotaur_coffins.lua" /> moved to 7100 with time delayed pickups allowed  -->
   <!-- Action id of quests, id is Uid and start from 1001 -->
   <!-- 7000 - 7999 Reserved for Quest storages in Rook (All new ids must be registered in the quest file!) -->
+
 
   <!-- Rookgaard ship to travel to Cormaya -->
 	<action fromaid="10110" toaid="10111" script="teleport/flying_ship.lua" />
