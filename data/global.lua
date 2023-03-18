@@ -22,7 +22,7 @@ function getDistanceBetween(firstPosition, secondPosition)
 end
 
 function getFormattedWorldTime()
-	local worldTime = getWorldTime()
+	local worldTime = Game.getCurrentTibianTime()
 	local hours = math.floor(worldTime / 60)
 
 	local minutes = worldTime % 60
