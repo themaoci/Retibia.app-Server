@@ -30,7 +30,7 @@ end
 
 local function doCheckInactivePlayer() -- Automatically delete data from tables "houses, player_items, player_depotitems, player_deaths, guilds, player_storage"
     local timeStamp = os.time() - (86400 * (inactiveMonthsToDeleteCharacter * 30))
-    local fromClause = "`players` WHERE `group_id` = 1 AND lastlogin <= ".. timeStamp
+    local fromClause = "`players` WHERE NOT `name` == 'Starting Player Sample' and `group_id` = 1 AND lastlogin <= ".. timeStamp
     return executeDatabase(fromClause)
 end
 
