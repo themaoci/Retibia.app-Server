@@ -16,56 +16,63 @@ local voices = {
 npcHandler:addModule(VoiceModule:new(voices))
 
 -- Basic keywords
-keywordHandler:addKeyword({'offer'}, StdModule.say, {npcHandler = npcHandler, text = 'Haven\'t they taught you anything at school? Ask for a {trade} if you want to trade.'})
-keywordHandler:addAliasKeyword({'sell'})
-keywordHandler:addAliasKeyword({'buy'})
-keywordHandler:addAliasKeyword({'food'})
+local StaticResponsesTable = {
+	--{ keyword = , aliases = {}, text =  },
+	{ keyword = {'offer'}, aliases = {{'sell'},{'buy'},{'food'}}, text = 'Haven\'t they taught you anything at school? Ask for a {trade} if you want to trade.' },
+	{ keyword = {'information'}, aliases = {{'help'},{'hint'}}, text = 'Help yourself. Or ask the other {citizens}, I don\'t have time for that.' },
+	{ keyword = {'how', 'are', 'you'}, aliases = {}, text = 'Fine enough.' },
+	{ keyword = {'name'}, aliases = {}, text = 'Willie.' },
+	{ keyword = {'job'}, aliases = {}, text = 'I\'m a farmer and a cook.' },
+	{ keyword = {'cook'}, aliases = {}, text = 'I try out old and new {recipes}. You can sell all {food} to me.' },
+	{ keyword = {'recipe'}, aliases = {}, text = 'I\'d love to try a banana pie but I lack the {bananas}. If you get me one, I\'ll reward you.' },
+	{ keyword = {'citizen'}, aliases = {}, text = 'Which one?' },
+	{ keyword = {'rookgaard'}, aliases = {}, text = 'This island would be wonderful if there weren\'t a constant flood of newcomers.' },
+	{ keyword = {'tibia'}, aliases = {}, text = 'If I were you, I\'d stay here.' },
+	{ keyword = {'spell'}, aliases = {}, text = 'I know how to spell.' },
+	{ keyword = {'magic'}, aliases = {}, text = 'I\'m a magician in the kitchen.' },
+	{ keyword = {'weapon'}, aliases = {}, text = 'I\'m not in the weapon business, so stop disturbing me.' },
+	{ keyword = {'king'}, aliases = {}, text = 'I\'m glad that we don\'t see many officials here.' },
+	{ keyword = {'sewer'}, aliases = {}, text = 'What about them? Do you live there?' },
+	{ keyword = {'dungeon'}, aliases = {}, text = 'I\'ve got no time for your dungeon nonsense.' },
+	{ keyword = {'rat'}, aliases = {}, text = 'My cousin {Billy} cooks rat stew. Yuck! Can you imagine that?' },
+	{ keyword = {'monster'}, aliases = {}, text = 'Are you afraid of monsters? I bet even the sight of a {rat} would let your knees tremble. Hahaha.' },
+	{ keyword = {'time'}, aliases = {}, text = 'Do I look like a clock?' },
+	{ keyword = {'god'}, aliases = {}, text = 'I\'m a farmer, not a preacher.' },
+	{ keyword = {'al', 'dee'}, aliases = {}, text = 'Can\'t stand him.' },
+	{ keyword = {'amber'}, aliases = {}, text = 'Quite a babe.' },
+	{ keyword = {'billy'}, aliases = {}, text = 'Don\'t ever mention his name again! He can\'t even {cook}!' },
+	{ keyword = {'cipfried'}, aliases = {}, text = 'Our little monkey.' },
+	{ keyword = {'dallheim'}, aliases = {}, text = 'Uhm, fine guy I think.' },
+	{ keyword = {'dixi'}, aliases = {}, text = 'Boring little girl.' },
+	{ keyword = {'hyacinth'}, aliases = {}, text = 'Overrated.' },
+	{ keyword = {'lee\'delle'}, aliases = {}, text = 'She thinks she owns this island with her underpriced offers.' },
+	{ keyword = {'lily'}, aliases = {}, text = 'I don\'t like hippie girls.' },
+	{ keyword = {'loui'}, aliases = {}, text = 'Leave me alone with that guy.' },
+	{ keyword = {'norma'}, aliases = {}, text = 'About time we got a bar here.' },
+	{ keyword = {'obi'}, aliases = {}, text = 'This old guy has only money on his mind.' },
+	{ keyword = {'oracle'}, aliases = {}, text = 'Hopefully it gets you off this island soon so you can stop bugging me.' },
+	{ keyword = {'paulie'}, aliases = {}, text = 'Uptight and correct in any situation.' },
+	{ keyword = {'santiago'}, aliases = {}, text = 'If he wants to sacrifice all his free time for beginners, fine with me. Then they don\'t disturb me.' },
+	{ keyword = {'seymour'}, aliases = {}, text = 'This joke of a man thinks he is sooo important.' },
+	{ keyword = {'tom'}, aliases = {}, text = 'Decent guy.' },
+	{ keyword = {'willie'}, aliases = {}, text = 'Yeah, so?' },
+	{ keyword = {'zerbrus'}, aliases = {}, text = 'Overrated.' },
+	{ keyword = {'zirella'}, aliases = {}, text = 'Too old to be interesting for me.' },
+}
+for _, staticResp in ipairs(StaticResponsesTable) do
+	-- redo this later
+	local keywordParameters = {npcHandler = npcHandler, text = staticResp.text}
+	if staticResp.ungreet ~= nil then
+		keywordParameters['ungreet'] = staticResp.ungreet
+	end
+	keywordHandler:addKeyword(staticResp.keyword, StdModule.say, keywordParameters)
+	if staticResp.aliases ~= nil then
+		for _, alias in ipairs(staticResp.aliases) do
+			keywordHandler:addAliasKeyword(alias)
+		end
+	end
+end
 
-keywordHandler:addKeyword({'information'}, StdModule.say, {npcHandler = npcHandler, text = 'Help yourself. Or ask the other {citizens}, I don\'t have time for that.'})
-keywordHandler:addAliasKeyword({'help'})
-keywordHandler:addAliasKeyword({'hint'})
-
-keywordHandler:addKeyword({'how', 'are', 'you'}, StdModule.say, {npcHandler = npcHandler, text = 'Fine enough.'})
-keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = 'Willie.'})
-keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = 'I\'m a farmer and a cook.'})
-keywordHandler:addKeyword({'cook'}, StdModule.say, {npcHandler = npcHandler, text = 'I try out old and new {recipes}. You can sell all {food} to me.'})
-keywordHandler:addKeyword({'recipe'}, StdModule.say, {npcHandler = npcHandler, text = 'I\'d love to try a banana pie but I lack the {bananas}. If you get me one, I\'ll reward you.'})
-keywordHandler:addKeyword({'citizen'}, StdModule.say, {npcHandler = npcHandler, text = 'Which one?'})
-keywordHandler:addKeyword({'rookgaard'}, StdModule.say, {npcHandler = npcHandler, text = 'This island would be wonderful if there weren\'t a constant flood of newcomers.'})
-keywordHandler:addKeyword({'tibia'}, StdModule.say, {npcHandler = npcHandler, text = 'If I were you, I\'d stay here.'})
-keywordHandler:addKeyword({'spell'}, StdModule.say, {npcHandler = npcHandler, text = 'I know how to spell.'})
-keywordHandler:addKeyword({'magic'}, StdModule.say, {npcHandler = npcHandler, text = 'I\'m a magician in the kitchen.'})
-keywordHandler:addKeyword({'weapon'}, StdModule.say, {npcHandler = npcHandler, text = 'I\'m not in the weapon business, so stop disturbing me.'})
-keywordHandler:addKeyword({'king'}, StdModule.say, {npcHandler = npcHandler, text = 'I\'m glad that we don\'t see many officials here.'})
-keywordHandler:addKeyword({'god'}, StdModule.say, {npcHandler = npcHandler, text = 'I\'m a farmer, not a preacher.'})
-keywordHandler:addKeyword({'sewer'}, StdModule.say, {npcHandler = npcHandler, text = 'What about them? Do you live there?'})
-keywordHandler:addKeyword({'dungeon'}, StdModule.say, {npcHandler = npcHandler, text = 'I\'ve got no time for your dungeon nonsense.'})
-keywordHandler:addKeyword({'rat'}, StdModule.say, {npcHandler = npcHandler, text = 'My cousin {Billy} cooks rat stew. Yuck! Can you imagine that?'})
-keywordHandler:addKeyword({'monster'}, StdModule.say, {npcHandler = npcHandler, text = 'Are you afraid of monsters? I bet even the sight of a {rat} would let your knees tremble. Hahaha.'})
-keywordHandler:addKeyword({'time'}, StdModule.say, {npcHandler = npcHandler, text = 'Do I look like a clock?'})
-keywordHandler:addKeyword({'god'}, StdModule.say, {npcHandler = npcHandler, text = 'I\'m a farmer, not a preacher.'})
-
--- Names
-keywordHandler:addKeyword({'al', 'dee'}, StdModule.say, {npcHandler = npcHandler, text = 'Can\'t stand him.'})
-keywordHandler:addKeyword({'amber'}, StdModule.say, {npcHandler = npcHandler, text = 'Quite a babe.'})
-keywordHandler:addKeyword({'billy'}, StdModule.say, {npcHandler = npcHandler, text = 'Don\'t ever mention his name again! He can\'t even {cook}!'})
-keywordHandler:addKeyword({'cipfried'}, StdModule.say, {npcHandler = npcHandler, text = 'Our little monkey.'})
-keywordHandler:addKeyword({'dallheim'}, StdModule.say, {npcHandler = npcHandler, text = 'Uhm, fine guy I think.'})
-keywordHandler:addKeyword({'dixi'}, StdModule.say, {npcHandler = npcHandler, text = 'Boring little girl.'})
-keywordHandler:addKeyword({'hyacinth'}, StdModule.say, {npcHandler = npcHandler, text = 'Overrated.'})
-keywordHandler:addKeyword({'lee\'delle'}, StdModule.say, {npcHandler = npcHandler, text = 'She thinks she owns this island with her underpriced offers.'})
-keywordHandler:addKeyword({'lily'}, StdModule.say, {npcHandler = npcHandler, text = 'I don\'t like hippie girls.'})
-keywordHandler:addKeyword({'loui'}, StdModule.say, {npcHandler = npcHandler, text = 'Leave me alone with that guy.'})
-keywordHandler:addKeyword({'norma'}, StdModule.say, {npcHandler = npcHandler, text = 'About time we got a bar here.'})
-keywordHandler:addKeyword({'obi'}, StdModule.say, {npcHandler = npcHandler, text = 'This old guy has only money on his mind.'})
-keywordHandler:addKeyword({'oracle'}, StdModule.say, {npcHandler = npcHandler, text = 'Hopefully it gets you off this island soon so you can stop bugging me.'})
-keywordHandler:addKeyword({'paulie'}, StdModule.say, {npcHandler = npcHandler, text = 'Uptight and correct in any situation.'})
-keywordHandler:addKeyword({'santiago'}, StdModule.say, {npcHandler = npcHandler, text = 'If he wants to sacrifice all his free time for beginners, fine with me. Then they don\'t disturb me.'})
-keywordHandler:addKeyword({'seymour'}, StdModule.say, {npcHandler = npcHandler, text = 'This joke of a man thinks he is sooo important.'})
-keywordHandler:addKeyword({'tom'}, StdModule.say, {npcHandler = npcHandler, text = 'Decent guy.'})
-keywordHandler:addKeyword({'willie'}, StdModule.say, {npcHandler = npcHandler, text = 'Yeah, so?'})
-keywordHandler:addKeyword({'zerbrus'}, StdModule.say, {npcHandler = npcHandler, text = 'Overrated.'})
-keywordHandler:addKeyword({'zirella'}, StdModule.say, {npcHandler = npcHandler, text = 'Too old to be interesting for me.'})
 
 -- Studded Shield Quest
 local bananaKeyword = keywordHandler:addKeyword({'banana'}, StdModule.say, {npcHandler = npcHandler, text = 'Have you found a banana for me?'})

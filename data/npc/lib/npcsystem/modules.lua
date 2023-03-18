@@ -48,7 +48,11 @@ if Modules == nil then
 			return false
 		end
 
-		local parseInfo = {[TAG_PLAYERNAME] = Player(cid):getName(), [TAG_BLESSCOST] = getBlessingsCost(Player(cid):getLevel())}
+		local parseInfo = {
+			[TAG_PLAYERNAME] = Player(cid):getName(), 
+			[TAG_BLESSCOST] = getBlessingsCost(Player(cid):getLevel()), 
+			[TAG_TIME] = getFormattedWorldTime()
+		}
 		npcHandler:say(npcHandler:parseMessage(parameters.text or parameters.message, parseInfo), cid, parameters.publicize and true)
 		if parameters.reset then
 			npcHandler:resetNpc(cid)
@@ -852,17 +856,17 @@ if Modules == nil then
 			end
 			local it = ItemType(itemid)
 			if it:getId() ~= 0 then
-        local shopItem = self:getShopItem(itemid, itemSubType)
-        if shopItem == nil then
-          self.npcHandler.shopItems[#self.npcHandler.shopItems + 1] = {id = itemid, buy = cost, sell = -1, subType = itemSubType, name = realName or ItemType(itemid):getName()}
-        else
-					if cost < shopItem.sell then
-						print("[Warning : " .. Npc():getName() .. "] NpcSystem: Buy price lower than sell price: (".. shopItem.name ..")")
-					end
-          shopItem.buy = cost
-        end
-      end
-    end
+				local shopItem = self:getShopItem(itemid, itemSubType)
+				if shopItem == nil then
+				self.npcHandler.shopItems[#self.npcHandler.shopItems + 1] = {id = itemid, buy = cost, sell = -1, subType = itemSubType, name = realName or ItemType(itemid):getName()}
+				else
+							if cost < shopItem.sell then
+								print("[Warning : " .. Npc():getName() .. "] NpcSystem: Buy price lower than sell price: (".. shopItem.name ..")")
+							end
+				shopItem.buy = cost
+				end
+			end
+		end
 		if names and SHOPMODULE_MODE ~= SHOPMODULE_MODE_TRADE then
 			for i, name in pairs(names) do
 				local parameters = {
