@@ -5,13 +5,16 @@ local maxDeathRecords = 100
 local DISGUSTING_KILLER = {
   LevelDifference = 0.75, -- number to multiply killer level to compare
   DeathJailPosition = Position(35, 18, 9),
-  StorageValue = 90101,
+  StorageValue = 62000,
   MaxToTrigger = 4,
   -- make sure to make the texts for each "disgusted" kill
   KillMessage = "Let's see... what you gonna do now!!!",
   Texts = {
     "A being is paying attention to your behaviour",
+    "A being is paying attention to your behaviour",
     "A being is disgusted with your decision making",
+    "A being is being displeased with your view...",
+    "A being is being displeased with your view...",
     "A being is being displeased with your view...",
     "A being is displeased with your behaviour and says that you will regret if you still behave like that",
     "Now this is enough of your disgusting behaviour!!"
@@ -34,28 +37,29 @@ function onDeath(player, corpse, killer, mostDamageKiller, lastHitUnjustified, m
 	end
 
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You are dead.")
-  local killunjustified = lastHitUnjustified and 1 or 0
-  if killer:isPlayer() and killunjustified then
-    local killerLevel = killer:getLevel()
-    if killerLevel * DISGUSTING_KILLER.LevelDifference > player:getLevel() then
-      -- yes this is disgusting kill
-    
-      local DisgustedKillCount = killer:getStorageValue(DISGUSTING_KILLER.StorageValue)
-      if DisgustedKillCount >= DISGUSTING_KILLER.MaxToTrigger then
-        -- oh hes done for but with random event spawning
-        local randomDelay = 1000 -- math.random(15000, 60000)
-        addEvent(bringDisgustingKillerToDemigod, randomDelay, killer)
-        killer:setStorageValue(DISGUSTING_KILLER.StorageValue, 0)
-        killer:sendTextMessage(MESSAGE_INFO_DESCR, DISGUSTING_KILLER.Texts[#DISGUSTING_KILLER.Texts])
-      else
-        if DisgustedKillCount == -1 then
-          DisgustedKillCount = 0
-        end
-        killer:setStorageValue(DISGUSTING_KILLER.StorageValue, DisgustedKillCount + 1)
-        killer:sendTextMessage(MESSAGE_INFO_DESCR, DISGUSTING_KILLER.Texts[DisgustedKillCount + 1])
-      end
-    end
-  end
+	local killunjustified = lastHitUnjustified and 1 or 0
+	if killer:isPlayer() and killunjustified then
+		local killerLevel = killer:getLevel()
+		if killerLevel * DISGUSTING_KILLER.LevelDifference > player:getLevel() then
+		-- yes this is disgusting kill
+		
+		local DisgustedKillCount = killer:getStorageValue(DISGUSTING_KILLER.StorageValue)
+		-- make sure to be unpredictible
+		if DisgustedKillCount >= DISGUSTING_KILLER.MaxToTrigger + math.random(-1, 2) then
+			-- oh hes done for but with random event spawning
+			local randomDelay = 1000 -- math.random(15000, 60000)
+			addEvent(bringDisgustingKillerToDemigod, randomDelay, killer)
+			killer:setStorageValue(DISGUSTING_KILLER.StorageValue, 0)
+			killer:sendTextMessage(MESSAGE_INFO_DESCR, DISGUSTING_KILLER.Texts[#DISGUSTING_KILLER.Texts])
+		else
+			if DisgustedKillCount == -1 then
+				DisgustedKillCount = 0
+			end
+			killer:setStorageValue(DISGUSTING_KILLER.StorageValue, DisgustedKillCount + 1)
+			killer:sendTextMessage(MESSAGE_INFO_DESCR, DISGUSTING_KILLER.Texts[DisgustedKillCount + 1])
+		end
+		end
+	end
 	if not deathListEnabled then
 		return
 	end
