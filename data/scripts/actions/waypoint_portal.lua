@@ -4,8 +4,8 @@ function waypoint_portal.onUse(player, item, fromPosition, target, toPosition, i
   local isDev = player:getAccountType() == ACCOUNT_TYPE_GOD
   -- add this waypoint to player saved waypoints 
   if GameConfig.Waypoint.Config.EnableSavingWaypoints then
-    if player:getstoragevalue(storagevalues + item:getuniqueid()) ~= 1 then
-      player:setstoragevalue(storagevalues + item:getuniqueid(), 1)
+    if player:getStorageValue(GameConfig.Waypoint.Config.PlayerStorageValue + item:getUniqueId()) ~= 1 then
+      player:setStorageValue(GameConfig.Waypoint.Config.PlayerStorageValue + item:getUniqueId(), 1)
     end
   end
   

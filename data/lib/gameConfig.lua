@@ -1,4 +1,19 @@
 GameConfig = {
+  ['RookgaardHints'] = 1500,
+  ['TravellingTrader'] = {
+    ['Mission01'] = 2001,
+    ['Mission02'] = 2002,
+    ['Mission03'] = 2003,
+    ['Mission04'] = 2004,
+    ['Mission05'] = 2005,
+    ['Mission06'] = 2006,
+    ['Mission06'] = 2007, -- recognized trader
+  },
+  ['AdventurersGuild'] = {
+    ['FreeStone'] = {
+      ['Brewster'] = 2101,
+    }
+  },
   ['EnableDevTestingChest'] = true,
   ['BlockTrashingTeleports'] = true,
   ['FlyingShip'] = {
@@ -8,7 +23,7 @@ GameConfig = {
   ['Waypoint'] = {
     ['Config'] = {
       ['ObjectActionId'] = 60800,
-      ['PlayerStorageValue'] = 120000,
+      ['PlayerStorageValue'] = 60800,
       ['TeleportEffectOut'] = CONST_ME_TELEPORT,
       ['TeleportEffectIn'] = CONST_ME_TELEPORT,
       ['EnableSavingWaypoints'] = false,
