@@ -117,6 +117,8 @@ Event_ptr Spells::getEvent(const std::string& nodeName)
 		return Event_ptr(new RuneSpell(&scriptInterface));
 	} else if (strcasecmp(nodeName.c_str(), "instant") == 0) {
 		return Event_ptr(new InstantSpell(&scriptInterface));
+	} else if (strcasecmp(nodeName.c_str(), "conjure") == 0) {
+		return Event_ptr(new InstantSpell(&scriptInterface));
 	}
 	return nullptr;
 }
