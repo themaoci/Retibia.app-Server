@@ -53,7 +53,7 @@ GameConfig = {
   ['autoGhostStaffMembers'] = true,
   ["God"] = {
     ['WelcomeMessageEnabled'] = false,
-    ['WelcomeMessageCommands'] = "-- COMMANDS --\n/ban {username},{reason},{time in days}\n/banid - works the same as /ban without time\n/i {itemId},{amount}\n-- COMMANDS --\n"
+    ['WelcomeMessageCommands'] = "-- COMMANDS --\n/cmd -> to get all commands-- COMMANDS --\n"
   }, 
   ["Tutor"] = {
     ['WelcomeMessageEnabled'] = false,
