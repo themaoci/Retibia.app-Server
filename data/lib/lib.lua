@@ -8,3 +8,7 @@ dofile('data/lib/compat/compat.lua')
 dofile('data/lib/locationData/rookgaard.lua')
 -- Server config data in lua - can be changed by using commands.
 dofile('data/lib/gameConfig.lua') -- GameConfig
+dofile('data/lib/spellConfig.lua') -- SpellConfig
+
+
+dofile('data/lib/debug/functions.lua') -- DEBUG - functions
