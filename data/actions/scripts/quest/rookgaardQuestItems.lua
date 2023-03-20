@@ -2,184 +2,71 @@
 
 --7000 - 7999 is reserved storage ids for Rook quests only--
 
+-- 
+-- 7035 -- Movement tile for Spike sword (Poison spider cave) [MOVEMENT STEP IN ON TILE]
+-- 7036 -- Movement tile for Spike sword (Rotworm cave) [MOVEMENT STEP IN ON TILE]
+
+
+
+
 RookGaardQuestItems_Config = {
-  scriptStartUID = 7000,
+  	scriptStartUID = 7000,
 	reward = {
     -- 1 -- Semour Exchange quest, Present and gain legion helmet.
     -- 2 -- Willie Exchange quest, Banana and gain studded shield.
     -- 3 -- Billy Exchange quest, Pan and gain antidote rune.
     -- 4 -- Lee'Delle Exchange quest, Honey Flower and Studded legs.
     -- 5 -- Al Dee Exchange quest, Small axe and gain pick.
-		[6] = { --ambers notebook--
-			name = "ambers notebook", 
-			items = {
-				[1] = { id = 1955, count = 1, capReq = 10, text = "Hardek *\nBozo *\nSam ****\nOswald\nPartos ***\nQuentin *\nTark ***\nHarsky ***\nStutch *\nFerumbras *\nFrodo **\nNoodles ****"}
-			}
-		},
     -- 7 -- Amber Exchange quest, Ambers Notebook and gain short sword.
-		[8] = { -- Letter + Salmon --
-			name = "letter and some salmon", 
+		[10] = { -- hydras egg (in jungle area)
+			name = "hydras egg", 
 			items = {
-				[1] = { id = 2597, count = 1, text = "", capReq = 1},
-				[2] = { id = 2668, count = 2, capReq = 3}
+				[1] = { id = 4850, count = 1 }
 			}
 		},
-		[9] = { -- Bear Room Key -- 
-			name = "bear room key", 
-			items = {
-				[1] = { id = 2089, count = 1, actionId = 2004, description = "(Key: 4601)"}
-			}
-		},
-		[10] = { -- Bear Room Chain Armor -- 
-			name = "Chain Armor", 
-			items = {
-				[1] = { id = 2464, count = 1, capReq = 100 }
-			}
-		},
-		[11] = { -- Bear Room Brass Helmet -- 
-			name = "Brass Helmet",
-			items = {
-				[1] = { id = 2460, count = 1, capReq = 27 }
-			}
-		},
-		[12] = { -- Bear Room Bag -- 
-			name = "bag", 
-			wrapInBag = 1987,
-			items = {
-				[1] = { id = 2668, count = 12, capReq = 4 },
-				[2] = { id = 2148, count = 40, capReq = 1 }
-			}
-		},
-		[13] = { -- Combat Knife -- 
-			name = "combat knife", 
-			items = {
-				[1] = { id = 2404, count = 1, capReq = 9 }
-			}
-		},
-		[14] = { -- Doublet -- 
+		[14] = { -- Doublet -- under the floor
 			name = "doublet", 
 			items = {
 				[1] = { id = 2485, count = 1, capReq = 25 }
 			}
 		},
-		[15] = { -- Dragon corpse -- 
-			name = "bag", 
-			wrapInBag = 1987,
-			items = {
-				[1] = { id = 2480, count = 1, capReq = 31 },
-				[2] = { id = 2530, count = 1, capReq = 63 }
-			}
-		},
-		[16] = { -- Goblin Temple left chest --
-			name = "bag", 
-			wrapInBag = 1987,
-			items = {
-				[1] = { id = 2563, count = 1, capReq = 18 }, -- pan
-				[2] = { id = 1294, count = 5, capReq = 3.6 }, -- small stone
-				[3] = { id = 2148, count = 50, capReq = 0.1 } -- gold coin
-			}
-		},
-		[17] = {  -- Goblin Temple right chest --
-			name = "bag", 
-			wrapInBag = 1987,
-			items = {
-				[1] = { id = 2006, count = 6, capReq = 1.8 }, -- vial
-				[2] = { id = 2111, count = 4, capReq = 0.8 }, -- snowball
-				[3] = { id = 2642, count = 1, capReq = 0.6 } -- sandals
-			}
-		},
-		[18] = {  -- Katana key --
-			name = "key", 
-			items = {
-				[1] = { id = 2088, count = 1, capReq = 1, actionId = 2007, description = "(Key: 4603)" }
-			}
-		},
-		[19] = {  -- Katana --
-			name = "katana", 
-			items = {
-				[1] = { id = 2412, count = 1, capReq = 31 }
-			}
-		},
-		[20] = {  -- carlin sword --
-			name = "carlin sword", 
-			items = {
-				[1] = { id = 2395, count = 1, capReq = 40 }
-			}
-		},
-		[21] = {  -- fishing rod --
-			name = "fishing rod", 
-			items = {
-				[1] = { id = 2580, count = 1, capReq = 9 }
-			}
-		},
-		[22] = {  -- carlin sword - bag or arrows --
-			name = "bag", 
-			wrapInBag = 1987,
-			items = {
-				[1] = { id = 2545, count = 40, capReq = 0.8 },
-				[2] = { id = 2544, count = 40, capReq = 0.7 }
-			}
-		},
-		[23] = {  -- Rapier --
-			name = "rapier", 
-			items = {
-				[1] = { id = 2384, count = 1, capReq = 15 }
-			}
-		},
-		[24] = {  -- Torch -- use it later for starting gear for players quest
-			name = "bag", 
-			wrapInBag = 1987,
-			items = {
-				[1] = { id = 2050, count = 1, capReq = 5 } -- torch
-			}
-		},
-		[25] = {  -- Present --
-			name = "bag", 
-			wrapInBag = 1988,
-			items = {
-				[1] = { id = 2013, count = 1, capReq = 2 },
-				[2] = { id = 2035, count = 1, capReq = 1.5 },
-				[3] = { id = 2014, count = 1, capReq = 7.5 },
-				[4] = { id = 1990, count = 1, capReq = 6 }, -- present
-			}
-		},
-		[26] = {  -- Small Axe --
+		[26] = {  -- Small Axe -- in the coffin
 			name = "small axe", 
 			items = {
 				[1] = { id = 2559, count = 1, capReq = 15 }
 			}
 		},
-    -- 27 -- Benny Carter quest, help him deal with few missions.
-    -- 28 -- Benny Carter quest, Kill rats storage.
-    -- 29 -- Benny Carter quest, Kill spiders storage.
-    -- 30 -- Benny Carter quest, Kill Aaron.
+    -- 27 -- Benny Carter quest, help him deal with few missions. [TO REWORK]
+    -- 28 -- Benny Carter quest, Kill rats storage. [TO REWORK]
+    -- 29 -- Benny Carter quest, Kill spiders storage. [TO REWORK]
+    -- 30 -- Benny Carter quest, Kill Aaron. [TO REWORK]
 		[31] = {  -- Banana Palm --
 			name = "banana", 
 			items = {
 				[1] = { id = 2676, count = 1, capReq = 2 }
 			}
 		},
-    -- 32 -- Benny Carter quest, Vocation quest.
-    -- 33 -- Benny Carter quest, Minotaur mage switch quest.
-    -- 34 -- Golden Key Quest.
-    -- 35 -- Movement tile for Spike sword (Poison spider cave)
-    -- 36 -- Movement tile for Spike sword (Rotworm cave)
-    -- 37 -- Access to the door above Tom's shop
-		[42] = {  -- Viking Helmet --
-			name = "viking helmet", 
-			items = {
-				[1] = { id = 2473, count = 1, capReq = 39 }
-			}
-		},
-    -- 41 -- Spike sword storage for web (given in last door)
-		[50] = {  -- Reward after mino mage room --
-			name = "platinum coins", 
-			items = {
-				[1] = { id = 2152, count = 40, capReq = 0.1 }
-			}
-		},
+    -- 32 -- Benny Carter quest, Vocation quest. [TO REWORK]
+    -- 33 -- Benny Carter quest, Minotaur mage switch quest. [TO REWORK]
+    -- 34 -- Golden Key Quest. [TO REWORK]
+    -- 37 -- Access to the door above Tom's shop [TO REWORK]
+    -- 41 -- Spike sword storage for web (given in last door) [TO REWORK]
   },
 	rewardKey = {
+		[9] = { -- Bear Room Key -- [UNABLE TO CONVERT - REQUIRE TEXT FIELD]
+			name = "bear room key", 
+			keyId = 2089, 
+			actionId = 2004, 
+			description = "(Key: 4601)",
+			requiredToMeet = {} 
+		},
+		[18] = {  -- Katana key --
+			name = "key", 
+			keyId = 2088, 
+			actionId = 2007, 
+			description = "(Key: 4603)",
+			requiredToMeet = {} 
+		},
 		[38] = { -- Key 0013 (Open's the mino mage door) - kamien tam gdize jest minotaur archer
 			name = "golden key", 
 			keyId = 2091, 

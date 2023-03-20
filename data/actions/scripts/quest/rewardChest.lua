@@ -2,6 +2,7 @@ local specialQuests = {
 }
 
 local questsExperience = {
+	[7105] = 100,
 }
 
 local questLog = {
@@ -14,7 +15,41 @@ local canPickupLater = {
 	[7101] = 86400, -- allowed for second pickup after 24h
 	[7102] = 86400, -- allowed for second pickup after 24h
 	[7103] = 86400, -- allowed for second pickup after 24h
+	[7106] = 86400,
+	[7107] = 86400,
+	[7119] = 86400,
 }
+-- list of items that will be spawned in containers with UID and item/quest name
+-- 7101 - Stealth Ring (Mino Tower Desert)
+-- 7102 - Protection Amulet
+-- 7103 - Piece of broken amulet (bring 5 pieces to get special amulet?)
+-- 7104 - Life Ring (Dragon Corpse)
+-- 7105 - leather pants
+-- 7106 - arrow x40, poisin arrow x40
+-- 7107 - letter + salomon x4 + salomon x4 + salomon x4
+-- 7108 - ambers notebook
+-- 7109 - Goblin Temple left chest
+-- 7110 - Goblin Temple right chest
+-- 7111 - Bear Room Brass Helmet
+-- 7112 - Bear Room Chain Armor
+-- 7113 - Bear Room Bag (arrow + gold)
+-- 7114 - Bag with Present
+-- 7115 - Rapier
+-- 7117 - Katana
+-- 7118 - Viking Helmet
+-- 7119 - Starting items - Torch x2
+-- 7120 - Carlin Sword
+-- 7121 - Spike Sword
+-- 7122 - Fishing Rod
+-- 7123 - Dragon Corpse - Legion Helmet + Brass shield
+-- 7124 - Combat Knife
+-- 7125 - Reward after mino mage room
+-- 7126 - Brown mushrooms x5
+-- 7127 - Scroll (12572)
+-- 7128 - salomon x2
+-- 9127 - Damaged Steel Helmet
+-- 12511 - Stolen Golden Goblet
+
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local storage = specialQuests[item.actionid]
