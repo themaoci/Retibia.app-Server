@@ -1,4 +1,12 @@
 local foodCondition = Condition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
+local lossPercent = {
+	[0] = 100,
+	[1] = 70,
+	[2] = 45,
+	[3] = 25,
+	[4] = 10,
+	[5] = 0
+}
 
 function Player.feed(self, food)
 	local condition = self:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
@@ -20,6 +28,16 @@ function Player.feed(self, food)
 	end
 	return true
 end
+
+function Player.hasRookgaardShield(self)
+	-- Wooden Shield, Studded Shield, Brass Shield, Plate Shield, Copper Shield
+	return self:getItemCount(2512) > 0
+			or self:getItemCount(2526) > 0
+			or self:getItemCount(2511) > 0
+			or self:getItemCount(2510) > 0
+			or self:getItemCount(2530) > 0
+end
+
 
 function Player.addLevel(self, amount, round)
 	local experience, level, amount = 0, self:getLevel(), amount or 1
@@ -48,15 +66,6 @@ end
 
 function Player.getLossPercent(self)
 	local blessings = 0
-	local lossPercent = {
-		[0] = 100,
-		[1] = 70,
-		[2] = 45,
-		[3] = 25,
-		[4] = 10,
-		[5] = 0
-	}
-
 	for i = 1, 5 do
 		if self:hasBlessing(i) then
 			blessings = blessings + 1
@@ -113,4 +122,53 @@ function Player.addManaSpent(...)
 	local ret = addManaSpentFunc(...)
 	APPLY_SKILL_MULTIPLIER = true
 	return ret
+end
+
+function Player.transferMoneyTo(self, target, amount)
+	local balance = self:getBankBalance()
+	if amount > balance then
+		return false
+	end
+
+	local targetPlayer = Player(target)
+	if targetPlayer then
+		targetPlayer:setBankBalance(targetPlayer:getBankBalance() + amount)
+	else
+		if not playerExists(target) then
+			return false
+		end
+		db.query("UPDATE `players` SET `balance` = `balance` + '" .. amount .. "' WHERE `name` = " .. db.escapeString(target))
+	end
+
+	self:setBankBalance(self:getBankBalance() - amount)
+	return true
+end
+
+function Player.withdrawMoney(self, amount)
+	local balance = self:getBankBalance()
+	if amount > balance or not self:addMoney(amount) then
+		return false
+	end
+
+	self:setBankBalance(balance - amount)
+	return true
+end
+
+function Player.depositMoney(self, amount)
+	if not self:removeMoney(amount) then
+		return false
+	end
+
+	self:setBankBalance(self:getBankBalance() + amount)
+	return true
+end
+
+function Player.getBlessings(self)
+	local blessings = 0
+	for i = 1, 5 do
+		if self:hasBlessing(i) then
+			blessings = blessings + 1
+		end
+	end
+	return blessings
 end
