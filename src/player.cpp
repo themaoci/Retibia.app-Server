@@ -285,36 +285,29 @@ int32_t Player::getWeaponSkill(const Item* item) const
 		return getSkillLevel(SKILL_FIST);
 	}
 
-	int32_t attackSkill;
-
-	WeaponType_t weaponType = item->getWeaponType();
-	switch (weaponType) {
+	switch (item->getWeaponType()) {
+		case WEAPON_NONE: {
+			return getSkillLevel(SKILL_FIST);
+		}
 		case WEAPON_SWORD: {
-			attackSkill = getSkillLevel(SKILL_SWORD);
-			break;
+			return getSkillLevel(SKILL_SWORD);
 		}
-
 		case WEAPON_CLUB: {
-			attackSkill = getSkillLevel(SKILL_CLUB);
-			break;
+			return getSkillLevel(SKILL_CLUB);
 		}
-
 		case WEAPON_AXE: {
-			attackSkill = getSkillLevel(SKILL_AXE);
-			break;
+			return getSkillLevel(SKILL_AXE);
 		}
-
 		case WEAPON_DISTANCE: case WEAPON_AMMO: {
-			attackSkill = getSkillLevel(SKILL_DISTANCE);
-			break;
+			return getSkillLevel(SKILL_DISTANCE);
 		}
-
+		case WEAPON_WAND: {
+			return getSkillLevel(SKILL_MAGLEVEL);
+		}
 		default: {
-			attackSkill = 0;
-			break;
+			return 0;
 		}
 	}
-	return attackSkill;
 }
 
 int32_t Player::getArmor() const
