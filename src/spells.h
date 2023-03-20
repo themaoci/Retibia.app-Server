@@ -180,6 +180,27 @@ class Spell : public BaseSpell
 		void setMagicLevel(uint32_t lvl) {
 			magLevel = lvl;
 		}
+
+		uint32_t getCqcLevel() const {
+			return cqcLevel;
+		}
+		void setCqcLevel(uint32_t lvl) {
+			cqcLevel = lvl;
+		}
+
+		uint32_t getDistanceLevel() const {
+			return distLevel;
+		}
+		void setDistanceLevel(uint32_t lvl) {
+			distLevel = lvl;
+		}
+
+		bool isOnlyOneReq() const {
+			return onlyOneRequired;
+		}
+		bool isLevelSkipped() const {
+			return dontCheckLevel;
+		}
 		uint32_t getMana() const {
 			return mana;
 		}

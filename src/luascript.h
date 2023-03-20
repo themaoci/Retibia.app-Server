@@ -890,6 +890,9 @@ class LuaScriptInterface
 		static int luaPlayerGetLevel(lua_State* L);
 
 		static int luaPlayerGetMagicLevel(lua_State* L);
+		static int luaPlayerGetCqcLevel(lua_State* L);
+		static int luaPlayerGetDistLevel(lua_State* L);
+
 		static int luaPlayerGetBaseMagicLevel(lua_State* L);
 		static int luaPlayerGetMana(lua_State* L);
 		static int luaPlayerAddMana(lua_State* L);
@@ -1040,6 +1043,8 @@ class LuaScriptInterface
 		static int luaPlayerHasChaseMode(lua_State* L);
 		static int luaPlayerHasSecureMode(lua_State* L);
 		static int luaPlayerGetFightMode(lua_State* L);
+		
+		static int luaPlayerGetWeaponType(lua_State* L);
 
 		// Monster
 		static int luaMonsterCreate(lua_State* L);

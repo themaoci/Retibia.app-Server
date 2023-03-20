@@ -2720,6 +2720,8 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "getLevel", LuaScriptInterface::luaPlayerGetLevel);
 
 	registerMethod("Player", "getMagicLevel", LuaScriptInterface::luaPlayerGetMagicLevel);
+	registerMethod("Player", "getCqcLevel", LuaScriptInterface::luaPlayerGetCqcLevel);
+	registerMethod("Player", "getDistLevel", LuaScriptInterface::luaPlayerGetDistLevel);
 	registerMethod("Player", "getBaseMagicLevel", LuaScriptInterface::luaPlayerGetBaseMagicLevel);
 	registerMethod("Player", "getMana", LuaScriptInterface::luaPlayerGetMana);
 	registerMethod("Player", "addMana", LuaScriptInterface::luaPlayerAddMana);
@@ -2869,6 +2871,8 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "hasChaseMode", LuaScriptInterface::luaPlayerHasChaseMode);
 	registerMethod("Player", "hasSecureMode", LuaScriptInterface::luaPlayerHasSecureMode);
 	registerMethod("Player", "getFightMode", LuaScriptInterface::luaPlayerGetFightMode);
+
+	registerMethod("Player", "getWeaponType", LuaScriptInterface::luaPlayerGetWeaponType);
 
 	// Monster
 	registerClass("Monster", "Creature", LuaScriptInterface::luaMonsterCreate);
@@ -5095,13 +5099,19 @@ int LuaScriptInterface::luaGameGetAllSpells(lua_State* L)
 	}
 	lua_createtable(L, spells.size(), 0);
 	for (auto& spell : spells) {
-		lua_createtable(L, 0, 5);
+		lua_createtable(L, 0, 10);
 		const auto data = spell;
 		setField(L, "id", data->getId());
 		setField(L, "name", data->getName());
 		setField(L, "words", data->getWords());
+		setField(L, "level", data->getLevel());
 		setField(L, "isLearnable", data->isLearnable());
 		setField(L, "isPremium", data->isPremium());
+		setField(L, "skipLevel", data->isLevelSkipped());
+		setField(L, "onlyOneSkill", data->isOnlyOneReq());
+		setField(L, "skillReq_CQC", data->getCqcLevel());
+		setField(L, "skillReq_DIS", data->getDistanceLevel());
+		setField(L, "skillReq_MAG", data->getMagicLevel());
 
 		lua_rawseti(L, -2, ++index);
 	}
@@ -5114,13 +5124,19 @@ int LuaScriptInterface::luaGameGetAllRunes(lua_State* L)
 	int index = 0;
 	for (auto const& [key, val] : spells)
 	{
-		lua_createtable(L, 0, 5);
+		lua_createtable(L, 0, 10);
 
 		setField(L, "id", (int)key);
 		setField(L, "name", val.getName());
 		setField(L, "words", "");
+		setField(L, "level", val.getLevel());
 		setField(L, "isLearnable", val.isLearnable());
 		setField(L, "isPremium", val.isPremium());
+		setField(L, "skipLevel", val.isLevelSkipped());
+		setField(L, "onlyOneSkill", val.isOnlyOneReq());
+		setField(L, "skillReq_CQC", val.getCqcLevel());
+		setField(L, "skillReq_DIS", val.getDistanceLevel());
+		setField(L, "skillReq_MAG", val.getMagicLevel());
 
 		lua_rawseti(L, -2, ++index);
 	}
@@ -8917,6 +8933,28 @@ int LuaScriptInterface::luaPlayerGetMagicLevel(lua_State* L)
 	}
 	return 1;
 }
+int LuaScriptInterface::luaPlayerGetCqcLevel(lua_State* L)
+{
+	// player:getMagicLevel()
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		lua_pushnumber(L, player->getCqcLevel());
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+int LuaScriptInterface::luaPlayerGetDistLevel(lua_State* L)
+{
+	// player:getMagicLevel()
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		lua_pushnumber(L, player->getDistanceLevel());
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
 
 int LuaScriptInterface::luaPlayerGetBaseMagicLevel(lua_State* L)
 {
@@ -10802,6 +10840,23 @@ int LuaScriptInterface::luaPlayerGetFightMode(lua_State* L)
 	Player* player = getUserdata<Player>(L, 1);
 	if (player) {
 		lua_pushnumber(L, player->fightMode);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerGetWeaponType(lua_State* L)
+{
+	// player:getWeapon()
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		auto weapon = player->getWeapon();
+		if (weapon) {
+			lua_pushnumber(L, weapon->getWeaponType());
+		} else {
+			lua_pushnil(L);
+		}
 	} else {
 		lua_pushnil(L);
 	}
