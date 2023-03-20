@@ -80,6 +80,29 @@ local booksByType = {
     ["conjure"] = 1958,
     ["enchant"] = 1958
 }
+local InstantSpells = {}
+
+local LIMIT_TENEBRUS_SKILL_LEVEL = 50
+
+
+local function LoadAllSpells() 
+    InstantSpells['Premium'] = {}
+    InstantSpells['Free'] = {}
+    for i, spell in pairs(GameConfig.Spells.Instant) do
+        if  (spell.skillReq_CQC < LIMIT_TENEBRUS_SKILL_LEVEL and 
+            spell.skillReq_DIS < LIMIT_TENEBRUS_SKILL_LEVEL and 
+            spell.skillReq_MAG < LIMIT_TENEBRUS_SKILL_LEVEL and spell.skipLevel == true) or 
+            (spell.level < LIMIT_TENEBRUS_SKILL_LEVEL and spell.skipLevel == false) then
+            if spell.isPremium then
+                InstantSpells['Premium'][#InstantSpells['Premium'] + 1] = spell
+            else
+                InstantSpells['Free'][#InstantSpells['Free'] + 1] = spell
+            end
+        end
+    end
+end
+
+
 function creatureSayCallback(cid, type, msg)
     if(not npcHandler:isFocused(cid)) then
         return false
@@ -94,11 +117,9 @@ function creatureSayCallback(cid, type, msg)
         local playerMLevel = tonumber(getPlayerMagLevel(cid))
         local playerDLevel = tonumber(getPlayerSkill(cid, 4))
         local playerCLevel = tonumber(math.max(unpack({getPlayerSkill(cid, 0), getPlayerSkill(cid, 1), getPlayerSkill(cid, 2), getPlayerSkill(cid, 3)})))
-        local Spells = {GameConfig.Spells.Free, GameConfig.Spells.Premium}
         
         local AddToSpellList = function(spell, extendName)
             if getPlayerLearnedInstantSpell(cid, spell.name) then return end
-
             local item_level = tonumber(spell.level or 0)
             local item_mlevel = tonumber(spell.mlevel or 0)
             local item_clevel = tonumber(spell.clevel or 0)
@@ -118,6 +139,10 @@ function creatureSayCallback(cid, type, msg)
             if string.sub(spell.name, -4) == "Rune" then
                 bookId = booksByType["runeMaking"]
             end
+            local name = "Spellbook:\n" .. spell.name
+            if spell.isPremium then
+                name = "Old " .. name
+            end
             spells[#spells + 1] = {
                 id = bookId, 
                 buy = spell.price, 
@@ -128,18 +153,12 @@ function creatureSayCallback(cid, type, msg)
                 funcShop = 1
             }
         end
-        
-        for i, list in pairs(Spells) do
-            if i == 1 then
-                for i, spell in pairs(list) do
-                    AddToSpellList(spell, "")
-                end
-            else
-                if isPremium(cid) then
-                    for i, spell in pairs(list) do
-                        AddToSpellList(spell, "Old ")
-                    end
-                end
+        for i, spell in pairs(InstantSpells.Free) do
+            AddToSpellList(spell, "")
+        end
+        if isPremium(cid) then
+            for i, spell in pairs(InstantSpells.Premium) do
+                AddToSpellList(spell, "Old ")
             end
         end
 
