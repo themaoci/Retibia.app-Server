@@ -1,3 +1,14 @@
+local Config = {
+	['skipLevel'] = true,
+	['onlyOneSkill'] = true,
+	['skillReq'] = {
+		['CQC'] = 0,
+		['DIS'] = 0,
+		['MAG'] = 0,
+	},
+	['NAME'] = "Physical Strike",
+	['INIT'] = false,
+}
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_PHYSICALDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_EXPLOSIONAREA)
@@ -5,8 +16,13 @@ combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_EXPLOSION)
 combat:setParameter(COMBAT_PARAM_BLOCKARMOR, true)
 
 function onGetFormulaValues(player, level, magicLevel)
-	local min = (level / 5) + (magicLevel * 1.6) + 9
-	local max = (level / 5) + (magicLevel * 2.4) + 14
+	if not Config.INIT then
+		Config = LOAD_SPELL_INDYVIDUAL_DATA(Config)
+	end
+	local mSkill = GetSkillDataFromPlayer(player, Config)
+	level = (level / Config.Stats.levelDivider)
+	local min = level + (mSkill * Config.Stats.min.skillMul) + Config.Stats.min.value
+	local max = level + (mSkill * Config.Stats.max.skillMul) + Config.Stats.max.value
 	return -min, -max
 end
 
@@ -15,3 +31,4 @@ combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
 function onCastSpell(creature, variant)
 	return combat:execute(creature, variant)
 end
+

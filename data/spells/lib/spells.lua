@@ -341,3 +341,72 @@ function Creature:addAttributeCondition(parameters)
 
 	self:addCondition(condition)
 end
+
+function GetSkillDataFromPlayer(player, mConfig)
+	local weaponType = player:getWeaponType()
+	if weaponType == nil then
+		return 0
+	end
+	if weaponType >= 0 and weaponType <= 3 then
+		-- CQC WEAPON
+		if mConfig.skillReq.CQC == 0 then
+			return 0
+		end
+		return player:getCqcLevel() - mConfig.skillReq.CQC
+	end
+	if weaponType == 5 then
+		-- DISTANCE WEAPON
+		if mConfig.skillReq.DIS == 0 then
+			return 0
+		end
+		return player:getDistLevel() - mConfig.skillReq.DIS
+	end
+	if weaponType == 6 then
+		-- MAGIC WEAPON
+		if mConfig.skillReq.MAG == 0 then
+			return 0
+		end
+		return player:getMagicLevel() - mConfig.skillReq.MAG
+	end
+	return 0
+end
+
+
+function LOAD_SPELL_INDYVIDUAL_DATA(Config)
+	for i = 1, #GameConfig.Spells.Instant do
+		local spell = GameConfig.Spells.Instant[i]
+		if spell ~= nil then
+			if spell.name == Config.NAME then
+				Config.skipLevel = spell.skipLevel and true or false
+				Config.onlyOneSkill = spell.onlyOneSkill and true or false
+				Config.skillReq = {}
+				Config.skillReq.CQC = spell.skillReq_CQC
+				Config.skillReq.DIS = spell.skillReq_DIS
+				Config.skillReq.MAG = spell.skillReq_MAG
+				if SpellConfig[Config.NAME] then
+					Config.Stats = SpellConfig[Config.NAME]
+				end
+				Config.INIT = true
+				DEBUG.print_r(Config)
+				return Config
+			end 
+		end
+	end
+	print("not instant")
+	for i = 1, #GameConfig.Spells.Rune do
+		local spell = GameConfig.Spells.Rune[i]
+		if spell ~= nil then
+			if spell.name == Config.NAME then
+			Config.skipLevel = spell.skipLevel and true or false
+			Config.onlyOneSkill = spell.onlyOneSkill and true or false
+			Config.skillReq = {}
+			Config.skillReq.CQC = spell.skillReq_CQC
+			Config.skillReq.DIS = spell.skillReq_DIS
+			Config.skillReq.MAG = spell.skillReq_MAG
+			Config.INIT = true
+			return Config
+			end 
+		end 
+	end
+	return Config
+end

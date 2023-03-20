@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spells>
 	<!-- Utility Spells-->
-	<instant group="support" spellid="76" name="Magic Rope" words="exani tera"		level="5" mlevel="1" mana="20" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="support/magic_rope.lua"/>
-	<instant group="support" spellid="20" name="Find Person" words="exiva"			level="10" mana="20" aggressive="0" playernameparam="1" params="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="support/find_person.lua"/>
-	<instant group="healing" spellid="29" name="Cure Poison" words="exana pox"		level="10" mana="30" aggressive="0" selftarget="1" cooldown="6000" groupcooldown="1000" needlearn="1" script="healing/cure_poison.lua"/>
-	<instant group="support" spellid="81" name="Levitate" words="exani hur"			level="12" mlevel="5" mana="50" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" params="1" needlearn="1" script="support/levitate.lua"/>
-	<instant group="support" spellid="10" name="Light" words="utevo lux"			  level="1" mlevel="1" mana="20" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="support/light.lua"/>
-	<instant group="support" spellid="11" name="Great Light" words="utevo gran lux"   level="13" mlevel="10" mana="60" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="support/great_light.lua"/>
-	<instant group="support" spellid="75" name="Ultimate Light" words="utevo vis lux" level="26" mlevel="25" mana="140" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="support/ultimate_light.lua"/>
-	<instant group="support" spellid="6" name="Haste" words="utani hur"				 level="14" mlevel="10" clevel="10" dlevel="10" onlyOneRequired="1" mana="60" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="support/haste.lua"/>
-	<instant group="support" spellid="39" name="Strong Haste" words="utani gran hur" level="20" mlevel="20" mana="100" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="support/strong_haste.lua"/>
+	<instant group="support" spellid="76" name="Magic Rope" words="exani tera"			level="5" mlevel="1" mana="20" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="support/magic_rope.lua"/>
+	<instant group="support" spellid="20" name="Find Person" words="exiva"				level="10" mana="20" aggressive="0" playernameparam="1" params="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="support/find_person.lua"/>
+	<instant group="healing" spellid="29" name="Cure Poison" words="exana pox"			level="10" mana="30" aggressive="0" selftarget="1" cooldown="6000" groupcooldown="1000" needlearn="1" script="healing/cure_poison.lua"/>
+	<instant group="support" spellid="81" name="Levitate" words="exani hur"				level="12" mlevel="5" mana="50" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" params="1" needlearn="1" script="support/levitate.lua"/>
+	<instant group="support" spellid="10" name="Light" words="utevo lux"				level="1" mlevel="1" mana="20" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="support/light.lua"/>
+	<instant group="support" spellid="11" name="Great Light" words="utevo gran lux"		level="13" mlevel="10" mana="60" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="support/great_light.lua"/>
+	<instant group="support" spellid="75" name="Ultimate Light" words="utevo vis lux"	level="26" mlevel="25" mana="140" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="support/ultimate_light.lua"/>
+	<instant group="support" spellid="6" name="Haste" words="utani hur"					level="14" mlevel="10" clevel="10" dlevel="10" onlyOneRequired="1" mana="60" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="support/haste.lua"/>
+	<instant group="support" spellid="39" name="Strong Haste" words="utani gran hur"	level="20" mlevel="20" mana="100" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="support/strong_haste.lua"/>
 	<!-- Support Spells -->
 	<instant group="support" spellid="42" name="Food" words="exevo pan" level="14" mlevel="15" mana="120" soul="1" cooldown="2000" groupcooldown="2000" aggressive="0" needlearn="1" script="support/food.lua"/>
 	<instant group="support" spellid="90" name="Cancel Invisibility" words="exana ina" level="26" mlevel="15" dlevel="25" mana="200" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="support/cancel_invisibility.lua"/>
@@ -27,21 +27,18 @@
 	
 	<instant group="support" spellid="133" name="Blood Rage" words="utito tempo" level="60" clevel="60" mana="290" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="support/blood_rage.lua"/>
 
-
-
-
-	<!-- Attack Spells -->
-	<!-- Mage only vocation limited -->
+<!-- Attack Spells -->
+<!-- Mage only vocation limited -->
 	<instant group="attack" spellid="177" name="Buzz" words="exori infir vis" level="1" mana="6" premium="0" range="3" casterTargetOrDirection="1" blockwalls="1" cooldown="2000" groupcooldown="2000" needlearn="0" script="attack/buzz.lua"/>
 	<instant group="attack" spellid="173" name="Chill Out" words="exevo infir frigo hur" level="1" mana="8" direction="1" cooldown="4000" groupcooldown="2000" needlearn="0" script="attack/chill_out.lua"/>
 	<instant group="attack" spellid="172" name="Mud Attack" words="exori infir tera" level="1" mana="6" premium="0" range="3" casterTargetOrDirection="1" blockwalls="1" cooldown="2000" groupcooldown="2000" needlearn="0" script="attack/mud_attack.lua"/>
 	<instant group="attack" spellid="167" name="Practice Fire Wave" words="exevo dis flam hur" level="1" mana="5" direction="1" cooldown="4000" groupcooldown="2000" needlearn="0" script="attack/practice_fire_wave.lua"/>
 	<instant group="attack" spellid="178" name="Scorch" words="exevo infir flam hur" level="1" mana="8" direction="1" cooldown="4000" groupcooldown="2000" needlearn="0" script="attack/scorch.lua"/>
-	<!-- Warrior/Hunter(Archer) only vocation limited -->
+<!-- Warrior/Hunter(Archer) only vocation limited -->
 	<instant group="healing" spellid="175" name="Bruise Bane" words="exura infir ico" level="1" mana="10" aggressive="0" selftarget="1" cooldown="1000" groupcooldown="1000" needlearn="0" script="healing/bruise_bane.lua"/>
 	<instant group="healing" spellid="174" name="Magic Patch" words="exura infir" level="1" mana="6" aggressive="0" selftarget="1" cooldown="1000" groupcooldown="1000" needlearn="0" script="healing/magic_patch.lua"/>
 	<instant group="healing" spellid="166" name="Practice Healing" words="exura dis" level="1" mana="5" aggressive="0" selftarget="1" cooldown="1000" groupcooldown="1000" needlearn="0" script="healing/practice_healing.lua"/>
-
+<!-- Other spells -->
 	<instant group="attack" spellid="62" name="Annihilation" words="exori gran ico" level="110" clevel="120" noLevelCheck="1" mana="300" premium="1" range="1" needtarget="1" needweapon="1" cooldown="30000" groupcooldown="4000" needlearn="1" script="attack/annihilation.lua"/>
 	<instant group="attack" spellid="169" name="Apprentice's Strike" words="exori min flam" level="8" mlevel="10" noLevelCheck="1" mana="6" premium="0" range="3" casterTargetOrDirection="1" blockwalls="1" cooldown="2000" groupcooldown="2000" needlearn="0" script="attack/apprentice's_strike.lua"/>
 	<instant group="attack" spellid="80" name="Berserk" words="exori" level="35" clevel="35" noLevelCheck="1" mana="115" premium="1" needweapon="1" cooldown="4000" groupcooldown="2000" needlearn="1" script="attack/berserk.lua"/>
@@ -87,7 +84,7 @@
 	<instant group="attack" secondarygroup="special" spellid="152" name="Strong Ice Strike" words="exori gran frigo" level="80" mlevel="80" noLevelCheck="1" mana="60" premium="1" range="3" casterTargetOrDirection="1" blockwalls="1" cooldown="8000" groupcooldown="2000" secondarygroupcooldown="8000" needlearn="1" script="attack/strong_ice_strike.lua"/>
 	<instant group="attack" secondarygroup="special" spellid="153" name="Strong Terra Strike" words="exori gran tera" level="70" mlevel="70" noLevelCheck="1" mana="60" premium="1" range="3" casterTargetOrDirection="1" blockwalls="1" cooldown="8000" groupcooldown="2000" secondarygroupcooldown="8000" needlearn="1" script="attack/strong_terra_strike.lua"/>
 
-	<!-- Healing Spells -->
+<!-- Healing Spells -->
 	<instant group="healing" spellid="144" name="Cure Bleeding" words="exana kor" level="45" clevel="45" mlevel="45" onlyOneRequired="1" noLevelCheck="1" mana="30" premium="1" aggressive="0" selftarget="1" cooldown="6000" groupcooldown="1000" needlearn="1" script="healing/cure_bleeding.lua"/>
 	<instant group="healing" spellid="145" name="Cure Burning" words="exana flam" level="30" mlevel="30" noLevelCheck="1" mana="30" premium="1" aggressive="0" selftarget="1" cooldown="6000" groupcooldown="1000" needlearn="1" script="healing/cure_burning.lua"/>
 	<instant group="healing" spellid="147" name="Cure Curse" words="exana mort" level="80" mlevel="80" dlevel="80" onlyOneRequired="1" noLevelCheck="1" mana="40" premium="1" aggressive="0" selftarget="1" cooldown="6000" groupcooldown="1000" needlearn="1" script="healing/cure_curse.lua"/>
@@ -105,109 +102,163 @@
 	<instant group="healing" spellid="123" name="Wound Cleansing" words="exura ico" level="8" clevel="10" noLevelCheck="1" mana="40" premium="0" selftarget="1" aggressive="0" cooldown="1000" groupcooldown="1000" needlearn="0" script="healing/wound_cleansing.lua"/>
 <!-- skonczylem tu -->
 
-	<!-- Party Spells -->
+<!-- Party Spells -->
 	<instant group="support" spellid="129" name="Enchant Party" words="utori mas sio" level="32" mana="0" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="party/enchant_party.lua"/>
 	<instant group="support" spellid="128" name="Heal Party" words="utura mas sio" level="32" mana="0" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="party/heal_party.lua"/>
 	<instant group="support" spellid="127" name="Protect Party" words="utamo mas sio" level="32" mana="0" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="party/protect_party.lua"/>
 	<instant group="support" spellid="126" name="Train Party" words="utito mas sio" level="32" mana="0" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="party/train_party.lua"/>
 
-	<!-- Attack Runes -->
-	<rune group="attack" spellid="115" name="Avalanche Rune" id="2274" allowfaruse="1" charges="4" level="30" magiclevel="4" cooldown="2000" groupcooldown="2000" script="attack/avalanche_rune.lua" />
-	<rune group="attack" spellid="55" name="Energy Bomb Rune" id="2262" allowfaruse="1" charges="2" level="37" magiclevel="10" cooldown="2000" groupcooldown="2000" blocktype="solid" script="attack/energy_bomb_rune.lua" />
-	<rune group="attack" spellid="27" name="Energy Field Rune" id="2277" allowfaruse="1" charges="3" level="18" magiclevel="3" cooldown="2000" groupcooldown="2000" blocktype="solid" script="attack/energy_field_rune.lua" />
-	<rune group="attack" spellid="33" name="Energy Wall Rune" id="2279" allowfaruse="1" charges="4" level="41" magiclevel="9" cooldown="2000" groupcooldown="2000" blocktype="solid" script="attack/energy_wall_rune.lua" />
-	<rune group="attack" spellid="18" name="Explosion Rune" id="2313" allowfaruse="1" charges="6" level="31" magiclevel="6" cooldown="2000" groupcooldown="2000" blocktype="solid" script="attack/explosion_rune.lua" />
-	<rune group="attack" spellid="17" name="Fire Bomb Rune" id="2305" allowfaruse="1" charges="2" level="27" magiclevel="5" cooldown="2000" groupcooldown="2000" blocktype="solid" script="attack/fire_bomb_rune.lua" />
-	<rune group="attack" spellid="25" name="Fire Field Rune" id="2301" allowfaruse="1" charges="3" level="15" magiclevel="1" cooldown="2000" groupcooldown="2000" blocktype="solid" script="attack/fire_field_rune.lua" />
-	<rune group="attack" spellid="28" name="Fire Wall Rune" id="2303" allowfaruse="1" charges="4" level="33" magiclevel="6" cooldown="2000" groupcooldown="2000" blocktype="solid" script="attack/fire_wall_rune.lua" />
-	<rune group="attack" spellid="15" name="Fireball Rune" id="2302" allowfaruse="1" charges="5" level="27" magiclevel="4" cooldown="2000" groupcooldown="2000" needtarget="1" blocktype="solid" script="attack/fireball_rune.lua" />
-	<rune group="attack" spellid="16" name="Great Fireball Rune" id="2304" allowfaruse="1" charges="4" level="30" magiclevel="4" cooldown="2000" groupcooldown="2000" blocktype="solid" script="attack/great_fireball_rune.lua" />
-	<rune group="attack" spellid="8" name="Heavy Magic Missile Rune" id="2311" allowfaruse="1" charges="10" level="25" cooldown="2000" groupcooldown="2000" magiclevel="3" needtarget="1" blocktype="solid" script="attack/heavy_magic_missile_rune.lua" />
-	<rune group="attack" spellid="130" name="Holy Missile Rune" id="2295" allowfaruse="1" charges="5" level="27" magiclevel="4" cooldown="2000" groupcooldown="2000" needtarget="1" blocktype="solid" script="attack/holy_missile_rune.lua"/>
-	<rune group="attack" spellid="114" name="Icicle Rune" id="2271" allowfaruse="1" charges="5" level="28" magiclevel="4" cooldown="2000" groupcooldown="2000" needtarget="1" script="attack/icicle_rune.lua" />
-	<rune group="attack" spellid="7" name="Light Magic Missile Rune" id="2287" allowfaruse="1" charges="10" level="15" cooldown="2000" groupcooldown="2000" magiclevel="0" needtarget="1" blocktype="solid" script="attack/light_magic_missile_rune.lua" />
-	<rune group="attack" spellid="116" name="Light Stone Shower Rune" id="23722" allowfaruse="1" charges="4" level="1" magiclevel="0" cooldown="2000" groupcooldown="2000" script="attack/light_stone_shower_rune.lua" />
+<!-- Attack Runes -->
+	<rune group="attack" spellid="116" id="23722" allowfaruse="1" charges="4" level="1" magiclevel="0" cooldown="2000" groupcooldown="2000"  
+		name="Light Stone Shower Rune" 	script="rune/attack/light_stone_shower_rune.lua" />
+
+	<rune group="attack" spellid="7" id="23723" allowfaruse="1" charges="10" level="1" magiclevel="0" cooldown="2000" groupcooldown="2000" needtarget="1" blocktype="solid" 
+		name="Lightest Missile Rune" 	script="rune/attack/lightest_missile_rune.lua" />
+
+	<rune group="attack" spellid="26" id="2285" allowfaruse="1" charges="3" level="14" magiclevel="0" cooldown="2000" groupcooldown="2000" blocktype="solid" 
+		name="Poison Field Rune" 		script="rune/attack/poison_field_rune.lua" />
+
+	<rune group="attack" spellid="7" id="2287" allowfaruse="1" charges="10" level="15" magiclevel="0" cooldown="2000" groupcooldown="2000" needtarget="1" blocktype="solid" 
+		name="Light Magic Missile Rune" script="rune/attack/light_magic_missile_rune.lua" />
+
+	<rune group="attack" spellid="25" id="2301" allowfaruse="1" charges="3" level="15" magiclevel="1" cooldown="2000" groupcooldown="2000" blocktype="solid" 
+		name="Fire Field Rune" 			script="rune/attack/fire_field_rune.lua" />
+
+	<rune group="attack" spellid="27" id="2277" allowfaruse="1" charges="3" level="18" magiclevel="3" cooldown="2000" groupcooldown="2000" blocktype="solid" 
+		name="Energy Field Rune" 		script="rune/attack/energy_field_rune.lua" />
+
+	<rune group="attack" spellid="77" id="2292" allowfaruse="1" charges="10" level="24" magiclevel="3" cooldown="2000" groupcooldown="2000" needtarget="1" 
+		name="Stalagmite Rune" 			script="rune/attack/stalagmite_rune.lua" />
+
+	<rune group="attack" spellid="91" id="2286" allowfaruse="1" charges="2" level="25" magiclevel="4" cooldown="2000" groupcooldown="2000" blocktype="solid" 
+		name="Poison Bomb Rune" 		script="rune/attack/poison_bomb_rune.lua" />
+
+	<rune group="attack" spellid="8" id="2311" allowfaruse="1" charges="10" level="25" magiclevel="3" cooldown="2000" groupcooldown="2000" needtarget="1" blocktype="solid"  
+		name="Heavy Magic Missile Rune" script="rune/attack/heavy_magic_missile_rune.lua" />
+
+	<rune group="attack" spellid="50" id="2308" allowfaruse="1" charges="3" level="27" magiclevel="7" cooldown="2000" groupcooldown="2000" needtarget="1" blocktype="solid" 
+		name="Soulfire Rune" 			script="rune/attack/soulfire_rune.lua" />
+		
+	<rune group="attack" spellid="94" id="2269" allowfaruse="1" charges="2" level="27" magiclevel="8" cooldown="2000" groupcooldown="2000" blocktype="all" 
+		name="Wild Growth Rune" 		script="rune/attack/wild_growth_rune.lua"/>
+
+	<rune group="attack" spellid="17" id="2305" allowfaruse="1" charges="2" level="27" magiclevel="5" cooldown="2000" groupcooldown="2000" blocktype="solid" 
+		name="Fire Bomb Rune" 			script="rune/attack/fire_bomb_rune.lua" />
+
+	<rune group="attack" spellid="15" id="2302" allowfaruse="1" charges="5" level="27" magiclevel="4" cooldown="2000" groupcooldown="2000" needtarget="1" blocktype="solid" 
+		name="Fireball Rune" 			script="rune/attack/fireball_rune.lua" />
+
+	<rune group="attack" spellid="130" id="2295" allowfaruse="1" charges="5" level="27" magiclevel="4" cooldown="2000" groupcooldown="2000" needtarget="1" blocktype="solid"  
+		name="Holy Missile Rune" 		script="rune/attack/holy_missile_rune.lua"/>
+
+	<rune group="attack" spellid="114" id="2271" allowfaruse="1" charges="5" level="28" magiclevel="4" cooldown="2000" groupcooldown="2000" needtarget="1"  
+		name="Icicle Rune" 				script="rune/attack/icicle_rune.lua" />
+
+	<rune group="attack" spellid="116" id="2288" allowfaruse="1" charges="4" level="28" magiclevel="4" cooldown="2000" groupcooldown="2000" 
+		name="Stone Shower Rune" 		script="rune/attack/stone_shower_rune.lua" />
+
+	<rune group="attack" spellid="117" id="2315" allowfaruse="1" charges="4" level="28" magiclevel="4" cooldown="2000" groupcooldown="2000" 
+		name="Thunderstorm Rune" 		script="rune/attack/thunderstorm_rune.lua" />
+
+	<rune group="attack" spellid="32" id="2289" allowfaruse="1" charges="4" level="29" magiclevel="5" cooldown="2000" groupcooldown="2000" blocktype="solid" 
+		name="Poison Wall Rune" 		script="rune/attack/poison_wall_rune.lua" />
+
+	<rune group="attack" spellid="115" id="2274" allowfaruse="1" charges="4" level="30" magiclevel="4" cooldown="2000" groupcooldown="2000" 
+		name="Avalanche Rune" 			script="rune/attack/avalanche_rune.lua" />
+
+	<rune group="attack" spellid="16" id="2304" allowfaruse="1" charges="4" level="30" magiclevel="4" cooldown="2000" groupcooldown="2000" blocktype="solid" 
+		name="Great Fireball Rune" 		script="rune/attack/great_fireball_rune.lua" />
+
+	<rune group="attack" spellid="18" id="2313" allowfaruse="1" charges="6" level="31" magiclevel="6" cooldown="2000" groupcooldown="2000" blocktype="solid" 
+		name="Explosion Rune" 			script="rune/attack/explosion_rune.lua" />
+
+	<rune group="attack" spellid="86" id="2293" allowfaruse="1" charges="3" level="32" magiclevel="9" cooldown="2000" groupcooldown="2000" blocktype="all" 
+		name="Magic Wall Rune" 			script="rune/attack/magic_wall_rune.lua" />
+
+	<rune group="attack" spellid="28" id="2303" allowfaruse="1" charges="4" level="33" magiclevel="6" cooldown="2000" groupcooldown="2000" blocktype="solid" 
+		name="Fire Wall Rune" 			script="rune/attack/fire_wall_rune.lua" />
+
+	<rune group="attack" spellid="55" id="2262" allowfaruse="1" charges="2" level="37" magiclevel="10" cooldown="2000" groupcooldown="2000" blocktype="solid" 
+		name="Energy Bomb Rune" 		script="rune/attack/energy_bomb_rune.lua" />
+
+	<rune group="attack" spellid="33" id="2279" allowfaruse="1" charges="4" level="41" magiclevel="9" cooldown="2000" groupcooldown="2000" blocktype="solid" 
+		name="Energy Wall Rune" 		script="rune/attack/energy_wall_rune.lua" />
+
+	<rune group="attack" spellid="21" id="2268" allowfaruse="1" charges="3" level="45" magiclevel="15" cooldown="2000" groupcooldown="2000" needtarget="1" blocktype="solid" 
+		name="Sudden Death Rune" 		script="rune/attack/sudden_death_rune.lua" />
+
+
+	<rune group="attack" spellid="54" id="2278" allowfaruse="1" charges="1" level="54" magiclevel="18" pzlock="1" cooldown="2000" groupcooldown="2000" mana="1400" needtarget="1" blocktype="solid" 
+		name="Paralyze Rune" 			script="rune/attack/paralyze_rune.lua"/>
 	<!-- <rune group="attack" spellid="7" name="Lightest Magic Missile Rune" id="19392" allowfaruse="1" charges="10" level="1" cooldown="2000" groupcooldown="2000" magiclevel="0" needtarget="1" blocktype="solid" script="attack/lightest_magic_missile_rune.lua" /> -->
-	<rune group="attack" spellid="7" name="Lightest Missile Rune" id="23723" allowfaruse="1" charges="10" level="1" cooldown="2000" groupcooldown="2000" magiclevel="0" needtarget="1" blocktype="solid" script="attack/lightest_missile_rune.lua" />
-	<rune group="attack" spellid="86" name="Magic Wall Rune" id="2293" allowfaruse="1" charges="3" level="32" magiclevel="9" cooldown="2000" groupcooldown="2000" blocktype="all" script="attack/magic_wall_rune.lua" />
-	<rune group="attack" spellid="91" name="Poison Bomb Rune" id="2286" allowfaruse="1" charges="2" level="25" magiclevel="4" cooldown="2000" groupcooldown="2000" blocktype="solid" script="attack/poison_bomb_rune.lua" />
-	<rune group="attack" spellid="26" name="Poison Field Rune" id="2285" allowfaruse="1" charges="3" level="14" magiclevel="0" cooldown="2000" groupcooldown="2000" blocktype="solid" script="attack/poison_field_rune.lua" />
-	<rune group="attack" spellid="32" name="Poison Wall Rune" id="2289" allowfaruse="1" charges="4" level="29" magiclevel="5" cooldown="2000" groupcooldown="2000" blocktype="solid" script="attack/poison_wall_rune.lua" />
-	<rune group="attack" spellid="50" name="Soulfire Rune" id="2308" allowfaruse="1" charges="3" level="27" magiclevel="7" cooldown="2000" groupcooldown="2000" needtarget="1" blocktype="solid" script="attack/soulfire_rune.lua" />
-	<rune group="attack" spellid="77" name="Stalagmite Rune" id="2292" allowfaruse="1" charges="10" level="24" magiclevel="3" cooldown="2000" groupcooldown="2000" needtarget="1" script="attack/stalagmite_rune.lua" />
-	<rune group="attack" spellid="116" name="Stone Shower Rune" id="2288" allowfaruse="1" charges="4" level="28" magiclevel="4" cooldown="2000" groupcooldown="2000" script="attack/stone_shower_rune.lua" />
-	<rune group="attack" spellid="21" name="Sudden Death Rune" id="2268" allowfaruse="1" charges="3" level="45" magiclevel="15" cooldown="2000" groupcooldown="2000" needtarget="1" blocktype="solid" script="attack/sudden_death_rune.lua" />
-	<rune group="attack" spellid="117" name="Thunderstorm Rune" id="2315" allowfaruse="1" charges="4" level="28" magiclevel="4" cooldown="2000" groupcooldown="2000" script="attack/thunderstorm_rune.lua" />
-	<rune group="attack" spellid="54" name="Paralyze Rune" id="2278" allowfaruse="1" charges="1" level="54" magiclevel="18" pzlock="1" cooldown="2000" groupcooldown="2000" mana="1400" needtarget="1" blocktype="solid" script="attack/paralyze_rune.lua"/>
-	<rune group="attack" spellid="94" name="Wild Growth Rune" id="2269" allowfaruse="1" charges="2" level="27" magiclevel="8" cooldown="2000" groupcooldown="2000" blocktype="all" script="attack/wild_growth_rune.lua"/>
 
-	<!-- Healing Runes -->
-	<rune group="healing" spellid="31" name="Cure Poison Rune" id="2266" allowfaruse="1" charges="1" level="15" magiclevel="0" cooldown="2000" groupcooldown="2000" aggressive="0" needtarget="1" blocktype="solid" script="healing/cure_poison_rune.lua" />
-	<rune group="healing" spellid="4" name="Intense Healing Rune" id="2265" allowfaruse="1" charges="1" level="15" magiclevel="1" cooldown="2000" groupcooldown="2000" aggressive="0" needtarget="1" blocktype="solid" script="healing/intense_healing_rune.lua" />
-	<rune group="healing" spellid="5" name="Ultimate Healing Rune" id="2273" allowfaruse="1" charges="1" level="24" magiclevel="4" cooldown="2000" groupcooldown="2000" aggressive="0" needtarget="1" blocktype="solid" script="healing/ultimate_healing_rune.lua" />
+<!-- Healing Runes -->
+	<rune group="healing" spellid="31" name="Cure Poison Rune" id="2266" allowfaruse="1" charges="1" level="15" magiclevel="0" cooldown="2000" groupcooldown="2000" aggressive="0" needtarget="1" blocktype="solid" script="rune/healing/cure_poison_rune.lua" />
+	<rune group="healing" spellid="4" name="Intense Healing Rune" id="2265" allowfaruse="1" charges="1" level="15" magiclevel="1" cooldown="2000" groupcooldown="2000" aggressive="0" needtarget="1" blocktype="solid" script="rune/healing/intense_healing_rune.lua" />
+	<rune group="healing" spellid="5" name="Ultimate Healing Rune" id="2273" allowfaruse="1" charges="1" level="24" magiclevel="4" cooldown="2000" groupcooldown="2000" aggressive="0" needtarget="1" blocktype="solid" script="rune/healing/ultimate_healing_rune.lua" />
 
-	<!-- Summon Runes -->
-	<rune group="support" spellid="83" name="Animate Dead Rune" id="2316" allowfaruse="1" charges="1" level="27" magiclevel="4" cooldown="2000" groupcooldown="2000" blocktype="solid" script="support/animate_dead_rune.lua" />
-	<rune group="support" spellid="12" name="Convince Creature Rune" id="2290" allowfaruse="1" charges="1" level="16" magiclevel="5" cooldown="2000" groupcooldown="2000" needtarget="1" blocktype="solid" script="support/convince_creature.lua" />
+<!-- Summon Runes -->
+	<rune group="support" spellid="83" name="Animate Dead Rune" id="2316" allowfaruse="1" charges="1" level="27" magiclevel="4" cooldown="2000" groupcooldown="2000" blocktype="solid" script="rune/summon/animate_dead_rune.lua" />
+	<rune group="support" spellid="12" name="Convince Creature Rune" id="2290" allowfaruse="1" charges="1" level="16" magiclevel="5" cooldown="2000" groupcooldown="2000" needtarget="1" blocktype="solid" script="rune/summon/convince_creature_rune.lua" />
 
-	<!-- Support Runes -->
-	<rune group="support" spellid="14" name="Chameleon Rune" id="2291" allowfaruse="1" charges="1" level="27" magiclevel="4" cooldown="2000" groupcooldown="2000" aggressive="0" selftarget="1" blocktype="solid" script="support/chameleon.lua" />
-	<rune group="support" spellid="78" name="Disintegrate Rune" id="2310" allowfaruse="0" charges="3" level="21" magiclevel="4" cooldown="2000" groupcooldown="2000" range="1" script="support/disintegrate_rune.lua" />
-	<rune group="support" spellid="30" name="Destroy Field Rune" id="2261" allowfaruse="1" charges="3" level="17" magiclevel="3" cooldown="2000" groupcooldown="2000" aggressive="0" range="5" script="support/destroy_field_rune.lua" />
+<!-- Support Runes -->
+	<rune group="support" spellid="14" name="Chameleon Rune" id="2291" allowfaruse="1" charges="1" level="27" magiclevel="4" cooldown="2000" groupcooldown="2000" aggressive="0" selftarget="1" blocktype="solid" script="rune/support/chameleon_rune.lua" />
+	<rune group="support" spellid="78" name="Disintegrate Rune" id="2310" allowfaruse="0" charges="3" level="21" magiclevel="4" cooldown="2000" groupcooldown="2000" range="1" script="rune/support/disintegrate_rune.lua" />
+	<rune group="support" spellid="30" name="Destroy Field Rune" id="2261" allowfaruse="1" charges="3" level="17" magiclevel="3" cooldown="2000" groupcooldown="2000" aggressive="0" range="5" script="rune/support/destroy_field_rune.lua" />
 
-	<!-- Conjuring Spells -->
-	<!-- Healing -->
-	<instant group="support" 				name="Conjure Cure Poison Rune" 		words="adana pox" 			level="15" mana="200" soul="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/cure_poison_rune.lua"/>
-	<instant group="support" 				name="Conjure Intense Healing Rune" 	words="adura gran" 			level="15" mana="120" soul="2" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/intense_healing_rune.lua"/>
-	<instant group="support" 				name="Conjure Ultimate Healing Rune" 	words="adura vita" 			level="24" mana="400" soul="3" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/ultimate_healing_rune.lua"/>
-	<!-- Summon -->
-	<instant group="support" 				name="Conjure Animate Dead Rune" 		words="adana mort" 			level="27" mana="600" soul="5" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/animate_dead_rune.lua"/>
-	<instant group="support" 				name="Conjure Convince Creature Rune"	words="adeta sio" 			level="16" mana="200" soul="3" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/convince_creature_rune.lua"/>
-	<!-- Support -->
-	<instant group="support" 				name="Conjure Chameleon Rune" 			words="adevo ina" 			level="27" mana="600" soul="2" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/chameleon_rune.lua"/>
-	<instant group="support" 				name="Conjure Disintegrate Rune" 		words="adito tera" 			level="21" mana="200" soul="3" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/disintegrate_rune.lua"/>
-	<instant group="support" 				name="Conjure Destroy Field Rune" 		words="adito grav" 			level="17" mana="120" soul="2" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/destroy_field_rune.lua"/>
-	<!-- Attack -->
-	<instant group="support" 				name="Conjure Avalanche Rune" 			words="adori mas frigo" 	level="30" mana="530" soul="3" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/avalanche_rune.lua"/>
-	<instant group="support" 				name="Conjure Energy Bomb Rune" 		words="adevo mas vis" 		level="37" mana="880" soul="5" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/energy_bomb_rune.lua"/>
-	<instant group="support" 				name="Conjure Energy Field Rune" 		words="adevo grav vis" 		level="18" mana="320" soul="2" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/energy_field_rune.lua"/>
-	<instant group="support" 				name="Conjure Energy Wall Rune" 		words="adevo mas grav vis" 	level="41" mana="1000" soul="5" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/energy_wall_rune.lua"/>
-	<instant group="support" 				name="Conjure Explosion Rune" 			words="adevo mas hur" 		level="31" mana="570" soul="4" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/explosion_rune.lua"/>
-	<instant group="support" 				name="Conjure Fire Field Rune" 			words="adevo grav flam" 	level="15" mana="240" soul="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/fire_field_rune.lua"/>
-	<instant group="support" 				name="Conjure Fire Bomb Rune" 			words="adevo mas flam" 		level="27" mana="600" soul="4" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/fire_bomb_rune.lua"/>
-	<instant group="support" 				name="Conjure Fire Wall Rune" 			words="adevo mas grav flam" level="33" mana="780" soul="4" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/fire_wall_rune.lua"/>
-	<instant group="support" 				name="Conjure Fireball Rune" 			words="adori flam" 			level="27" mana="460" soul="3" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/fireball_rune.lua"/>
-	<instant group="support" 				name="Conjure Great Fireball Rune" 		words="adori mas flam" 		level="30" mana="530" soul="3" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/great_fireball_rune.lua"/>
-	<instant group="support" 				name="Conjure Heavy Magic Missile Rune" words="adori vis" 			level="25" mana="350" soul="2" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/heavy_magic_missile_rune.lua"/>
-	<instant group="support" 				name="Conjure Holy Missile Rune" 		words="adori san" 			level="27" mana="300" soul="3" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/holy_missile_rune.lua"/>
-	<instant group="support" 				name="Conjure Icicle Rune" 				words="adori frigo" 		level="28" mana="460" soul="3" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/icicle_rune.lua"/>
-	<instant group="support" 				name="Conjure Light Magic Missile Rune" words="adori min vis" 		level="15" mana="120" soul="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/light_magic_missile_rune.lua"/>
-	<instant group="support" 				name="Conjure Light Stone Shower Rune" 	words="adori infir mas tera" level="1" mana="6" soul="3" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/light_stone_shower_rune.lua"/>
-	<instant group="support" 				name="Conjure Lightest Missile Rune" 	words="adori infir vis" 	level="1" mana="6" soul="0" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/lightest_missile_rune.lua"/>
-	<instant group="support" 				name="Conjure Magic Wall Rune" 			words="adevo grav tera" 	level="32" mana="750" soul="5" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/magic_wall_rune.lua"/>
-	<instant group="support" 				name="Conjure Paralyze Rune" 			words="adana ani" 			level="54" mana="1400" soul="3" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/paralyze_rune.lua"/>
-	<instant group="support" 				name="Conjure Poison Bomb Rune" 		words="adevo mas pox" 		level="25" mana="520" soul="2" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/poison_bomb_rune.lua"/>
-	<instant group="support" 				name="Conjure Poison Field Rune" 		words="adevo grav pox" 		level="14" mana="200" soul="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/poison_field_rune.lua"/>
-	<instant group="support" 				name="Conjure Poison Wall Rune" 		words="adevo mas grav pox" 	level="29" mana="640" soul="3" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/poison_wall_rune.lua"/>
-	<instant group="support" 				name="Conjure Lightest Magic Missile Rune" words="adori dis min vis" level="1" mana="5" soul="0" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/practice_magic_missile_rune.lua"/>
-	<instant group="support" 				name="Conjure Soulfire Rune" 			words="adevo res flam" 		level="27" mana="420" soul="3" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/soulfire_rune.lua"/>
-	<instant group="support" 				name="Conjure Stalagmite Rune" 			words="adori tera" 			level="24" mana="350" soul="2" premium="0" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/stalagmite_rune.lua"/>
-	<instant group="support" 				name="Conjure Stone Shower Rune" 		words="adori mas tera" 		level="28" mana="430" soul="3" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/stone_shower_rune.lua"/>
-	<instant group="support" 				name="Conjure Sudden Death Rune" 		words="adori gran mort" 	level="45" mana="985" soul="5" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/sudden_death_rune.lua"/>
-	<instant group="support" 				name="Conjure Thunderstorm Rune" 		words="adori mas vis" 		level="28" mana="430" soul="3" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/thunderstorm_rune.lua"/>
-	<instant group="support" 				name="Conjure Wild Growth Rune" 		words="adevo grav vita" 	level="27" mana="600" soul="5" premium="1" aggressive="0" needlearn="1" script="conjuring/wild_growth_rune.lua"/>
+<!-- Conjuring Spells -->
+<!-- Healing -->
+	<conjure group="support" 				name="Conjure Cure Poison Rune" 		words="adana pox" 			level="15" mana="200" soul="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/cure_poison_rune.lua"/>
+	<conjure group="support" 				name="Conjure Intense Healing Rune" 	words="adura gran" 			level="15" mana="120" soul="2" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/intense_healing_rune.lua"/>
+	<conjure group="support" 				name="Conjure Ultimate Healing Rune" 	words="adura vita" 			level="24" mana="400" soul="3" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/ultimate_healing_rune.lua"/>
+<!-- Summon -->
+	<conjure group="support" 				name="Conjure Animate Dead Rune" 		words="adana mort" 			level="27" mana="600" soul="5" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/animate_dead_rune.lua"/>
+	<conjure group="support" 				name="Conjure Convince Creature Rune"	words="adeta sio" 			level="16" mana="200" soul="3" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/convince_creature_rune.lua"/>
+<!-- Support -->
+	<conjure group="support" 				name="Conjure Chameleon Rune" 			words="adevo ina" 			level="27" mana="600" soul="2" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/chameleon_rune.lua"/>
+	<conjure group="support" 				name="Conjure Disintegrate Rune" 		words="adito tera" 			level="21" mana="200" soul="3" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/disintegrate_rune.lua"/>
+	<conjure group="support" 				name="Conjure Destroy Field Rune" 		words="adito grav" 			level="17" mana="120" soul="2" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/destroy_field_rune.lua"/>
+<!-- Attack -->
+	<conjure group="support" 				name="Conjure Avalanche Rune" 			words="adori mas frigo" 	level="30" mana="530" soul="3" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/avalanche_rune.lua"/>
+	<conjure group="support" 				name="Conjure Energy Bomb Rune" 		words="adevo mas vis" 		level="37" mana="880" soul="5" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/energy_bomb_rune.lua"/>
+	<conjure group="support" 				name="Conjure Energy Field Rune" 		words="adevo grav vis" 		level="18" mana="320" soul="2" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/energy_field_rune.lua"/>
+	<conjure group="support" 				name="Conjure Energy Wall Rune" 		words="adevo mas grav vis" 	level="41" mana="1000" soul="5" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/energy_wall_rune.lua"/>
+	<conjure group="support" 				name="Conjure Explosion Rune" 			words="adevo mas hur" 		level="31" mana="570" soul="4" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/explosion_rune.lua"/>
+	<conjure group="support" 				name="Conjure Fire Field Rune" 			words="adevo grav flam" 	level="15" mana="240" soul="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/fire_field_rune.lua"/>
+	<conjure group="support" 				name="Conjure Fire Bomb Rune" 			words="adevo mas flam" 		level="27" mana="600" soul="4" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/fire_bomb_rune.lua"/>
+	<conjure group="support" 				name="Conjure Fire Wall Rune" 			words="adevo mas grav flam" level="33" mana="780" soul="4" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/fire_wall_rune.lua"/>
+	<conjure group="support" 				name="Conjure Fireball Rune" 			words="adori flam" 			level="27" mana="460" soul="3" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/fireball_rune.lua"/>
+	<conjure group="support" 				name="Conjure Great Fireball Rune" 		words="adori mas flam" 		level="30" mana="530" soul="3" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/great_fireball_rune.lua"/>
+	<conjure group="support" 				name="Conjure Heavy Magic Missile Rune" words="adori vis" 			level="25" mana="350" soul="2" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/heavy_magic_missile_rune.lua"/>
+	<conjure group="support" 				name="Conjure Holy Missile Rune" 		words="adori san" 			level="27" mana="300" soul="3" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/holy_missile_rune.lua"/>
+	<conjure group="support" 				name="Conjure Icicle Rune" 				words="adori frigo" 		level="28" mana="460" soul="3" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/icicle_rune.lua"/>
+	<conjure group="support" 				name="Conjure Light Magic Missile Rune" words="adori min vis" 		level="15" mana="120" soul="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/light_magic_missile_rune.lua"/>
+	<conjure group="support" 				name="Conjure Light Stone Shower Rune" 	words="adori infir mas tera" level="1" mana="6" soul="3" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/light_stone_shower_rune.lua"/>
+	<conjure group="support" 				name="Conjure Lightest Missile Rune" 	words="adori infir vis" 	level="1" mana="6" soul="0" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/lightest_missile_rune.lua"/>
+	<conjure group="support" 				name="Conjure Magic Wall Rune" 			words="adevo grav tera" 	level="32" mana="750" soul="5" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/magic_wall_rune.lua"/>
+	<conjure group="support" 				name="Conjure Paralyze Rune" 			words="adana ani" 			level="54" mana="1400" soul="3" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/paralyze_rune.lua"/>
+	<conjure group="support" 				name="Conjure Poison Bomb Rune" 		words="adevo mas pox" 		level="25" mana="520" soul="2" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/poison_bomb_rune.lua"/>
+	<conjure group="support" 				name="Conjure Poison Field Rune" 		words="adevo grav pox" 		level="14" mana="200" soul="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/poison_field_rune.lua"/>
+	<conjure group="support" 				name="Conjure Poison Wall Rune" 		words="adevo mas grav pox" 	level="29" mana="640" soul="3" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/poison_wall_rune.lua"/>
+	<conjure group="support" 				name="Conjure Lightest Magic Missile Rune" words="adori dis min vis" level="1" mana="5" soul="0" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/practice_magic_missile_rune.lua"/>
+	<conjure group="support" 				name="Conjure Soulfire Rune" 			words="adevo res flam" 		level="27" mana="420" soul="3" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/soulfire_rune.lua"/>
+	<conjure group="support" 				name="Conjure Stalagmite Rune" 			words="adori tera" 			level="24" mana="350" soul="2" premium="0" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/stalagmite_rune.lua"/>
+	<conjure group="support" 				name="Conjure Stone Shower Rune" 		words="adori mas tera" 		level="28" mana="430" soul="3" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/stone_shower_rune.lua"/>
+	<conjure group="support" 				name="Conjure Sudden Death Rune" 		words="adori gran mort" 	level="45" mana="985" soul="5" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/sudden_death_rune.lua"/>
+	<conjure group="support" 				name="Conjure Thunderstorm Rune" 		words="adori mas vis" 		level="28" mana="430" soul="3" premium="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/thunderstorm_rune.lua"/>
+	<conjure group="support" 				name="Conjure Wild Growth Rune" 		words="adevo grav vita" 	level="27" mana="600" soul="5" premium="1" aggressive="0" needlearn="1" script="conjuring/wild_growth_rune.lua"/>
 	<!-- Other -->
-	<instant group="support" spellid="176" 	name="Conjure Arrow Call" 				words="exevo infir con" 	level="1" mana="10" soul="1" premium="0" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/arrow_call.lua"/>
-	<instant group="support" 				name="Conjure Blank Rune" 				words="adori blank" 		level="5" mana="10" soul="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/blank_rune.lua"/>
-	<instant group="support" spellid="51" 	name="Conjure Arrow" 					words="exevo con" 			level="13" mana="100" soul="1" premium="0" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/conjure_arrow.lua"/>
-	<instant group="support" spellid="79" 	name="Conjure Bolt" 					words="exevo con mort" 		level="17" mana="140" soul="2" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/conjure_bolt.lua"/>
-	<instant group="support" spellid="49" 	name="Conjure Explosive Arrow" 			words="exevo con flam" 		level="25" mana="290" soul="3" premium="0" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/conjure_explosive_arrow.lua"/>
-	<instant group="support" spellid="109" 	name="Conjure Piercing Bolt" 			words="exevo con grav" 		level="33" mana="180" soul="3" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/conjure_piercing_bolt.lua"/>
-	<instant group="support" spellid="48" 	name="Conjure Poisoned Arrow" 			words="exevo con pox" 		level="16" mana="130" soul="2" premium="0" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/conjure_poisoned_arrow.lua"/>
-	<instant group="support" spellid="95" 	name="Conjure Power Bolt" 				words="exevo con vis" 		level="59" mana="700" soul="4" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/conjure_power_bolt.lua"/>
-	<instant group="support" spellid="108" 	name="Conjure Sniper Arrow" 			words="exevo con hur" 		level="24" mana="160" soul="3" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/conjure_sniper_arrow.lua"/>
-	<instant group="support" spellid="110" 	name="Enchant Spear" 					words="exeta con" 			level="45" mana="350" soul="3" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/enchant_spear.lua"/>
-	<instant group="support" spellid="92" 	name="Enchant Staff" 					words="exeta vis" 			level="41" mana="80" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/enchant_staff.lua"/>
+	<conjure group="support" spellid="176" 	name="Conjure Arrow Call" 				words="exevo infir con" 	level="1" mana="10" soul="1" premium="0" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/arrow_call.lua"/>
+	<conjure group="support" 				name="Conjure Blank Rune" 				words="adori blank" 		level="5" mana="10" soul="1" aggressive="0" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/blank_rune.lua"/>
+	<conjure group="support" spellid="51" 	name="Conjure Arrow" 					words="exevo con" 			level="13" mana="100" soul="1" premium="0" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/conjure_arrow.lua"/>
+	<conjure group="support" spellid="79" 	name="Conjure Bolt" 					words="exevo con mort" 		level="17" mana="140" soul="2" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/conjure_bolt.lua"/>
+	<conjure group="support" spellid="49" 	name="Conjure Explosive Arrow" 			words="exevo con flam" 		level="25" mana="290" soul="3" premium="0" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/conjure_explosive_arrow.lua"/>
+	<conjure group="support" spellid="109" 	name="Conjure Piercing Bolt" 			words="exevo con grav" 		level="33" mana="180" soul="3" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/conjure_piercing_bolt.lua"/>
+	<conjure group="support" spellid="48" 	name="Conjure Poisoned Arrow" 			words="exevo con pox" 		level="16" mana="130" soul="2" premium="0" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/conjure_poisoned_arrow.lua"/>
+	<conjure group="support" spellid="95" 	name="Conjure Power Bolt" 				words="exevo con vis" 		level="59" mana="700" soul="4" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/conjure_power_bolt.lua"/>
+	<conjure group="support" spellid="108" 	name="Conjure Sniper Arrow" 			words="exevo con hur" 		level="24" mana="160" soul="3" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/conjure_sniper_arrow.lua"/>
+	<conjure group="support" spellid="110" 	name="Enchant Spear" 					words="exeta con" 			level="45" mana="350" soul="3" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/enchant_spear.lua"/>
+	<conjure group="support" spellid="92" 	name="Enchant Staff" 					words="exeta vis" 			level="41" mana="80" premium="1" aggressive="0" selftarget="1" cooldown="2000" groupcooldown="2000" needlearn="1" script="conjuring/enchant_staff.lua"/>
 
 	<!-- House Spells -->
 	<instant name="House Door List" words="aleta grav" casterTargetOrDirection="1" aggressive="0" script="house/edit_door_list.lua" />
