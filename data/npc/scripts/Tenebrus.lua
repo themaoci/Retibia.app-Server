@@ -83,7 +83,7 @@ local booksByType = {
 local InstantSpells = {}
 
 local LIMIT_TENEBRUS_SKILL_LEVEL = 50
-
+local SPELLS_LOADED = false
 
 local function LoadAllSpells() 
     InstantSpells['Premium'] = {}
@@ -101,7 +101,44 @@ local function LoadAllSpells()
         end
     end
 end
+local function AddToSpellList(spell, extendName, playerLevel, playerMLevel, playerDLevel, playerCLevel)
+    if getPlayerLearnedInstantSpell(cid, spell.name) then return end
+    local item_level = tonumber(spell.level or 0)
+    local item_mlevel = tonumber(spell.mlevel or 0)
+    local item_clevel = tonumber(spell.clevel or 0)
+    local item_dlevel = tonumber(spell.dlevel or 0)
 
+    local CanLearnNow = ""
+    if item_level <= playerLevel and item_mlevel <= playerMLevel and item_dlevel <= playerDLevel and item_clevel <= playerCLevel then
+        CanLearnNow = "[*]"
+        skillAvailableToBuy[#spells + 1] = spell
+    else
+        if not showAll then return end
+    end
+
+    allSkills[#spells + 1] = spell
+
+    local bookId = booksByType["attack"]
+    if string.sub(spell.name, -4) == "Rune" then
+        bookId = booksByType["runeMaking"]
+    end
+    if string.sub(spell.name, -4) == "Conj" then
+        bookId = booksByType["conjure"]
+    end
+    local name = "Spellbook:\n" .. spell.name
+    if spell.isPremium then
+        name = "Old " .. name
+    end
+    spells[#spells + 1] = {
+        id = bookId, 
+        buy = spell.price, 
+        sell = 0, 
+        subType = i, 
+        specialId = #spells + 1,
+        name = extendName .. "Spellbook:\n" .. spell.name,
+        funcShop = 1
+    }
+end
 
 function creatureSayCallback(cid, type, msg)
     if(not npcHandler:isFocused(cid)) then
@@ -109,7 +146,10 @@ function creatureSayCallback(cid, type, msg)
     end
     local showAll = msgcontains(msg, 'spellsall')
     if msgcontains(msg, 'spells') or showAll then
-
+        if SPELLS_LOADED == false then
+            SPELLS_LOADED = true
+            LoadAllSpells()
+        end
         local skillAvailableToBuy = {}
         local allSkills = {}
         local spells = {}
@@ -118,47 +158,12 @@ function creatureSayCallback(cid, type, msg)
         local playerDLevel = tonumber(getPlayerSkill(cid, 4))
         local playerCLevel = tonumber(math.max(unpack({getPlayerSkill(cid, 0), getPlayerSkill(cid, 1), getPlayerSkill(cid, 2), getPlayerSkill(cid, 3)})))
         
-        local AddToSpellList = function(spell, extendName)
-            if getPlayerLearnedInstantSpell(cid, spell.name) then return end
-            local item_level = tonumber(spell.level or 0)
-            local item_mlevel = tonumber(spell.mlevel or 0)
-            local item_clevel = tonumber(spell.clevel or 0)
-            local item_dlevel = tonumber(spell.dlevel or 0)
-
-            local CanLearnNow = ""
-            if item_level <= playerLevel and item_mlevel <= playerMLevel and item_dlevel <= playerDLevel and item_clevel <= playerCLevel then
-                CanLearnNow = "[*]"
-                skillAvailableToBuy[#spells + 1] = spell
-            else
-                if not showAll then return end
-            end
-
-            allSkills[#spells + 1] = spell
-
-            local bookId = booksByType["attack"]
-            if string.sub(spell.name, -4) == "Rune" then
-                bookId = booksByType["runeMaking"]
-            end
-            local name = "Spellbook:\n" .. spell.name
-            if spell.isPremium then
-                name = "Old " .. name
-            end
-            spells[#spells + 1] = {
-                id = bookId, 
-                buy = spell.price, 
-                sell = 0, 
-                subType = i, 
-                specialId = #spells + 1,
-                name = extendName .. "Spellbook:\n" .. spell.name,
-                funcShop = 1
-            }
-        end
         for i, spell in pairs(InstantSpells.Free) do
-            AddToSpellList(spell, "")
+            AddToSpellList(spell, "", playerLevel, playerMLevel, playerDLevel, playerCLevel)
         end
         if isPremium(cid) then
             for i, spell in pairs(InstantSpells.Premium) do
-                AddToSpellList(spell, "Old ")
+                AddToSpellList(spell, "Old ", playerLevel, playerMLevel, playerDLevel, playerCLevel)
             end
         end
 
@@ -186,27 +191,27 @@ function creatureSayCallback(cid, type, msg)
                 local item_dlevel = tonumber(allSkills[specialId].dlevel or 0)
 
                 if item_level <= playerLevel then
-                    missingRequirements = missingRequirements .. "Level required is " .. item_level .. " but you have " .. playerLevel
+                    missingRequirements = missingRequirements .. " Level required is " .. item_level .. " but you have " .. playerLevel
                 end
                 if item_mlevel <= playerMLevel then
                     if missingRequirements ~= "" then
                         missingRequirements = missingRequirements .. ", "
                     end
-                    missingRequirements = missingRequirements .. "Magic Level required is " .. item_mlevel .. " but you have " .. playerMLevel
-                end
-                if item_dlevel <= playerDLevel then
-                    if missingRequirements ~= "" then
-                        missingRequirements = missingRequirements .. ", "
-                    end
-                    missingRequirements = missingRequirements .. "Distance Skill Level required is " .. item_dlevel .. " but you have " .. playerDLevel
+                    missingRequirements = missingRequirements .. " Magic Level required is " .. item_mlevel .. " but you have " .. playerMLevel
                 end
                 if item_clevel <= playerCLevel then
                     if missingRequirements ~= "" then
                         missingRequirements = missingRequirements .. ", "
                     end
-                    missingRequirements = missingRequirements .. "Any Combat Skill Level required is " .. item_clevel .. " but you have " .. playerCLevel
+                    missingRequirements = missingRequirements .. " Any Combat Skill Level required is " .. item_clevel .. " but you have " .. playerCLevel
                 end
-                npcHandler:say("You are unable to learn " .. allSkills[specialId].name .. ", because " .. missingRequirements, cid)
+                if item_dlevel <= playerDLevel then
+                    if missingRequirements ~= "" then
+                        missingRequirements = missingRequirements .. ", "
+                    end
+                    missingRequirements = missingRequirements .. " Distance Skill Level required is " .. item_dlevel .. " but you have " .. playerDLevel
+                end
+                npcHandler:say("You are unable to learn " .. allSkills[specialId].name .. ", because" .. missingRequirements, cid)
             end
             return true
         end
