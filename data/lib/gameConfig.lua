@@ -50,7 +50,7 @@ GameConfig = {
     ['above2400'] = 1.5, 
     ['below840'] = 0.5 
   },
-  ['autoGhostStaffMembers'] = true,
+  ['autoGhostStaffMembers'] = false,
   ["God"] = {
     ['WelcomeMessageEnabled'] = false,
     ['WelcomeMessageCommands'] = "-- COMMANDS --\n/cmd -> to get all commands-- COMMANDS --\n"
