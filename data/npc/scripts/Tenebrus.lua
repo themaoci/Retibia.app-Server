@@ -84,59 +84,66 @@ local InstantSpells = {}
 
 local LIMIT_TENEBRUS_SKILL_LEVEL = 50
 local SPELLS_LOADED = false
+local skillAvailableToBuy = {}
+local tenebrus_allSkills = {}
+local tenebrus_spells = {}
 
 local function LoadAllSpells() 
     InstantSpells['Premium'] = {}
     InstantSpells['Free'] = {}
     for i, spell in pairs(GameConfig.Spells.Instant) do
-        if  (spell.skillReq_CQC < LIMIT_TENEBRUS_SKILL_LEVEL and 
-            spell.skillReq_DIS < LIMIT_TENEBRUS_SKILL_LEVEL and 
-            spell.skillReq_MAG < LIMIT_TENEBRUS_SKILL_LEVEL and spell.skipLevel == true) or 
-            (spell.level < LIMIT_TENEBRUS_SKILL_LEVEL and spell.skipLevel == false) then
-            if spell.isPremium then
-                InstantSpells['Premium'][#InstantSpells['Premium'] + 1] = spell
-            else
-                InstantSpells['Free'][#InstantSpells['Free'] + 1] = spell
+        if SpellConfig[spell.name] ~= nil then
+            if  (spell.skillReq_CQC < LIMIT_TENEBRUS_SKILL_LEVEL and 
+                spell.skillReq_DIS < LIMIT_TENEBRUS_SKILL_LEVEL and 
+                spell.skillReq_MAG < LIMIT_TENEBRUS_SKILL_LEVEL and spell.skipLevel == 1) or 
+                (spell.level < LIMIT_TENEBRUS_SKILL_LEVEL and spell.skipLevel == 0) then
+                if spell.isPremium == 1 then
+                    InstantSpells['Premium'][#InstantSpells['Premium'] + 1] = spell
+                else
+                    InstantSpells['Free'][#InstantSpells['Free'] + 1] = spell
+                end
             end
         end
     end
 end
-local function AddToSpellList(spell, extendName, playerLevel, playerMLevel, playerDLevel, playerCLevel)
-    if getPlayerLearnedInstantSpell(cid, spell.name) then return end
-    local item_level = tonumber(spell.level or 0)
-    local item_mlevel = tonumber(spell.mlevel or 0)
-    local item_clevel = tonumber(spell.clevel or 0)
-    local item_dlevel = tonumber(spell.dlevel or 0)
-
+local function AddToSpellList(spell, extendName, showAll, cid)
+    if not showAll then
+        if getPlayerLearnedInstantSpell(cid, spell.name) then return end
+        --if  then return end
+    end
+    
     local CanLearnNow = ""
-    if item_level <= playerLevel and item_mlevel <= playerMLevel and item_dlevel <= playerDLevel and item_clevel <= playerCLevel then
+    if canPlayerLearnInstantSpell(cid, spell.name) then
         CanLearnNow = "[*]"
-        skillAvailableToBuy[#spells + 1] = spell
+        skillAvailableToBuy[#tenebrus_spells + 1] = spell
     else
         if not showAll then return end
     end
 
-    allSkills[#spells + 1] = spell
+    tenebrus_allSkills[#tenebrus_spells + 1] = spell
 
     local bookId = booksByType["attack"]
     if string.sub(spell.name, -4) == "Rune" then
         bookId = booksByType["runeMaking"]
     end
-    if string.sub(spell.name, -4) == "Conj" then
+    if string.sub(spell.name, 1, 4) == "Conj" then
         bookId = booksByType["conjure"]
     end
+    if string.sub(spell.name, 1, 7) == "Enchant" then
+        bookId = booksByType["enchant"]
+    end
     local name = "Spellbook:\n" .. spell.name
-    if spell.isPremium then
+    if spell.isPremium == 1 then
         name = "Old " .. name
     end
-    spells[#spells + 1] = {
+    tenebrus_spells[#tenebrus_spells + 1] = {
         id = bookId, 
-        buy = spell.price, 
+        buy = SpellConfig[spell.name].Price, --spell.price
         sell = 0, 
-        subType = i, 
-        specialId = #spells + 1,
-        name = extendName .. "Spellbook:\n" .. spell.name,
-        funcShop = 1
+        subType = 0, 
+        specialId = #tenebrus_spells + 1,
+        name = extendName .. "Spellbook:\n" .. spell.name--,
+        --funcShop = 1
     }
 end
 
@@ -144,29 +151,28 @@ function creatureSayCallback(cid, type, msg)
     if(not npcHandler:isFocused(cid)) then
         return false
     end
-    local showAll = msgcontains(msg, 'spellsall')
-    if msgcontains(msg, 'spells') or showAll then
+    local showAll = msgcontains(msg, 'all')
+    if msgcontains(msg, 'spells') then
+        skillAvailableToBuy = {}
+        tenebrus_allSkills = {}
+        tenebrus_spells = {}
         if SPELLS_LOADED == false then
             SPELLS_LOADED = true
             LoadAllSpells()
         end
-        local skillAvailableToBuy = {}
-        local allSkills = {}
-        local spells = {}
         local playerLevel = tonumber(getPlayerLevel(cid))
         local playerMLevel = tonumber(getPlayerMagLevel(cid))
         local playerDLevel = tonumber(getPlayerSkill(cid, 4))
         local playerCLevel = tonumber(math.max(unpack({getPlayerSkill(cid, 0), getPlayerSkill(cid, 1), getPlayerSkill(cid, 2), getPlayerSkill(cid, 3)})))
-        
         for i, spell in pairs(InstantSpells.Free) do
-            AddToSpellList(spell, "", playerLevel, playerMLevel, playerDLevel, playerCLevel)
+            AddToSpellList(spell, "", showAll, cid)
         end
         if isPremium(cid) then
             for i, spell in pairs(InstantSpells.Premium) do
-                AddToSpellList(spell, "Old ", playerLevel, playerMLevel, playerDLevel, playerCLevel)
+                AddToSpellList(spell, "Old ", showAll, cid)
             end
         end
-
+        DEBUG.print_r(tenebrus_spells[1])
         local onBuy = function(cid, item, subType, amount, ignoreCap, inBackpacks, specialId)
             local SpellToBuy = skillAvailableToBuy[specialId]
             if SpellToBuy ~= nil then
@@ -185,10 +191,10 @@ function creatureSayCallback(cid, type, msg)
             else
                 local missingRequirements = ""
 
-                local item_level = tonumber(allSkills[specialId].level or 0)
-                local item_mlevel = tonumber(allSkills[specialId].mlevel or 0)
-                local item_clevel = tonumber(allSkills[specialId].clevel or 0)
-                local item_dlevel = tonumber(allSkills[specialId].dlevel or 0)
+                local item_level = tonumber(tenebrus_allSkills[specialId].level or 0)
+                local item_mlevel = tonumber(tenebrus_allSkills[specialId].mlevel or 0)
+                local item_clevel = tonumber(tenebrus_allSkills[specialId].clevel or 0)
+                local item_dlevel = tonumber(tenebrus_allSkills[specialId].dlevel or 0)
 
                 if item_level <= playerLevel then
                     missingRequirements = missingRequirements .. " Level required is " .. item_level .. " but you have " .. playerLevel
@@ -211,11 +217,11 @@ function creatureSayCallback(cid, type, msg)
                     end
                     missingRequirements = missingRequirements .. " Distance Skill Level required is " .. item_dlevel .. " but you have " .. playerDLevel
                 end
-                npcHandler:say("You are unable to learn " .. allSkills[specialId].name .. ", because" .. missingRequirements, cid)
+                npcHandler:say("You are unable to learn " .. tenebrus_allSkills[specialId].name .. ", because" .. missingRequirements, cid)
             end
             return true
         end
-        openShopWindow(cid, spells, onBuy, onSell)
+        openShopWindow(cid, tenebrus_spells, onBuy, nil)
         return true
     end
     return true

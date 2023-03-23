@@ -748,7 +748,7 @@ struct LightInfo {
 
 struct ShopInfo {
 	ShopInfo() = default;
-	ShopInfo(uint16_t itemId, int32_t subType = 0, uint32_t buyPrice = 0, uint32_t sellPrice = 0, std::string realName = "") :
+	ShopInfo(uint16_t itemId, int32_t subType = 0, uint32_t buyPrice = 0, uint32_t sellPrice = 0, std::string realName = "", uint16_t specialId = 0) :
 		itemId(itemId), subType(subType), buyPrice(buyPrice), sellPrice(sellPrice), realName(std::move(realName)) {}
 
 	// copyable
@@ -775,12 +775,14 @@ struct ShopInfo {
 			buyPrice = rhs.buyPrice;
 			sellPrice = rhs.sellPrice;
 			realName = std::move(rhs.realName);
+			specialId = rhs.specialId;
 		}
 		return *this;
 	}
 
 	uint16_t itemId = 0;
 	int32_t subType = 1;
+	uint16_t specialId = 0;
 	uint32_t buyPrice = 0;
 	uint32_t sellPrice = 0;
 	std::string realName;

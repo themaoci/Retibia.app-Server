@@ -5886,6 +5886,7 @@ void ProtocolGame::AddShopItem(const ShopInfo& item)
 	} else {
 		playermsg.addByte(0x00);
 	}
+	playermsg.add<uint16_t>(item.specialId);
 
 	playermsg.addString(item.realName);
 	playermsg.add<uint32_t>(it.weight);
