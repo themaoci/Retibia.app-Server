@@ -3505,9 +3505,6 @@
 		<monster name="Bug" x="1" y="-1" z="7" spawntime="60" />
 		<monster name="Centipede" x="2" y="0" z="7" spawntime="60" />
 	</spawn>
-	<spawn centerx="1466" centery="400" centerz="7" radius="3" />
-	<spawn centerx="1473" centery="400" centerz="7" radius="3" />
-	<spawn centerx="1478" centery="400" centerz="7" radius="3" />
 	<spawn centerx="1081" centery="401" centerz="7" radius="5">
 		<monster name="Slime" x="1" y="-4" z="7" spawntime="60" />
 		<monster name="Centipede" x="3" y="-2" z="7" spawntime="60" />
@@ -6857,7 +6854,6 @@
 		<monster name="Rat" x="5" y="24" z="9" spawntime="450" />
 		<monster name="Rat" x="0" y="30" z="9" spawntime="450" />
 	</spawn>
-	<spawn centerx="337" centery="356" centerz="9" radius="3" />
 	<spawn centerx="798" centery="356" centerz="9" radius="1">
 		<monster name="Elder Mummy" x="0" y="0" z="9" spawntime="60" />
 	</spawn>
@@ -9483,7 +9479,6 @@
 		<monster name="Undead Dragon" x="-2" y="1" z="11" spawntime="60" />
 		<monster name="Undead Dragon" x="3" y="7" z="11" spawntime="60" />
 	</spawn>
-	<spawn centerx="446" centery="59" centerz="11" radius="10" />
 	<spawn centerx="486" centery="64" centerz="11" radius="7">
 		<monster name="Undead Dragon" x="1" y="-4" z="11" spawntime="70" />
 		<monster name="Undead Dragon" x="5" y="4" z="11" spawntime="75" />
