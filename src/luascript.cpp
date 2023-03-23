@@ -10465,12 +10465,28 @@ int LuaScriptInterface::luaPlayerCanLearnSpell(lua_State* L)
 		return 1;
 	}
 
-	const auto& vocMap = spell->getVocMap();
-	if (vocMap.count(player->getVocationId()) == 0) {
+	// const auto& vocMap = spell->getVocMap();
+	// if (vocMap.count(player->getVocationId()) == 0) {
+	// 	pushBoolean(L, false);
+	// } else 
+	if (player->getLevel() < spell->getLevel() && !spell->isLevelSkipped()) {
 		pushBoolean(L, false);
-	} else if (player->getLevel() < spell->getLevel()) {
-		pushBoolean(L, false);
-	} else if (player->getMagicLevel() < spell->getMagicLevel()) {
+	} else if (
+		(
+			player->getMagicLevel() < spell->getMagicLevel() && 
+			player->getCqcLevel() < spell->getCqcLevel() &&
+			player->getDistanceLevel() < spell->getDistanceLevel()
+		)
+		||
+		(
+			spell->isOnlyOneReq() &&
+			!(
+				player->getMagicLevel() < spell->getMagicLevel() ||
+				player->getCqcLevel() < spell->getCqcLevel() ||
+				player->getDistanceLevel() < spell->getDistanceLevel()
+			)
+		)
+	) {
 		pushBoolean(L, false);
 	} else {
 		pushBoolean(L, true);
