@@ -92,10 +92,10 @@ bool Monsters::loadFromXml(bool reloading /*= false*/)
 		std::string name = boost::replace_all_copy(asLowerCaseString(monsterNode.attribute("name").as_string()), "_", " "); //asLowerCaseString(monsterNode.attribute("name").as_string());
 		std::string nodeName = std::string(monsterNode.attribute("node").as_string());
 
-    ////unloadedMonsters.emplace(name, 
+		////unloadedMonsters.emplace(name, 
 		////	"data/monster/" + nodeName + "/" + boost::replace_all_copy(name, " ", "_") + ".xml");
-    //std::string file = "data/monster/" + std::string(monsterNode.attribute("file").as_string());
-    std::string file = "data/monster/" + nodeName + "/" + boost::replace_all_copy(name, " ", "_") + ".xml";
+		//std::string file = "data/monster/" + std::string(monsterNode.attribute("file").as_string());
+		std::string file = "data/monster/" + nodeName + "/" + boost::replace_all_copy(name, " ", "_") + ".xml";
 		loadMonster(file, name, reloading);
 
 		pugi::xml_attribute attrRaceId = monsterNode.attribute("raceid");
