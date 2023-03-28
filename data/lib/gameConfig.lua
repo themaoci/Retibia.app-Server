@@ -33,7 +33,8 @@ GameConfig = {
       [1] = { pos = Position(657, 240, 11),  Name = "Dragon Nest Ruins" },
       [2] = { pos = Position(658, 103, 13),  Name = "Elder Dragon Hideout" },
       [3] = { pos = Position(235, 669, 8),   Name = "Mages Outpost" },
-      [4] = { pos = Position(681, 285, 2),   Name = "Desert Tower Outpost" }
+      [4] = { pos = Position(681, 285, 2),   Name = "Desert Tower Outpost" },
+      [5] = { pos = Position(845, 777, 6),   Name = "Elven Village" },
     }
   },
   ['StaminaRegen'] = { 
