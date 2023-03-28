@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Dark Elf" nameDescription="a dark elf" race="blood" experience="1500" speed="280">
+	<health now="800" max="800" />
+	<look type="159" head="0" body="114" legs="114" feet="114" corpse="6011" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+		<flag canwalkonenergy="0" />
+		<flag canwalkonfire="0" />
+		<flag canwalkonpoison="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="1000" min="-200" max="-210" />
+		<attack name="physical" interval="2500" chance="15" range="9" min="-100" max="-150">
+			<attribute key="shootEffect" value="arrow" />
+		</attack>
+		<attack name="death" interval="5000" chance="10" range="5" min="-160" max="-280">
+			<attribute key="shootEffect" value="suddendeath" />
+			<attribute key="areaEffect" value="smallclouds" />
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="15">
+		<defense name="healing" interval="5000" chance="15" min="50" max="60">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="40" />
+		<element energyPercent="30" />
+		<element deathPercent="30" />
+		<element holyPercent="5" />
+		<element icePercent="-10" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="10000" chance="5">
+		<voice sentence="You shall die!" />
+		<voice sentence="There is nothing waiting for you other then death!" />
+	</voices>
+	<loot>
+		<item id="1949" chance="31000" /><!-- scroll -->
+		<item name="candlestick" chance="2100" />
+		<item name="gold coin" countmax="500" chance="37000" />
+		<item name="yellow gem" chance="50" />
+		<item name="blood crystal" chance="970" />
+		<item id="18390" chance="500" /><!-- wand of defiance -->
+        <item id="8910" chance="500" /><!-- underworld rod -->
+		<item name="elven amulet" chance="1999" />
+		<item name="blank rune" countmax="15" chance="18000" />
+        <item name="cultish mask" chance="1999" />
+	    <item name="cultish robe" chance="1999" />
+		<item name="arrow" countmax="100" chance="6000" />
+		<item name="meat" countmax="15" chance="15000" />
+		<item name="strong mana potion" countmax="10" chance="3000" />
+		<item name="health potion" countmax="10" chance="4000" />
+		<item name="elvish talisman" chance="10000" />
+		<item name="elven astral observer" chance="7710" />
+	</loot>
+</monster>

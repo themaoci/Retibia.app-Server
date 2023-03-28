@@ -7,6 +7,7 @@
 -->
 <!-- New Spawns -->
 	<monster name="elder dragon" node="custom"/>
+	<monster name="dark elf" node="custom"/>
   
 <!-- Boss monsters and Special Event monsters -->
 	<monster name="strong wailing widow" node="custom"/>
