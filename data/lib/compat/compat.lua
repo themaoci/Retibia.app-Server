@@ -733,13 +733,13 @@ setPlayerStamina = doPlayerSetStamina
 function doPlayerAddStamina(cid, minutes) local p = Player(cid) return p and p:setStamina(p:getStamina() + minutes) or false end
 function doPlayerAddMoney(cid, money) local p = Player(cid) return p and p:addMoney(money) or false end
 function doPlayerRemoveMoney(cid, money) local p = Player(cid) return p and p:removeMoney(money) or false end
-pay = doPlayerRemoveMoney
+--pay = doPlayerRemoveMoney
 function doPlayerSave(cid) local p = Player(cid) return p and p:save() or false end
 function doPlayerAddSoul(cid, soul) local p = Player(cid) return p and p:addSoul(soul) or false end
 function doPlayerSetVocation(cid, vocation) local p = Player(cid) return p and p:setVocation(Vocation(vocation)) or false end
 function doPlayerSetTown(cid, town) local p = Player(cid) return p and p:setTown(Town(town)) or false end
-function setPlayerGroupId(cid, groupId) local p = Player(cid) return p and p:setGroup(Group(groupId)) or false end
-doPlayerSetGroupId = setPlayerGroupId
+function doPlayerSetGroupId(cid, groupId) local p = Player(cid) return p and p:setGroup(Group(groupId)) or false end
+--doPlayerSetGroupId = setPlayerGroupId
 function doPlayerSetSex(cid, sex) local p = Player(cid) return p and p:setSex(sex) or false end
 function doPlayerSetGuildLevel(cid, level) local p = Player(cid) return p and p:setGuildLevel(level) or false end
 function doPlayerSetGuildNick(cid, nick) local p = Player(cid) return p and p:setGuildNick(nick) or false end
@@ -752,7 +752,7 @@ function doPlayerAddPremiumDays(cid, days) local p = Player(cid) return p and p:
 function doPlayerRemovePremiumDays(cid, days) local p = Player(cid) return p and p:removePremiumDays(days) or false end
 function doPlayerAddBlessing(cid, blessing) local p = Player(cid) return p and p:addBlessing(blessing) or false end
 function doPlayerAddOutfit(cid, lookType, addons) local p = Player(cid) return p and p:addOutfitAddon(lookType, addons) or false end
-function doPlayerRemOutfit(cid, lookType, addons)
+function doPlayerRemoveOutfit(cid, lookType, addons)
 	local player = Player(cid)
 	if player == nil then
 		return false
@@ -763,7 +763,7 @@ function doPlayerRemOutfit(cid, lookType, addons)
 		return player:removeOutfitAddon(lookType, addons)
 	end
 end
-doPlayerRemoveOutfit = doPlayerRemOutfit
+--doPlayerRemoveOutfit = doPlayerRemOutfit
 function canPlayerWearOutfit(cid, lookType, addons) local p = Player(cid) return p and p:hasOutfit(lookType, addons) or false end
 function doPlayerLearnInstantSpell(cid, name) local p = Player(cid) return p and p:learnSpell(name) or false end
 function doPlayerUnlearnInstantSpell(cid, name) local p = Player(cid) return p and p:forgetSpell(name) or false end
