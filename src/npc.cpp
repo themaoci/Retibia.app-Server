@@ -56,7 +56,7 @@ Npc* Npc::createNpc(const std::string& name)
 
 Npc::Npc(const std::string& name) :
 	Creature(),
-	filename("data/npc/" + name + ".xml"),
+	filename("data/npc/xml/" + name + ".xml"),
 	npcEventHandler(nullptr),
 	masterRadius(-1),
 	loaded(false)
@@ -133,6 +133,7 @@ void Npc::reload()
 bool Npc::loadFromXml()
 {
 	pugi::xml_document doc;
+	//std::cout << "NPC: " << filename.c_str() << std::endl;
 	pugi::xml_parse_result result = doc.load_file(filename.c_str());
 	if (!result) {
 		printXMLError("Error - Npc::loadFromXml", filename, result);

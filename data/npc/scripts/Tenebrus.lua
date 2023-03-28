@@ -172,7 +172,7 @@ function creatureSayCallback(cid, type, msg)
                 AddToSpellList(spell, "Old ", showAll, cid)
             end
         end
-        DEBUG.print_r(tenebrus_spells[1])
+        --DEBUG.print_r(tenebrus_spells[1])
         local onBuy = function(cid, item, subType, amount, ignoreCap, inBackpacks, specialId)
             local SpellToBuy = skillAvailableToBuy[specialId]
             if SpellToBuy ~= nil then
