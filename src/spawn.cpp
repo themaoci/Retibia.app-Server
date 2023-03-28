@@ -31,8 +31,8 @@ extern ConfigManager g_config;
 extern Monsters g_monsters;
 extern Game g_game;
 
-static constexpr int32_t MINSPAWN_INTERVAL = 1000; // 1 second
-static constexpr int32_t MAXSPAWN_INTERVAL = 86400000; // 1 day
+static constexpr int64_t MINSPAWN_INTERVAL = 1000; // 1 second
+static constexpr int64_t MAXSPAWN_INTERVAL = 2630000000; // 1 month
 
 bool Spawns::loadFromXml(const std::string& filename)
 {
@@ -265,8 +265,10 @@ void Spawn::checkSpawn()
 		}
 
 		if (OTSYS_TIME() >= sb.lastSpawn + sb.interval) {
+			// SPAWN CREATURE !!!
 			if (sb.mType->info.isBlockable && findPlayer(sb.pos)) {
-				sb.lastSpawn = OTSYS_TIME();
+				g_game.addMagicEffect(sb.pos, CONST_ME_BLACKSMOKE);
+				sb.lastSpawn = OTSYS_TIME() - sb.interval + 1000; // delay by 1 seconds
 				continue;
 			}
 
