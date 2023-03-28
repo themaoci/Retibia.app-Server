@@ -13,7 +13,7 @@ function god_place_npc.onSay(player, words, param)
   	TA_HELPER.logCommand(player, words, param)
 
 	local position = player:getPosition()
-	local npc = Game.createNpc(param, position)
+	local npc = doCreateNpc(param, position)
 	if npc ~= nil then
 		npc:setMasterPos(position)
 		position:sendMagicEffect(CONST_ME_MAGIC_RED)
